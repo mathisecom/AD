@@ -55,12 +55,28 @@
             "payment_button_text_color": ""
           }
         },
+        "liquid_JDefUk": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
             "icon": "none",
             "icon_width": 20,
             "collapse_content": false
+          }
+        },
+        "collapsible_text_GHinfi": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Livraison & Retours",
+            "content": "<p><strong>Livraison</strong></p><p>Nos commandes sont expédiées et livrée dans un délai de <strong>3 à 4 jours</strong> ouvrables avec LaPoste Colissimo.</p><p><strong>Retour</strong></p><p>Les retours sont possibles pendant 14 jours après la réception. Si la demande de remboursement est validée, tu recevras ton argent entre 5 à 10 jours ouvrés (géré par le processeur de paiement). Les frais de livraisons engendrés pour le retour sont à notre charge seulement s'il s'agit d'un défaut du colis/produits nécessitant le SAV.</p>",
+            "page": ""
           }
         }
       },
@@ -71,7 +87,9 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description"
+        "liquid_JDefUk",
+        "description",
+        "collapsible_text_GHinfi"
       ],
       "settings": {
         "full_width": true,
