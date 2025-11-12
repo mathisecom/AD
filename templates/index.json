@@ -56,8 +56,8 @@
         "image_7R8Upn": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/moto.jpg",
-            "mobile_image": "shopify://shop_images/moto.jpg",
+            "image": "shopify://shop_images/Arts_Tosh_9a5ecd7e-8c00-4a21-bd9e-c807d70506e8.jpg",
+            "mobile_image": "shopify://shop_images/Arts_Tosh.jpg",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
