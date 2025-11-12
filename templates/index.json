@@ -124,6 +124,23 @@
         "product_card_text_color": ""
       }
     },
+    "scrolling_text_ygXHef": {
+      "type": "scrolling-text",
+      "disabled": true,
+      "name": "Scrolling text",
+      "settings": {
+        "full_width": true,
+        "text": "Le spécialiste en pièces, accessoires pour motos et scooters",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 8,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "text_gradient": ""
+      }
+    },
     "collection_list_tgTNY7": {
       "type": "collection-list",
       "blocks": {
@@ -343,23 +360,6 @@
         "product_card_text_color": ""
       }
     },
-    "scrolling_text_ygXHef": {
-      "type": "scrolling-text",
-      "disabled": true,
-      "name": "Scrolling text",
-      "settings": {
-        "full_width": true,
-        "text": "Promotion text",
-        "text_size": "xsmall",
-        "text_style": "fill",
-        "scrolling_mode": "auto",
-        "scrolling_speed": 8,
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "text_gradient": ""
-      }
-    },
     "media_with_text_jRwVWD": {
       "type": "media-with-text",
       "blocks": {
@@ -453,10 +453,10 @@
     "slideshow_UenUjh",
     "slideshow_7j6eme",
     "featured_collection_79Pp66",
+    "scrolling_text_ygXHef",
     "collection_list_tgTNY7",
     "slideshow_W8zUFJ",
     "featured_collection_xkRdRN",
-    "scrolling_text_ygXHef",
     "media_with_text_jRwVWD",
     "faq"
   ]
