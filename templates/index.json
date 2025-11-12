@@ -14,7 +14,12 @@
       "name": "Featured collection",
       "settings": {
         "collection": "",
-        "products": [],
+        "products": [
+          "bardahl-moto-cleaner-500ml-universel",
+          "nettoyant-selle-moto",
+          "embrayage-polini-3g-evolution-booster-nitro",
+          "100-polini-big-evo-am6"
+        ],
         "full_width": true,
         "stack_products": false,
         "show_progress_bar": true,
