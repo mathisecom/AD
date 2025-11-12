@@ -28,6 +28,12 @@
             "show_taxes_notice": false
           }
         },
+        "inventory_8jwMkC": {
+          "type": "inventory",
+          "settings": {
+            "low_inventory_threshold": 0
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -90,6 +96,7 @@
         "title",
         "badges",
         "price",
+        "inventory_8jwMkC",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
