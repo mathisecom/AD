@@ -46,7 +46,7 @@
         "collection_GTennr": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "carburation",
             "subheading": "",
             "title": "",
             "url": "",
@@ -60,7 +60,7 @@
         "collection_aTp8Q6": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "embrayage",
             "subheading": "",
             "title": "",
             "url": "",
@@ -74,7 +74,77 @@
         "collection_hAY4LR": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "freinage",
+            "subheading": "",
+            "title": "",
+            "url": "",
+            "heading_tag": "h2",
+            "text_position": "place-self-center text-center",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_beG8AM": {
+          "type": "collection",
+          "settings": {
+            "collection": "huile-moteur",
+            "subheading": "",
+            "title": "",
+            "url": "",
+            "heading_tag": "h2",
+            "text_position": "place-self-center text-center",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_HtgKKt": {
+          "type": "collection",
+          "settings": {
+            "collection": "nettoyage",
+            "subheading": "",
+            "title": "",
+            "url": "",
+            "heading_tag": "h2",
+            "text_position": "place-self-center text-center",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_hr6bqr": {
+          "type": "collection",
+          "settings": {
+            "collection": "pneu",
+            "subheading": "",
+            "title": "",
+            "url": "",
+            "heading_tag": "h2",
+            "text_position": "place-self-center text-center",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_Lt73LM": {
+          "type": "collection",
+          "settings": {
+            "collection": "variation",
+            "subheading": "",
+            "title": "",
+            "url": "",
+            "heading_tag": "h2",
+            "text_position": "place-self-center text-center",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_yCpxNG": {
+          "type": "collection",
+          "settings": {
+            "collection": "equipement",
             "subheading": "",
             "title": "",
             "url": "",
@@ -89,7 +159,12 @@
       "block_order": [
         "collection_GTennr",
         "collection_aTp8Q6",
-        "collection_hAY4LR"
+        "collection_hAY4LR",
+        "collection_beG8AM",
+        "collection_HtgKKt",
+        "collection_hr6bqr",
+        "collection_Lt73LM",
+        "collection_yCpxNG"
       ],
       "name": "Collection list",
       "settings": {
@@ -143,6 +218,7 @@
     },
     "scrolling_text_ygXHef": {
       "type": "scrolling-text",
+      "disabled": true,
       "name": "Scrolling text",
       "settings": {
         "full_width": true,
