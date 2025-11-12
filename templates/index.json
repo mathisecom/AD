@@ -275,8 +275,8 @@
         "image_8C9LUM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/BANNER_PC_2.jpg",
-            "mobile_image": "shopify://shop_images/BANNER_PC_2_94419952-f9cd-4814-a5d0-ab738516c78b.jpg",
+            "image": "shopify://shop_images/BANNER_PC_3.jpg",
+            "mobile_image": "shopify://shop_images/BANNER_PC_3_33f5d8c3-8de9-45bc-9419-4487c2f66050.jpg",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
