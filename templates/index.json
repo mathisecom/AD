@@ -317,6 +317,42 @@
         "text_gradient": ""
       }
     },
+    "media_with_text_jRwVWD": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_3Aq8Pe": {
+          "type": "image",
+          "settings": {
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "AUX PRIX LES PLUS BAS !",
+            "title": "pièces scooter et moto 50cc",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_3Aq8Pe"
+      ],
+      "disabled": true,
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -377,6 +413,7 @@
     "collection_list_tgTNY7",
     "featured_collection_xkRdRN",
     "scrolling_text_ygXHef",
+    "media_with_text_jRwVWD",
     "faq"
   ]
 }
