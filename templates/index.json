@@ -150,6 +150,7 @@
           "type": "collection",
           "settings": {
             "collection": "carburation",
+            "image": "shopify://shop_images/Titre_21.jpg",
             "subheading": "",
             "title": "",
             "url": "",
@@ -157,13 +158,14 @@
             "text_position": "place-self-center text-center",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         },
         "collection_aTp8Q6": {
           "type": "collection",
           "settings": {
             "collection": "embrayage",
+            "image": "shopify://shop_images/Titre_21.jpg",
             "subheading": "",
             "title": "",
             "url": "",
@@ -171,13 +173,14 @@
             "text_position": "place-self-center text-center",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         },
         "collection_hAY4LR": {
           "type": "collection",
           "settings": {
             "collection": "freinage",
+            "image": "shopify://shop_images/Titre_21.jpg",
             "subheading": "",
             "title": "",
             "url": "",
@@ -185,13 +188,14 @@
             "text_position": "place-self-center text-center",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         },
         "collection_beG8AM": {
           "type": "collection",
           "settings": {
             "collection": "huile-moteur",
+            "image": "shopify://shop_images/Titre_21.jpg",
             "subheading": "",
             "title": "",
             "url": "",
@@ -199,13 +203,14 @@
             "text_position": "place-self-center text-center",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         },
         "collection_HtgKKt": {
           "type": "collection",
           "settings": {
             "collection": "nettoyage",
+            "image": "shopify://shop_images/Titre_21.jpg",
             "subheading": "",
             "title": "",
             "url": "",
@@ -213,13 +218,14 @@
             "text_position": "place-self-center text-center",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         },
         "collection_hr6bqr": {
           "type": "collection",
           "settings": {
             "collection": "pneu",
+            "image": "shopify://shop_images/Titre_21.jpg",
             "subheading": "",
             "title": "",
             "url": "",
@@ -227,13 +233,14 @@
             "text_position": "place-self-center text-center",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         },
         "collection_Lt73LM": {
           "type": "collection",
           "settings": {
             "collection": "variation",
+            "image": "shopify://shop_images/Titre_21.jpg",
             "subheading": "",
             "title": "",
             "url": "",
@@ -241,13 +248,14 @@
             "text_position": "place-self-center text-center",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         },
         "collection_yCpxNG": {
           "type": "collection",
           "settings": {
             "collection": "equipement",
+            "image": "shopify://shop_images/Titre_21.jpg",
             "subheading": "",
             "title": "",
             "url": "",
@@ -255,7 +263,7 @@
             "text_position": "place-self-center text-center",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         }
       },
