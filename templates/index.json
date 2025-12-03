@@ -81,6 +81,7 @@
       "block_order": [
         "image_7R8Upn"
       ],
+      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "full_width": true,
