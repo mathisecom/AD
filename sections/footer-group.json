@@ -77,7 +77,8 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "image_width": 150,
+            "image": "shopify://shop_images/Nouveau_projet_-_2026-10-22T190652.708.png",
+            "image_width": 190,
             "heading_size": "h3",
             "title": "Newsletter",
             "content": ""
