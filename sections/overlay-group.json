@@ -13,6 +13,7 @@
   "sections": {
     "newsletter-popup": {
       "type": "newsletter-popup",
+      "disabled": true,
       "settings": {
         "apparition_delay": 5,
         "show_only_on_index": true,
@@ -39,12 +40,7 @@
         "show_view_cart_button": false,
         "show_checkout_button": true,
         "recommendations_title": "Tendance Ce Mois-Ci",
-        "products": [
-          "nettoyant-selle-moto",
-          "bardahl-moto-cleaner-500ml-universel",
-          "embrayage-polini-3g-evolution-booster-nitro",
-          "100-polini-big-evo-am6"
-        ],
+        "products": [],
         "product_card_background": "#f2f2f2",
         "product_card_text_color": ""
       }
