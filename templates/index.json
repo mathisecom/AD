@@ -15,8 +15,6 @@
         "image_ghg4z6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/US_BLACKFRIDAY_2.jpg",
-            "mobile_image": "shopify://shop_images/MEILLEURE_OFFRE_DE_L_ANNEe_4.jpg",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
@@ -52,359 +50,71 @@
         "background_gradient": ""
       }
     },
-    "slideshow_7j6eme": {
-      "type": "slideshow",
+    "imgfonction_kD7Ugg": {
+      "type": "imgfonction",
       "blocks": {
-        "image_7R8Upn": {
-          "type": "image",
+        "feature_zDnVEj": {
+          "type": "feature",
           "settings": {
-            "image": "shopify://shop_images/Arts_Tosh_9a5ecd7e-8c00-4a21-bd9e-c807d70506e8.jpg",
-            "mobile_image": "shopify://shop_images/Arts_Tosh.jpg",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "subheading": "",
-            "title": "",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "background": "",
-            "background_gradient": ""
+            "heading": "WasteID™",
+            "description": "<p>Des capteurs avancés distinguent le n° 1 du n° 2 pour mieux comprendre le comportement et la routine de votre chat.</p>"
+          }
+        },
+        "feature_zn7aAj": {
+          "type": "feature",
+          "settings": {
+            "heading": "Contrôle intelligent des odeurs",
+            "description": "<p>WasteID identifie intelligemment le type de déjections laissées. Avec le n° 2, le cycle de nettoyage démarre rapidement pour un meilleur contrôle des odeurs, et avec le n° 1, le cycle laisse le temps à la litière de s’agglomérer.</p>"
+          }
+        },
+        "feature_6dbCpC": {
+          "type": "feature",
+          "settings": {
+            "heading": "Surveillance en temps réel",
+            "description": "<p>Recevez des notifications en temps réel et des informations sur les habitudes de litière de votre chat, le tout depuis l’application Whisker.</p>"
           }
         }
       },
       "block_order": [
-        "image_7R8Upn"
+        "feature_zDnVEj",
+        "feature_zn7aAj",
+        "feature_6dbCpC"
       ],
-      "disabled": true,
-      "name": "Slideshow",
+      "name": "Image + fonctionnalités",
       "settings": {
-        "full_width": true,
-        "allow_transparent_header": false,
-        "show_initial_transition": false,
-        "image_size": "auto",
-        "controls_type": "dots",
-        "transition_type": "fade_with_text",
-        "autoplay": false,
-        "cycle_speed": 6,
-        "background": "#f2f2f2",
-        "background_gradient": ""
-      }
-    },
-    "featured_collection_79Pp66": {
-      "type": "featured-collection",
-      "name": "Featured collection",
-      "settings": {
-        "collection": "",
-        "products": [
-          "bardahl-moto-cleaner-500ml-universel",
-          "nettoyant-selle-moto",
-          "embrayage-polini-3g-evolution-booster-nitro",
-          "100-polini-big-evo-am6"
-        ],
-        "full_width": true,
-        "stack_products": false,
-        "show_progress_bar": true,
-        "products_count": 6,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 3,
-        "subheading": "",
-        "title": "MEILLEURES VENTES",
-        "content": "",
-        "link_url": "",
-        "link_text": "Découvrir",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "scrolling_text_ygXHef": {
-      "type": "scrolling-text",
-      "disabled": true,
-      "name": "Scrolling text",
-      "settings": {
-        "full_width": true,
-        "text": "Le spécialiste en pièces, accessoires pour motos et scooters",
-        "text_size": "xsmall",
-        "text_style": "fill",
-        "scrolling_mode": "auto",
-        "scrolling_speed": 8,
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "text_gradient": ""
-      }
-    },
-    "collection_list_tgTNY7": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_GTennr": {
-          "type": "collection",
-          "settings": {
-            "collection": "carburation",
-            "image": "shopify://shop_images/Titre_21.jpg",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_aTp8Q6": {
-          "type": "collection",
-          "settings": {
-            "collection": "embrayage",
-            "image": "shopify://shop_images/Titre_21.jpg",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_hAY4LR": {
-          "type": "collection",
-          "settings": {
-            "collection": "freinage",
-            "image": "shopify://shop_images/Titre_21.jpg",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_beG8AM": {
-          "type": "collection",
-          "settings": {
-            "collection": "huile-moteur",
-            "image": "shopify://shop_images/Titre_21.jpg",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_HtgKKt": {
-          "type": "collection",
-          "settings": {
-            "collection": "nettoyage",
-            "image": "shopify://shop_images/Titre_21.jpg",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_hr6bqr": {
-          "type": "collection",
-          "settings": {
-            "collection": "pneu",
-            "image": "shopify://shop_images/Titre_21.jpg",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_Lt73LM": {
-          "type": "collection",
-          "settings": {
-            "collection": "variation",
-            "image": "shopify://shop_images/Titre_21.jpg",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_yCpxNG": {
-          "type": "collection",
-          "settings": {
-            "collection": "equipement",
-            "image": "shopify://shop_images/Titre_21.jpg",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "collection_GTennr",
-        "collection_aTp8Q6",
-        "collection_hAY4LR",
-        "collection_beG8AM",
-        "collection_HtgKKt",
-        "collection_hr6bqr",
-        "collection_Lt73LM",
-        "collection_yCpxNG"
-      ],
-      "name": "Collection list",
-      "settings": {
-        "full_width": true,
-        "stack_collections": false,
-        "collections_per_row_mobile": "1",
-        "collections_per_row": 3,
-        "show_progress_bar": false,
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "link_url": "",
-        "link_text": "",
-        "background": "#f9f9f9",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": ""
-      }
-    },
-    "slideshow_W8zUFJ": {
-      "type": "slideshow",
-      "blocks": {
-        "image_8C9LUM": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/BANNER_PC_3.jpg",
-            "mobile_image": "shopify://shop_images/BANNER_PC_3_33f5d8c3-8de9-45bc-9419-4487c2f66050.jpg",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "subheading": "",
-            "title": "",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "background": "",
-            "background_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_8C9LUM"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": false,
-        "show_initial_transition": false,
-        "image_size": "auto",
-        "controls_type": "dots",
-        "transition_type": "fade_with_text",
-        "autoplay": false,
-        "cycle_speed": 6,
-        "background": "#f2f2f2",
-        "background_gradient": ""
-      }
-    },
-    "featured_collection_xkRdRN": {
-      "type": "featured-collection",
-      "name": "Featured collection",
-      "settings": {
-        "collection": "",
-        "products": [
-          "embrayage-polini-3g-evolution-booster-nitro",
-          "100-polini-big-evo-am6",
-          "bardahl-moto-cleaner-500ml-universel",
-          "nettoyant-selle-moto"
-        ],
-        "full_width": true,
-        "stack_products": false,
-        "show_progress_bar": true,
-        "products_count": 6,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 3,
-        "subheading": "",
-        "title": "Nouveautés",
-        "content": "",
-        "link_url": "",
-        "link_text": "Découvrir",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "media_with_text_jRwVWD": {
-      "type": "media-with-text",
-      "blocks": {
-        "image_3Aq8Pe": {
-          "type": "image",
-          "settings": {
-            "media_width": 50,
-            "media_position": "start",
-            "text_position": "place-self-center text-center",
-            "icon": "none",
-            "icon_width": 48,
-            "subheading": "AUX PRIX LES PLUS BAS !",
-            "title": "pièces scooter et moto 50cc",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "link_text": "",
-            "link_url": "",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "",
-            "button_text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_3Aq8Pe"
-      ],
-      "disabled": true,
-      "name": "Media with text",
-      "settings": {
-        "full_width": false,
-        "alternate_media_position": false,
-        "spacing": "small"
+        "image_alt": "Chat près de sa litière intelligente",
+        "image_side": "left",
+        "mobile_order": "image",
+        "image_ratio": "4 / 3",
+        "image_position": "center center",
+        "image_radius": 14,
+        "max_width": 1120,
+        "image_share": 54,
+        "column_gap": 56,
+        "block_spacing": 24,
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "mobile_padding": 44,
+        "font_family": "Arial, Helvetica, sans-serif",
+        "heading_size": 25,
+        "body_size": 14,
+        "heading_size_mobile": 22,
+        "body_size_mobile": 13,
+        "background_color": "#FFFFFF",
+        "heading_color": "#080808",
+        "text_color": "#171717",
+        "divider_color": "#E5E5E5",
+        "show_overlay": true,
+        "overlay_background": "#303030",
+        "overlay_text_color": "#FFFFFF",
+        "overlay_emoji": "🐱",
+        "first_value": "198 g",
+        "first_bar": 64,
+        "first_legend": "Fèces (g)",
+        "second_value": "311 g",
+        "second_bar": 90,
+        "second_legend": "Urine (g)",
+        "overlay_accessibility": "Statistiques de suivi de la litière"
       }
     },
     "faq": {
@@ -463,13 +173,7 @@
   },
   "order": [
     "slideshow_UenUjh",
-    "slideshow_7j6eme",
-    "featured_collection_79Pp66",
-    "scrolling_text_ygXHef",
-    "collection_list_tgTNY7",
-    "slideshow_W8zUFJ",
-    "featured_collection_xkRdRN",
-    "media_with_text_jRwVWD",
+    "imgfonction_kD7Ugg",
     "faq"
   ]
 }
