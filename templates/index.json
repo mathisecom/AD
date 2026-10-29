@@ -60,12 +60,12 @@
         "button_label": "Acheter maintenant",
         "button_link": "",
         "open_new_tab": false,
-        "section_bg": "#FFFFFF",
-        "banner_bg": "#F2F2F2",
+        "section_bg": "#ffffff",
+        "banner_bg": "#f2f2f2",
         "title_color": "#000000",
         "text_color": "#767676",
         "button_bg": "#454342",
-        "button_text_color": "#FFFFFF",
+        "button_text_color": "#ffffff",
         "radius": 32,
         "mobile_radius": 34,
         "max_width": 1050,
@@ -95,6 +95,102 @@
         "mobile_text_size": 13,
         "mobile_button_size": 15,
         "mobile_button_height": 48
+      }
+    },
+    "cardbenefice_jckBPW": {
+      "type": "cardbenefice",
+      "blocks": {
+        "benefit_VeRQq6": {
+          "type": "benefit",
+          "settings": {
+            "title": "Une litière toujours plus propre",
+            "text": "<p>Miaora nettoie automatiquement après le passage de votre chat. Choisissez le mode <strong>automatique, programmé ou manuel</strong>, selon vos habitudes.</p>"
+          }
+        },
+        "benefit_Xmf9zT": {
+          "type": "benefit",
+          "settings": {
+            "title": "Des odeurs mieux maîtrisées",
+            "text": "<p>La <strong>triple désodorisation</strong> et le stérilisateur ionique aident à limiter les mauvaises odeurs dans votre intérieur.</p>"
+          }
+        },
+        "benefit_nEAd9T": {
+          "type": "benefit",
+          "settings": {
+            "title": "La sécurité de votre chat d'abord",
+            "text": "<p>Des <strong>capteurs infrarouges</strong> détectent votre chat et arrêtent automatiquement le mécanisme lorsqu'une présence est repérée.</p>"
+          }
+        },
+        "benefit_dixnxU": {
+          "type": "benefit",
+          "settings": {
+            "title": "Connectée à votre quotidien",
+            "text": "<p>Depuis l'<strong>application Wi-Fi</strong> ou l'écran intégré, lancez un nettoyage, consultez les données et personnalisez les réglages.</p>"
+          }
+        },
+        "benefit_tgYXaq": {
+          "type": "benefit",
+          "settings": {
+            "title": "Un suivi du poids pratique",
+            "text": "<p>Le <strong>capteur de poids intégré</strong> vous permet de suivre l'évolution du poids de votre chat et de remarquer d'éventuels changements.</p>"
+          }
+        },
+        "benefit_NAMmXR": {
+          "type": "benefit",
+          "settings": {
+            "title": "Jusqu'à 15 jours de tranquillité",
+            "text": "<p>Avec son <strong>bac à déchets de 9 L</strong> et son espace intérieur de 65 L, Miaora réduit la fréquence des vidages (selon l'usage).</p>"
+          }
+        },
+        "benefit_83QLWD": {
+          "type": "benefit",
+          "settings": {
+            "title": "Compatible avec vos litières",
+            "text": "<p>Miaora accepte les litières <strong>tofu, mixtes, bentonite et minérales</strong>, pour conserver les habitudes de votre chat.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_VeRQq6",
+        "benefit_Xmf9zT",
+        "benefit_nEAd9T",
+        "benefit_dixnxU",
+        "benefit_tgYXaq",
+        "benefit_NAMmXR",
+        "benefit_83QLWD"
+      ],
+      "name": "Miaora - Avantages",
+      "settings": {
+        "heading": "",
+        "show_arrows": false,
+        "show_dots": false,
+        "section_background": "#FFFFFF",
+        "card_background": "#F2F2F2",
+        "title_color": "#050505",
+        "text_color": "#000000",
+        "arrow_background": "#F2F2F2",
+        "arrow_color": "#171717",
+        "accent_color": "#151515",
+        "max_width": 1120,
+        "gap_desktop": 20,
+        "card_radius": 36,
+        "content_padding": 30,
+        "image_ratio": "17 / 10",
+        "image_fit": "cover",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "heading_size": 30,
+        "card_title_size": 19,
+        "card_text_size": 13,
+        "mobile_card_width": 86,
+        "gap_mobile": 14,
+        "mobile_content_padding": 24,
+        "mobile_heading_size": 25,
+        "mobile_title_size": 20,
+        "mobile_text_size": 13,
+        "mobile_side_padding": 16,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "imgfonction_kD7Ugg": {
@@ -219,6 +315,7 @@
   "order": [
     "slideshow_UenUjh",
     "bannerproduit_gXhrYi",
+    "cardbenefice_jckBPW",
     "imgfonction_kD7Ugg",
     "faq"
   ]
