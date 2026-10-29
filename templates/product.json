@@ -15,7 +15,7 @@
         "liquid_HakBkg": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div class=\"product-info__block-item\" data-block-id=\"liquid_Wwhg3E\" data-block-type=\"liquid\"><div class=\"product-info__liquid\">\n              <div class=\"titanox-rating-brand\">\n\n  <!-- NOTE CLIENTS -->\n  <div class=\"titanox-rating-brand__reviews\">\n    \n    <div class=\"titanox-rating-brand__stars\" aria-label=\"4,8 sur 5\">\n      <span>★</span>\n      <span>★</span>\n      <span>★</span>\n      <span>★</span>\n      <span>★</span>\n    </div>\n\n    <div class=\"titanox-rating-brand__score\">\n      <strong>4,8 sur 5</strong>\n      <span>(3,214 avis)</span>\n    </div>\n\n  </div>\n\n\n  <!-- MARQUE FRANÇAISE -->\n  <div class=\"titanox-rating-brand__french\">\n\n    <div class=\"titanox-french-flag\" aria-hidden=\"true\">\n      <span class=\"titanox-french-flag__blue\"></span>\n      <span class=\"titanox-french-flag__white\"></span>\n      <span class=\"titanox-french-flag__red\"></span>\n    </div>\n\n    <span class=\"titanox-rating-brand__french-text\">\n      Marque française\n    </span>\n\n  </div>\n\n</div>\n\n\n<style>\n\n  .titanox-rating-brand {\n    width: 100%;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n    gap: 20px;\n\n    font-family: \"Bricolage Grotesque\", sans-serif;\n\n    margin: 8px 0 14px;\n  }\n\n\n  /* FORCE BRICOLAGE GROTESQUE */\n\n  .titanox-rating-brand,\n  .titanox-rating-brand *,\n  .titanox-rating-brand__score,\n  .titanox-rating-brand__score strong,\n  .titanox-rating-brand__score span,\n  .titanox-rating-brand__french-text {\n    font-family: \"Bricolage Grotesque\", sans-serif !important;\n  }\n\n\n  /* ============================\n     AVIS\n  ============================ */\n\n  .titanox-rating-brand__reviews {\n    display: flex;\n    align-items: center;\n\n    gap: 11px;\n\n    min-width: 0;\n  }\n\n\n  .titanox-rating-brand__stars {\n    display: flex;\n    align-items: center;\n\n    gap: 2px;\n\n    color: #2BA874;\n\n    font-size: 22px;\n    line-height: 1;\n\n    white-space: nowrap;\n  }\n\n\n  .titanox-rating-brand__score {\n    display: flex;\n    align-items: center;\n\n    gap: 5px;\n\n    white-space: nowrap;\n\n    color: #111827;\n\n    font-size: 14px;\n    line-height: 1.2;\n\n    letter-spacing: -0.1px;\n  }\n\n\n  .titanox-rating-brand__score strong {\n    font-weight: 600;\n  }\n\n\n  .titanox-rating-brand__score span {\n    font-weight: 400;\n  }\n\n\n\n  /* ============================\n     MARQUE FRANÇAISE\n  ============================ */\n\n  .titanox-rating-brand__french {\n    display: flex;\n    align-items: center;\n\n    gap: 9px;\n\n    flex-shrink: 0;\n  }\n\n\n  .titanox-rating-brand__french-text {\n    color: #525B65;\n\n    font-size: 13px;\n    font-weight: 500;\n    line-height: 1.2;\n\n    letter-spacing: -0.05px;\n\n    white-space: nowrap;\n  }\n\n\n\n  /* ============================\n     DRAPEAU FRANÇAIS\n  ============================ */\n\n  .titanox-french-flag {\n    width: 27px;\n    height: 19px;\n\n    display: flex;\n\n    overflow: hidden;\n\n    border-radius: 1px;\n\n    box-shadow: 0 0 0 1px rgba(0,0,0,.05);\n  }\n\n\n  .titanox-french-flag span {\n    width: 33.333%;\n    height: 100%;\n    display: block;\n  }\n\n\n  .titanox-french-flag__blue {\n    background: #0055A4;\n  }\n\n  .titanox-french-flag__white {\n    background: #FFFFFF;\n  }\n\n  .titanox-french-flag__red {\n    background: #EF4135;\n  }\n\n\n\n  /* ============================\n     TABLETTE\n  ============================ */\n\n  @media screen and (max-width: 990px) {\n\n    .titanox-rating-brand__stars {\n      font-size: 20px;\n    }\n\n    .titanox-rating-brand__score {\n      font-size: 13px;\n    }\n\n    .titanox-rating-brand__french-text {\n      font-size: 12px;\n    }\n\n  }\n\n\n\n  /* ============================\n     MOBILE\n  ============================ */\n\n  @media screen and (max-width: 749px) {\n\n    .titanox-rating-brand {\n      gap: 12px;\n\n      margin-top: 6px;\n      margin-bottom: 12px;\n    }\n\n\n    .titanox-rating-brand__reviews {\n      gap: 7px;\n    }\n\n\n    .titanox-rating-brand__stars {\n      gap: 1px;\n\n      font-size: 18px;\n    }\n\n\n    .titanox-rating-brand__score {\n      gap: 4px;\n\n      font-size: 13px;\n    }\n\n\n    .titanox-rating-brand__french {\n      gap: 6px;\n    }\n\n\n    .titanox-french-flag {\n      width: 24px;\n      height: 17px;\n    }\n\n\n    .titanox-rating-brand__french-text {\n      font-size: 12px;\n    }\n\n  }\n\n\n\n  /* ============================\n     PETITS MOBILES\n  ============================ */\n\n  @media screen and (max-width: 390px) {\n\n    .titanox-rating-brand__stars {\n      font-size: 17px;\n    }\n\n\n    .titanox-rating-brand__score {\n      font-size: 12px;\n    }\n\n\n    .titanox-rating-brand__french-text {\n      font-size: 11px;\n    }\n\n\n    .titanox-french-flag {\n      width: 22px;\n      height: 16px;\n    }\n\n  }\n\n</style>\n            </div></div>"
+            "liquid": "<!-- TYPOGRAPHIE MANROPE -->\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap\" rel=\"stylesheet\">\n\n<div class=\"titanox-rating-brand\">\n\n  <!-- NOTE CLIENTS -->\n  <div class=\"titanox-rating-brand__reviews\">\n\n    <div class=\"titanox-rating-brand__stars\" aria-label=\"4,8 sur 5\">\n      <span>★</span>\n      <span>★</span>\n      <span>★</span>\n      <span>★</span>\n      <span>★</span>\n    </div>\n\n    <div class=\"titanox-rating-brand__score\">\n      <strong>4,8 sur 5</strong>\n      <span>(3,214 avis)</span>\n    </div>\n\n  </div>\n\n  <!-- MARQUE FRANÇAISE -->\n  <div class=\"titanox-rating-brand__french\">\n\n    <div class=\"titanox-french-flag\" aria-hidden=\"true\">\n      <span class=\"titanox-french-flag__blue\"></span>\n      <span class=\"titanox-french-flag__white\"></span>\n      <span class=\"titanox-french-flag__red\"></span>\n    </div>\n\n    <span class=\"titanox-rating-brand__french-text\">\n      Marque française\n    </span>\n\n  </div>\n\n</div>\n\n<style>\n\n  /* TYPOGRAPHIE MANROPE */\n\n  .titanox-rating-brand {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 20px;\n    margin: 8px 0 14px;\n    font-family: 'Manrope', sans-serif !important;\n  }\n\n  .titanox-rating-brand,\n  .titanox-rating-brand *,\n  .titanox-rating-brand__score,\n  .titanox-rating-brand__score strong,\n  .titanox-rating-brand__score span,\n  .titanox-rating-brand__french-text {\n    font-family: 'Manrope', sans-serif !important;\n  }\n\n  /* AVIS */\n\n  .titanox-rating-brand__reviews {\n    display: flex;\n    align-items: center;\n    gap: 11px;\n    min-width: 0;\n  }\n\n  .titanox-rating-brand__stars {\n    display: flex;\n    align-items: center;\n    gap: 2px;\n    color: #2BA874;\n    font-size: 22px;\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .titanox-rating-brand__score {\n    display: flex;\n    align-items: center;\n    gap: 5px;\n    white-space: nowrap;\n    color: #111827;\n    font-size: 14px;\n    line-height: 1.2;\n    letter-spacing: -0.1px;\n  }\n\n  .titanox-rating-brand__score strong {\n    font-weight: 700;\n  }\n\n  .titanox-rating-brand__score span {\n    font-weight: 400;\n  }\n\n  /* MARQUE FRANÇAISE */\n\n  .titanox-rating-brand__french {\n    display: flex;\n    align-items: center;\n    gap: 9px;\n    flex-shrink: 0;\n  }\n\n  .titanox-rating-brand__french-text {\n    color: #525B65;\n    font-size: 13px;\n    font-weight: 600;\n    line-height: 1.2;\n    letter-spacing: -0.05px;\n    white-space: nowrap;\n  }\n\n  /* DRAPEAU FRANÇAIS */\n\n  .titanox-french-flag {\n    width: 27px;\n    height: 19px;\n    display: flex;\n    overflow: hidden;\n    border-radius: 1px;\n    box-shadow: 0 0 0 1px rgba(0,0,0,.05);\n  }\n\n  .titanox-french-flag span {\n    width: 33.333%;\n    height: 100%;\n    display: block;\n  }\n\n  .titanox-french-flag__blue {\n    background: #0055A4;\n  }\n\n  .titanox-french-flag__white {\n    background: #FFFFFF;\n  }\n\n  .titanox-french-flag__red {\n    background: #EF4135;\n  }\n\n  /* TABLETTE */\n\n  @media screen and (max-width: 990px) {\n\n    .titanox-rating-brand__stars {\n      font-size: 20px;\n    }\n\n    .titanox-rating-brand__score {\n      font-size: 13px;\n    }\n\n    .titanox-rating-brand__french-text {\n      font-size: 12px;\n    }\n\n  }\n\n  /* MOBILE */\n\n  @media screen and (max-width: 749px) {\n\n    .titanox-rating-brand {\n      gap: 12px;\n      margin-top: 6px;\n      margin-bottom: 12px;\n    }\n\n    .titanox-rating-brand__reviews {\n      gap: 7px;\n    }\n\n    .titanox-rating-brand__stars {\n      gap: 1px;\n      font-size: 18px;\n    }\n\n    .titanox-rating-brand__score {\n      gap: 4px;\n      font-size: 13px;\n    }\n\n    .titanox-rating-brand__french {\n      gap: 6px;\n    }\n\n    .titanox-french-flag {\n      width: 24px;\n      height: 17px;\n    }\n\n    .titanox-rating-brand__french-text {\n      font-size: 12px;\n    }\n\n  }\n\n  /* PETITS MOBILES */\n\n  @media screen and (max-width: 390px) {\n\n    .titanox-rating-brand {\n      gap: 7px;\n    }\n\n    .titanox-rating-brand__stars {\n      font-size: 17px;\n    }\n\n    .titanox-rating-brand__score {\n      font-size: 12px;\n    }\n\n    .titanox-rating-brand__french-text {\n      font-size: 11px;\n    }\n\n    .titanox-french-flag {\n      width: 22px;\n      height: 16px;\n    }\n\n  }\n\n  @media screen and (max-width: 350px) {\n\n    .titanox-rating-brand {\n      flex-wrap: wrap;\n      row-gap: 8px;\n    }\n\n  }\n\n</style>"
           }
         },
         "title": {
@@ -124,6 +124,39 @@
         "input_text_color": ""
       }
     },
+    "rich_text_4XbQHa": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_PAQRRE": {
+          "type": "subheading",
+          "settings": {
+            "text": "ILS EN PARLENT MIEUX QUE NOUS"
+          }
+        },
+        "heading_jGNkPT": {
+          "type": "heading",
+          "settings": {
+            "text": "+3,000 Clients Satisfaits",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_PAQRRE",
+        "heading_jGNkPT"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "logoscroll_qPy84t": {
       "type": "logoscroll",
       "blocks": {
@@ -177,7 +210,7 @@
         "scrolling_gap": 70,
         "scrolling_gap_mobile": 32,
         "card_width_desktop": 140,
-        "card_width_mobile": 150,
+        "card_width_mobile": 140,
         "heading_color": "#121212",
         "layout_bg_color": "#FFFFFF",
         "layout_border_color": "#121212",
@@ -196,6 +229,66 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
+      }
+    },
+    "testimonials_iqK6wK": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_PUQCmt": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 4,
+            "author": "John S.",
+            "title": "Testimonial 1",
+            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+          }
+        },
+        "testimonial_DVdUfM": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Mary U.",
+            "title": "Testimonial 2",
+            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+          }
+        },
+        "testimonial_bXK9ba": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 4,
+            "author": "Joshua A.",
+            "title": "Testimonial 3",
+            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_PUQCmt",
+        "testimonial_DVdUfM",
+        "testimonial_bXK9ba"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "full_width": true,
+        "stack_testimonials": false,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "testimonial_card_background": "",
+        "testimonial_card_text_color": ""
       }
     },
     "related-products": {
@@ -224,7 +317,9 @@
   },
   "order": [
     "main",
+    "rich_text_4XbQHa",
     "logoscroll_qPy84t",
+    "testimonials_iqK6wK",
     "related-products"
   ]
 }
