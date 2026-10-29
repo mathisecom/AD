@@ -1,0 +1,353 @@
+
+{% comment %}
+  MIAORA | Grille de caractéristiques (Shopify OS 2.0)
+  Ajouter dans : sections/miaora-caracteristiques-grille.liquid
+{% endcomment %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+{% assign s = section.settings %}
+
+<section id="miaora-specs-{{ section.id }}" class="miaora-specs" style="
+  --ms-bg: {{ s.section_bg }};
+  --ms-card-bg: {{ s.card_bg }};
+  --ms-border: {{ s.card_border }};
+  --ms-title: {{ s.title_color }};
+  --ms-description: {{ s.description_color }};
+  --ms-accent: {{ s.icon_color }};
+  --ms-circle-bg: {{ s.icon_bg }};
+  --ms-max: {{ s.max_width }}px;
+  --ms-gap-x: {{ s.gap_x }}px;
+  --ms-gap-y: {{ s.gap_y }}px;
+  --ms-radius: {{ s.card_radius }}px;
+  --ms-card-height: {{ s.card_height }}px;
+  --ms-circle: {{ s.icon_circle_size }}px;
+  --ms-icon: {{ s.icon_size }}px;
+  --ms-card-title: {{ s.card_title_size }}px;
+  --ms-body: {{ s.body_size }}px;
+  --ms-pad: {{ s.card_padding }}px;
+">
+  <div class="ms-container">
+    {% if s.section_heading != blank %}
+      <h2 class="ms-section-heading">{{ s.section_heading | escape }}</h2>
+    {% endif %}
+
+    <div class="ms-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'item' %}
+          {% assign b = block.settings %}
+          <article class="ms-card" {{ block.shopify_attributes }}>
+            <div class="ms-circle" aria-hidden="true">
+              {% if b.icon_image != blank %}
+                {{ b.icon_image | image_url: width: 160 | image_tag: class: 'ms-upload-icon', loading: 'lazy', alt: '' }}
+              {% elsif b.icon == 'number' %}
+                <span class="ms-icon-number">{{ b.icon_text | escape }}</span>
+              {% else %}
+                <svg class="ms-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                  {% case b.icon %}
+                    {% when 'shield' %}
+                      <path d="M12 2.5 20 6v6c0 5-3.3 8-8 9.5C7.3 20 4 17 4 12V6l8-3.5Z"/><path d="m8.5 12 2.3 2.3 4.8-5"/>
+                    {% when 'sound' %}
+                      <path d="M3 9v6M7 6v12M11 3v18M15 8v8M19 5v14"/>
+                    {% when 'phone' %}
+                      <rect x="6.5" y="2" width="11" height="20" rx="2.5"/><path d="M11 18.5h2"/>
+                    {% when 'heart' %}
+                      <path d="M20.4 5.6a5.2 5.2 0 0 0-7.4 0L12 6.7l-1.1-1.1a5.2 5.2 0 0 0-7.4 7.4L12 21l8.4-8a5.2 5.2 0 0 0 0-7.4Z"/><path d="M4 12h4l2-3.5 3.2 7 2-3.5H20"/>
+                    {% when 'leaf' %}
+                      <path d="M20 4c-9 0-16 3.5-16 11a5 5 0 0 0 5 5c7.5 0 11-7 11-16Z"/><path d="M4 21c2.5-5 6-8 12-11"/>
+                    {% when 'clock' %}
+                      <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>
+                    {% when 'refresh' %}
+                      <path d="M20 8a8 8 0 0 0-14-2L4 8"/><path d="M4 4v4h4"/><path d="M4 16a8 8 0 0 0 14 2l2-2"/><path d="M20 20v-4h-4"/>
+                    {% when 'wifi' %}
+                      <path d="M2.5 9a14 14 0 0 1 19 0M6 12.5a9 9 0 0 1 12 0M9.5 16a4 4 0 0 1 5 0"/><circle cx="12" cy="19.5" r=".7" fill="currentColor" stroke="none"/>
+                    {% when 'box' %}
+                      <rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M9 5v5"/>
+                    {% else %}
+                      <path d="M12 2 9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2Z"/>
+                  {% endcase %}
+                </svg>
+              {% endif %}
+            </div>
+
+            {% if b.title != blank %}
+              <h3 class="ms-card-title">{{ b.title | escape }}</h3>
+            {% endif %}
+            {% if s.show_descriptions and b.description != blank %}
+              <div class="ms-description">{{ b.description }}</div>
+            {% endif %}
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #miaora-specs-{{ section.id }} {
+    padding: {{ s.padding_top }}px 20px {{ s.padding_bottom }}px;
+    background: var(--ms-bg);
+    font-family: 'Manrope', Arial, sans-serif;
+  }
+  #miaora-specs-{{ section.id }} *,
+  #miaora-specs-{{ section.id }} *::before,
+  #miaora-specs-{{ section.id }} *::after { box-sizing: border-box; }
+  #miaora-specs-{{ section.id }} .ms-container {
+    max-width: var(--ms-max);
+    margin-inline: auto;
+  }
+  #miaora-specs-{{ section.id }} .ms-section-heading {
+    margin: 0 0 24px;
+    color: var(--ms-title);
+    font-family: 'Manrope', Arial, sans-serif;
+    font-size: {{ s.section_heading_size }}px;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -.035em;
+    text-align: {{ s.heading_align }};
+  }
+  #miaora-specs-{{ section.id }} .ms-grid {
+    display: grid;
+    grid-template-columns: repeat({{ s.desktop_columns }}, minmax(0, 1fr));
+    column-gap: var(--ms-gap-x);
+    row-gap: var(--ms-gap-y);
+  }
+  #miaora-specs-{{ section.id }} .ms-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    min-height: var(--ms-card-height);
+    padding: var(--ms-pad);
+    border: 1px solid var(--ms-border);
+    border-radius: var(--ms-radius);
+    background: var(--ms-card-bg);
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  {% if s.hover_effect %}
+    @media (hover: hover) {
+      #miaora-specs-{{ section.id }} .ms-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba(0,0,0,.045);
+      }
+    }
+  {% endif %}
+  #miaora-specs-{{ section.id }} .ms-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: var(--ms-circle);
+    height: var(--ms-circle);
+    border: {{ s.icon_border_width }}px solid var(--ms-accent);
+    border-radius: 50%;
+    background: var(--ms-circle-bg);
+    color: var(--ms-accent);
+    margin-bottom: {{ s.icon_text_gap }}px;
+  }
+  #miaora-specs-{{ section.id }} .ms-icon {
+    width: var(--ms-icon);
+    height: var(--ms-icon);
+    display: block;
+  }
+  #miaora-specs-{{ section.id }} .ms-upload-icon {
+    width: var(--ms-icon);
+    height: var(--ms-icon);
+    display: block;
+    object-fit: contain;
+  }
+  #miaora-specs-{{ section.id }} .ms-icon-number {
+    color: var(--ms-accent);
+    font-family: 'Manrope', Arial, sans-serif;
+    font-size: {{ s.number_size }}px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  #miaora-specs-{{ section.id }} .ms-card-title {
+    margin: 0;
+    color: var(--ms-title);
+    font-family: 'Manrope', Arial, sans-serif;
+    font-size: var(--ms-card-title);
+    line-height: 1.35;
+    font-weight: 800;
+    letter-spacing: -.025em;
+    overflow-wrap: anywhere;
+  }
+  #miaora-specs-{{ section.id }} .ms-description {
+    margin-top: 9px;
+    color: var(--ms-description);
+    font-family: 'Manrope', Arial, sans-serif;
+    font-size: var(--ms-body);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  #miaora-specs-{{ section.id }} .ms-description * {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+  }
+  #miaora-specs-{{ section.id }} .ms-description p { margin: 0; }
+  #miaora-specs-{{ section.id }} .ms-description p + p { margin-top: 8px; }
+
+  @media (max-width: 989px) {
+    #miaora-specs-{{ section.id }} .ms-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 749px) {
+    #miaora-specs-{{ section.id }} {
+      padding: {{ s.mobile_padding_top }}px {{ s.mobile_side_padding }}px {{ s.mobile_padding_bottom }}px;
+    }
+    #miaora-specs-{{ section.id }} .ms-grid {
+      grid-template-columns: repeat({{ s.mobile_columns }}, minmax(0, 1fr));
+      column-gap: {{ s.mobile_gap }}px;
+      row-gap: {{ s.mobile_gap }}px;
+    }
+    #miaora-specs-{{ section.id }} .ms-section-heading {
+      font-size: {{ s.mobile_heading_size }}px;
+      margin-bottom: 18px;
+    }
+    #miaora-specs-{{ section.id }} .ms-card {
+      min-height: {{ s.mobile_card_height }}px;
+      padding: {{ s.mobile_card_padding }}px;
+    }
+    #miaora-specs-{{ section.id }} .ms-circle {
+      width: {{ s.mobile_circle_size }}px;
+      height: {{ s.mobile_circle_size }}px;
+      margin-bottom: {{ s.mobile_icon_gap }}px;
+    }
+    #miaora-specs-{{ section.id }} .ms-icon,
+    #miaora-specs-{{ section.id }} .ms-upload-icon {
+      width: {{ s.mobile_icon_size }}px;
+      height: {{ s.mobile_icon_size }}px;
+    }
+    #miaora-specs-{{ section.id }} .ms-icon-number {
+      font-size: {{ s.mobile_number_size }}px;
+    }
+    #miaora-specs-{{ section.id }} .ms-card-title {
+      font-size: {{ s.mobile_title_size }}px;
+    }
+    #miaora-specs-{{ section.id }} .ms-description {
+      font-size: {{ s.mobile_body_size }}px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #miaora-specs-{{ section.id }} .ms-card { transition: none; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Miaora - Caractéristiques",
+  "settings": [
+    { "type": "header", "content": "Contenu" },
+    { "type": "text", "id": "section_heading", "label": "Titre de la section (facultatif)" },
+    { "type": "checkbox", "id": "show_descriptions", "label": "Afficher les descriptions", "default": false },
+    { "type": "checkbox", "id": "hover_effect", "label": "Animation légère au survol", "default": false },
+    { "type": "select", "id": "heading_align", "label": "Alignement du titre", "default": "center", "options": [
+      { "value": "left", "label": "Gauche" },
+      { "value": "center", "label": "Centre" },
+      { "value": "right", "label": "Droite" }
+    ] },
+
+    { "type": "header", "content": "Couleurs" },
+    { "type": "color", "id": "section_bg", "label": "Fond de la section", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_bg", "label": "Fond des cartes", "default": "#FAFAFA" },
+    { "type": "color", "id": "card_border", "label": "Bordure des cartes", "default": "#F0F0F0" },
+    { "type": "color", "id": "title_color", "label": "Couleur des titres", "default": "#111111" },
+    { "type": "color", "id": "description_color", "label": "Couleur descriptions", "default": "#666666" },
+    { "type": "color", "id": "icon_color", "label": "Couleur icônes / cercles", "default": "#FF8C42" },
+    { "type": "color", "id": "icon_bg", "label": "Fond intérieur des cercles", "default": "#FAFAFA" },
+
+    { "type": "header", "content": "Mise en page sur PC" },
+    { "type": "range", "id": "max_width", "label": "Largeur totale", "min": 800, "max": 1600, "step": 20, "unit": "px", "default": 1400 },
+    { "type": "select", "id": "desktop_columns", "label": "Nombre de colonnes PC", "default": "3", "options": [
+      { "value": "2", "label": "2 colonnes" },
+      { "value": "3", "label": "3 colonnes" },
+      { "value": "4", "label": "4 colonnes" }
+    ] },
+    { "type": "range", "id": "gap_x", "label": "Espace horizontal", "min": 0, "max": 50, "step": 2, "unit": "px", "default": 22 },
+    { "type": "range", "id": "gap_y", "label": "Espace vertical", "min": 0, "max": 50, "step": 2, "unit": "px", "default": 30 },
+    { "type": "range", "id": "card_height", "label": "Hauteur minimale cartes", "min": 130, "max": 300, "step": 5, "unit": "px", "default": 185 },
+    { "type": "range", "id": "card_radius", "label": "Arrondi des cartes", "min": 0, "max": 40, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "card_padding", "label": "Marge intérieure cartes", "min": 10, "max": 50, "step": 2, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_top", "label": "Espace haut", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Espace bas", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 48 },
+
+    { "type": "header", "content": "Icônes" },
+    { "type": "range", "id": "icon_circle_size", "label": "Diamètre cercle PC", "min": 40, "max": 100, "step": 2, "unit": "px", "default": 62 },
+    { "type": "range", "id": "icon_size", "label": "Taille icône PC", "min": 16, "max": 50, "step": 1, "unit": "px", "default": 26 },
+    { "type": "range", "id": "icon_border_width", "label": "Épaisseur du cercle", "min": 1, "max": 4, "step": 1, "unit": "px", "default": 1 },
+    { "type": "range", "id": "icon_text_gap", "label": "Espace icône / titre PC", "min": 4, "max": 36, "step": 1, "unit": "px", "default": 20 },
+    { "type": "range", "id": "number_size", "label": "Taille chiffres dans cercle", "min": 10, "max": 24, "step": 1, "unit": "px", "default": 13 },
+
+    { "type": "header", "content": "Typographie Manrope PC" },
+    { "type": "range", "id": "section_heading_size", "label": "Titre section PC", "min": 18, "max": 48, "step": 1, "unit": "px", "default": 30 },
+    { "type": "range", "id": "card_title_size", "label": "Titre des cartes PC", "min": 13, "max": 26, "step": 1, "unit": "px", "default": 17 },
+    { "type": "range", "id": "body_size", "label": "Description des cartes PC", "min": 11, "max": 20, "step": 1, "unit": "px", "default": 13 },
+
+    { "type": "header", "content": "Version mobile" },
+    { "type": "select", "id": "mobile_columns", "label": "Colonnes mobile", "default": "2", "options": [
+      { "value": "1", "label": "1 colonne" },
+      { "value": "2", "label": "2 colonnes" }
+    ] },
+    { "type": "range", "id": "mobile_gap", "label": "Espace entre cartes", "min": 4, "max": 30, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "mobile_card_height", "label": "Hauteur minimale cartes", "min": 110, "max": 260, "step": 5, "unit": "px", "default": 145 },
+    { "type": "range", "id": "mobile_card_padding", "label": "Marge intérieure cartes", "min": 6, "max": 30, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "mobile_circle_size", "label": "Diamètre cercle mobile", "min": 36, "max": 82, "step": 2, "unit": "px", "default": 50 },
+    { "type": "range", "id": "mobile_icon_size", "label": "Taille icône mobile", "min": 16, "max": 42, "step": 1, "unit": "px", "default": 22 },
+    { "type": "range", "id": "mobile_number_size", "label": "Taille chiffres mobile", "min": 10, "max": 20, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "mobile_icon_gap", "label": "Espace icône / texte mobile", "min": 4, "max": 28, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "mobile_heading_size", "label": "Titre section mobile", "min": 18, "max": 36, "step": 1, "unit": "px", "default": 24 },
+    { "type": "range", "id": "mobile_title_size", "label": "Titre des cartes mobile", "min": 11, "max": 22, "step": 1, "unit": "px", "default": 14 },
+    { "type": "range", "id": "mobile_body_size", "label": "Description mobile", "min": 10, "max": 18, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "mobile_side_padding", "label": "Marges latérales", "min": 0, "max": 30, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "mobile_padding_top", "label": "Espace haut mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "default": 28 },
+    { "type": "range", "id": "mobile_padding_bottom", "label": "Espace bas mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "default": 28 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Caractéristique",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre de la carte", "default": "Avantage Miaora" },
+        { "type": "richtext", "id": "description", "label": "Description (facultatif)" },
+        { "type": "select", "id": "icon", "label": "Icône", "default": "shield", "options": [
+          { "value": "shield", "label": "Sécurité" },
+          { "value": "number", "label": "Chiffres / texte" },
+          { "value": "sound", "label": "Son / silencieux" },
+          { "value": "phone", "label": "Application mobile" },
+          { "value": "heart", "label": "Suivi / santé" },
+          { "value": "leaf", "label": "Odeurs / feuille" },
+          { "value": "clock", "label": "Autonomie / horloge" },
+          { "value": "refresh", "label": "Nettoyage automatique" },
+          { "value": "wifi", "label": "Wi-Fi" },
+          { "value": "box", "label": "Bac / capacité" },
+          { "value": "sparkle", "label": "Étoile" }
+        ] },
+        { "type": "text", "id": "icon_text", "label": "Texte dans l'icône chiffres", "default": "65 L" },
+        { "type": "image_picker", "id": "icon_image", "label": "Icône personnalisée (prioritaire)" }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "Miaora - Caractéristiques",
+      "blocks": [
+        { "type": "item", "settings": { "title": "Sécurité intelligente", "icon": "shield" } },
+        { "type": "item", "settings": { "title": "Grand espace (65 L)", "icon": "number", "icon_text": "65 L" } },
+        { "type": "item", "settings": { "title": "Fonctionnement silencieux", "icon": "sound" } },
+        { "type": "item", "settings": { "title": "Contrôle via application", "icon": "phone" } },
+        { "type": "item", "settings": { "title": "Suivi du poids", "icon": "heart" } },
+        { "type": "item", "settings": { "title": "Triple contrôle des odeurs", "icon": "leaf" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
