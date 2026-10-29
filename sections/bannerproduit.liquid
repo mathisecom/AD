@@ -1,0 +1,774 @@
+
+{% comment %}
+  Bannière Packs - Shopify OS 2.0
+  Fichier : sections/banniere-packs-manrope.liquid
+{% endcomment %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+{% assign s = section.settings %}
+
+<section
+  id="pack-{{ section.id }}"
+  class="pack-section"
+  style="
+    --pack-section-bg: {{ s.section_bg }};
+    --pack-bg: {{ s.banner_bg }};
+    --pack-title: {{ s.title_color }};
+    --pack-text: {{ s.text_color }};
+    --pack-btn-bg: {{ s.button_bg }};
+    --pack-btn-text: {{ s.button_text_color }};
+    --pack-max: {{ s.max_width }}px;
+    --pack-radius: {{ s.radius }}px;
+    --pack-height: {{ s.desktop_height }}px;
+    --pack-img-width: {{ s.desktop_image_width }}px;
+    --pack-img-height: {{ s.desktop_image_height }}px;
+    --pack-img-bottom: {{ s.desktop_image_bottom }}px;
+    --pack-title-size: {{ s.title_size }}px;
+    --pack-text-size: {{ s.text_size }}px;
+    --pack-button-size: {{ s.button_size }}px;
+    --pack-m-title-size: {{ s.mobile_title_size }}px;
+    --pack-m-text-size: {{ s.mobile_text_size }}px;
+    --pack-m-image-share: {{ s.mobile_image_share }}%;
+    --pack-m-image-height: {{ s.mobile_image_height }}px;
+    --pack-m-radius: {{ s.mobile_radius }}px;
+  "
+>
+  <div class="pack-container">
+    <div class="pack-banner">
+
+      <!-- IMAGE -->
+      <div class="pack-media">
+        {% if s.image != blank %}
+          <picture>
+            {% if s.mobile_image != blank %}
+              <source
+                media="(max-width: 749px)"
+                srcset="
+                  {{ s.mobile_image | image_url: width: 250 }} 250w,
+                  {{ s.mobile_image | image_url: width: 450 }} 450w,
+                  {{ s.mobile_image | image_url: width: 650 }} 650w
+                "
+                sizes="(max-width: 749px) 40vw, 300px"
+              >
+            {% endif %}
+
+            {{
+              s.image
+              | image_url: width: 900
+              | image_tag:
+                class: 'pack-image',
+                loading: 'lazy',
+                widths: '200, 300, 450, 650, 900',
+                sizes: '(max-width: 749px) 40vw, 300px',
+                alt: s.image_alt
+            }}
+          </picture>
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag: 'pack-placeholder' }}
+        {% endif %}
+      </div>
+
+      <!-- TEXTES -->
+      <div class="pack-copy">
+        {% if s.title != blank %}
+          <h2 class="pack-heading">
+            {{ s.title | escape }}
+          </h2>
+        {% endif %}
+
+        {% if s.description != blank %}
+          <div class="pack-description">
+            {{ s.description }}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- BOUTON -->
+      {% if s.button_label != blank %}
+        <div class="pack-action">
+          {% if s.button_link != blank %}
+            <a
+              class="pack-button"
+              href="{{ s.button_link }}"
+              {% if s.open_new_tab %}
+                target="_blank"
+                rel="noopener noreferrer"
+              {% endif %}
+            >
+              {{ s.button_label | escape }}
+            </a>
+          {% else %}
+            <span class="pack-button pack-button--preview">
+              {{ s.button_label | escape }}
+            </span>
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* SECTION */
+
+  #pack-{{ section.id }} {
+    background: var(--pack-section-bg);
+    padding: {{ s.section_padding_desktop }}px 20px;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  #pack-{{ section.id }} *,
+  #pack-{{ section.id }} *::before,
+  #pack-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #pack-{{ section.id }} .pack-container {
+    max-width: var(--pack-max);
+    margin: 0 auto;
+  }
+
+  /* BANNIÈRE PC */
+
+  #pack-{{ section.id }} .pack-banner {
+    display: grid;
+    grid-template-columns:
+      var(--pack-img-width)
+      minmax(0, 1fr)
+      auto;
+    align-items: center;
+    column-gap: {{ s.desktop_gap }}px;
+    min-height: var(--pack-height);
+    padding: 0 {{ s.desktop_padding }}px;
+    background: var(--pack-bg);
+    border-radius: var(--pack-radius);
+    position: relative;
+    overflow: visible;
+  }
+
+  /* IMAGE PRODUIT */
+
+  #pack-{{ section.id }} .pack-media {
+    position: relative;
+    width: 100%;
+    align-self: stretch;
+    min-width: 0;
+  }
+
+  #pack-{{ section.id }} .pack-media picture {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+
+  #pack-{{ section.id }} .pack-image {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: var(--pack-img-height);
+    bottom: var(--pack-img-bottom);
+    left: 0;
+    object-fit: contain;
+    object-position: center bottom;
+    max-width: none;
+  }
+
+  #pack-{{ section.id }} .pack-placeholder {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .45;
+  }
+
+  /* TITRE MANROPE */
+
+  #pack-{{ section.id }} .pack-copy {
+    min-width: 0;
+  }
+
+  #pack-{{ section.id }} .pack-heading {
+    font-family: 'Manrope', sans-serif;
+    color: var(--pack-title);
+    font-size: var(--pack-title-size);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.045em;
+    margin: 0 0 10px;
+    padding: 0;
+  }
+
+  /* DESCRIPTION */
+
+  #pack-{{ section.id }} .pack-description,
+  #pack-{{ section.id }} .pack-description * {
+    font-family: 'Manrope', sans-serif;
+    color: var(--pack-text);
+    font-size: var(--pack-text-size);
+    line-height: 1.5;
+  }
+
+  #pack-{{ section.id }} .pack-description p {
+    margin: 0;
+  }
+
+  #pack-{{ section.id }} .pack-description strong,
+  #pack-{{ section.id }} .pack-description b {
+    font-weight: 800;
+    color: var(--pack-title);
+  }
+
+  #pack-{{ section.id }} .pack-description a {
+    text-decoration: underline;
+  }
+
+  /* BOUTON */
+
+  #pack-{{ section.id }} .pack-action {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #pack-{{ section.id }} .pack-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: {{ s.button_height }}px;
+    padding: 12px {{ s.button_horizontal_padding }}px;
+    border: 0;
+    border-radius: {{ s.button_radius }}px;
+    background: var(--pack-btn-bg);
+    color: var(--pack-btn-text);
+    font-family: 'Manrope', sans-serif;
+    font-size: var(--pack-button-size);
+    line-height: 1.2;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: filter .2s ease, transform .2s ease;
+  }
+
+  #pack-{{ section.id }} a.pack-button:hover {
+    filter: brightness(.87);
+    transform: translateY(-1px);
+  }
+
+  #pack-{{ section.id }} a.pack-button:focus-visible {
+    outline: 2px solid var(--pack-title);
+    outline-offset: 3px;
+  }
+
+  #pack-{{ section.id }} .pack-button--preview {
+    cursor: default;
+  }
+
+  /* TABLETTE */
+
+  @media (max-width: 989px) and (min-width: 750px) {
+    #pack-{{ section.id }} .pack-banner {
+      grid-template-columns:
+        minmax(130px, 24%)
+        minmax(0, 1fr)
+        auto;
+      column-gap: 15px;
+      padding-inline: 20px;
+    }
+
+    #pack-{{ section.id }} .pack-heading {
+      font-size: min(var(--pack-title-size), 26px);
+    }
+
+    #pack-{{ section.id }} .pack-button {
+      padding-inline: 18px;
+    }
+  }
+
+  /* VERSION MOBILE */
+
+  @media (max-width: 749px) {
+
+    #pack-{{ section.id }} {
+      padding:
+        {{ s.section_padding_mobile }}px
+        {{ s.section_side_mobile }}px;
+    }
+
+    #pack-{{ section.id }} .pack-banner {
+      display: grid;
+      grid-template-columns:
+        minmax(0, var(--pack-m-image-share))
+        minmax(0, 1fr);
+
+      grid-template-areas:
+        "image copy"
+        "action action";
+
+      align-items: center;
+      column-gap: {{ s.mobile_gap }}px;
+      row-gap: {{ s.mobile_row_gap }}px;
+      min-height: 0;
+
+      padding:
+        {{ s.mobile_padding_top }}px
+        {{ s.mobile_padding_side }}px
+        {{ s.mobile_padding_bottom }}px;
+
+      border-radius: var(--pack-m-radius);
+    }
+
+    #pack-{{ section.id }} .pack-media {
+      grid-area: image;
+      height: var(--pack-m-image-height);
+      align-self: center;
+    }
+
+    #pack-{{ section.id }} .pack-image {
+      height: 100%;
+      bottom: 0;
+      object-position: center center;
+    }
+
+    #pack-{{ section.id }} .pack-copy {
+      grid-area: copy;
+    }
+
+    #pack-{{ section.id }} .pack-heading {
+      font-size: var(--pack-m-title-size);
+      line-height: 1.2;
+      margin: 0 0 3px;
+    }
+
+    #pack-{{ section.id }} .pack-description,
+    #pack-{{ section.id }} .pack-description * {
+      font-size: var(--pack-m-text-size);
+      line-height: 1.35;
+    }
+
+    #pack-{{ section.id }} .pack-action {
+      grid-area: action;
+      width: 100%;
+    }
+
+    #pack-{{ section.id }} .pack-button {
+      width: 100%;
+      white-space: normal;
+      font-size: {{ s.mobile_button_size }}px;
+      min-height: {{ s.mobile_button_height }}px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Bannière packs Manrope",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image principale (PNG transparent recommandé)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Image mobile (facultative)"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Description de l’image",
+      "default": "Pack de produits"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Packs du Litter-Robot"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Sous-titre",
+      "default": "<p>Découvrez notre sélection unique et <strong>économisez jusqu'à 50 €</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Acheter maintenant"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "label": "Ouvrir dans un nouvel onglet",
+      "default": false
+    },
+
+    {
+      "type": "header",
+      "content": "Couleurs et coins"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Fond autour de la bannière",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "banner_bg",
+      "label": "Fond de la bannière",
+      "default": "#F2F2F2"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du sous-titre",
+      "default": "#767676"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Fond du bouton",
+      "default": "#454342"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Texte du bouton",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Arrondi PC",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_radius",
+      "label": "Arrondi mobile",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+
+    {
+      "type": "header",
+      "content": "Dimensions sur ordinateur"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Largeur maximale",
+      "min": 700,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "default": 1050
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Hauteur minimale",
+      "min": 120,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "default": 160
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding",
+      "label": "Marge intérieure horizontale",
+      "min": 10,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "label": "Espacement des colonnes",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_width",
+      "label": "Largeur zone image",
+      "min": 120,
+      "max": 400,
+      "step": 5,
+      "unit": "px",
+      "default": 270
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_height",
+      "label": "Hauteur image",
+      "min": 100,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "default": 190
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_bottom",
+      "label": "Position verticale image",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 0,
+      "info": "0 = alignée en bas ; positif = remonte l'image."
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Taille du titre PC",
+      "min": 18,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Taille du sous-titre PC",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "section_padding_desktop",
+      "label": "Espacement extérieur vertical PC",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+
+    {
+      "type": "header",
+      "content": "Bouton"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "Texte bouton PC",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "button_height",
+      "label": "Hauteur bouton PC",
+      "min": 36,
+      "max": 76,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "button_horizontal_padding",
+      "label": "Padding horizontal bouton PC",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Arrondi bouton",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+
+    {
+      "type": "header",
+      "content": "Réglages mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_mobile",
+      "label": "Espace autour vertical mobile",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "section_side_mobile",
+      "label": "Espace autour horizontal mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Marge intérieure haute",
+      "min": 8,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_side",
+      "label": "Marges intérieures côtés",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Marge intérieure basse",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_share",
+      "label": "Part de largeur image mobile",
+      "min": 25,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Hauteur image mobile",
+      "min": 90,
+      "max": 220,
+      "step": 2,
+      "unit": "px",
+      "default": 138
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Espace image / texte",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_row_gap",
+      "label": "Espace au-dessus du bouton",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "Taille titre mobile",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "label": "Taille sous-titre mobile",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_size",
+      "label": "Taille texte bouton mobile",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_height",
+      "label": "Hauteur bouton mobile",
+      "min": 36,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bannière packs Manrope"
+    }
+  ]
+}
+{% endschema %}
