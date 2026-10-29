@@ -129,6 +129,7 @@
       "name": "Miaora vidéo auto",
       "settings": {
         "video": "shopify://files/videos/78dcf4d9e1044908ad1ce660e9b33d6d.mp4",
+        "external_video": "",
         "image_alt": "Litière autonettoyante Miaora connectée",
         "image_position": "center center",
         "mobile_image_position": "center center",
@@ -139,12 +140,12 @@
         "show_button": true,
         "button_label": "",
         "show_play_icon": false,
-        "section_bg": "#FFFFFF",
-        "fallback_bg": "#656F74",
-        "title_color": "#FFFFFF",
-        "text_color": "#FFFFFF",
-        "button_bg": "#FAF7F3",
-        "button_color": "#1B1B1B",
+        "section_bg": "#ffffff",
+        "fallback_bg": "#656f74",
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "button_bg": "#faf7f3",
+        "button_color": "#1b1b1b",
         "max_width": 1220,
         "text_width": 720,
         "desktop_height": 520,
@@ -332,6 +333,118 @@
         "testimonial_card_text_color": ""
       }
     },
+    "grillebenefice_b9p3Xa": {
+      "type": "grillebenefice",
+      "blocks": {
+        "item_z8kT9x": {
+          "type": "item",
+          "settings": {
+            "title": "Sécurité intelligente",
+            "description": "",
+            "icon": "shield",
+            "icon_text": "65 L"
+          }
+        },
+        "item_JkwDtY": {
+          "type": "item",
+          "settings": {
+            "title": "Grand espace (65 L)",
+            "description": "",
+            "icon": "number",
+            "icon_text": "65 L"
+          }
+        },
+        "item_tAzTf4": {
+          "type": "item",
+          "settings": {
+            "title": "Fonctionnement silencieux",
+            "description": "",
+            "icon": "sound",
+            "icon_text": "65 L"
+          }
+        },
+        "item_mzUQAd": {
+          "type": "item",
+          "settings": {
+            "title": "Contrôle via application",
+            "description": "",
+            "icon": "phone",
+            "icon_text": "65 L"
+          }
+        },
+        "item_qQe7X9": {
+          "type": "item",
+          "settings": {
+            "title": "Suivi du poids",
+            "description": "",
+            "icon": "heart",
+            "icon_text": "65 L"
+          }
+        },
+        "item_HmhDW7": {
+          "type": "item",
+          "settings": {
+            "title": "Triple contrôle des odeurs",
+            "description": "",
+            "icon": "leaf",
+            "icon_text": "65 L"
+          }
+        }
+      },
+      "block_order": [
+        "item_z8kT9x",
+        "item_JkwDtY",
+        "item_tAzTf4",
+        "item_mzUQAd",
+        "item_qQe7X9",
+        "item_HmhDW7"
+      ],
+      "name": "Miaora - Caractéristiques",
+      "settings": {
+        "section_heading": "",
+        "show_descriptions": false,
+        "hover_effect": false,
+        "heading_align": "center",
+        "section_bg": "#FFFFFF",
+        "card_bg": "#FAFAFA",
+        "card_border": "#F0F0F0",
+        "title_color": "#111111",
+        "description_color": "#666666",
+        "icon_color": "#FF8C42",
+        "icon_bg": "#FAFAFA",
+        "max_width": 1400,
+        "desktop_columns": "3",
+        "gap_x": 22,
+        "gap_y": 30,
+        "card_height": 185,
+        "card_radius": 16,
+        "card_padding": 24,
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "icon_circle_size": 62,
+        "icon_size": 26,
+        "icon_border_width": 1,
+        "icon_text_gap": 20,
+        "number_size": 13,
+        "section_heading_size": 30,
+        "card_title_size": 17,
+        "body_size": 13,
+        "mobile_columns": "2",
+        "mobile_gap": 12,
+        "mobile_card_height": 145,
+        "mobile_card_padding": 12,
+        "mobile_circle_size": 50,
+        "mobile_icon_size": 22,
+        "mobile_number_size": 12,
+        "mobile_icon_gap": 13,
+        "mobile_heading_size": 24,
+        "mobile_title_size": 14,
+        "mobile_body_size": 12,
+        "mobile_side_padding": 12,
+        "mobile_padding_top": 28,
+        "mobile_padding_bottom": 28
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -362,6 +475,7 @@
     "rich_text_4XbQHa",
     "logoscroll_qPy84t",
     "testimonials_iqK6wK",
+    "grillebenefice_b9p3Xa",
     "related-products"
   ]
 }
