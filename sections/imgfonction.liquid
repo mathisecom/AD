@@ -1,0 +1,303 @@
+{% liquid
+  assign s = section.settings
+  assign text_share = 100 | minus: s.image_share
+  assign image_loading = 'lazy'
+  if section.index != blank and section.index <= 2
+    assign image_loading = 'eager'
+  endif
+%}
+
+<section
+  id="ImageFeatures-{{ section.id }}"
+  class="if-section"
+  style="
+    --if-bg: {{ s.background_color }};
+    --if-heading: {{ s.heading_color }};
+    --if-text: {{ s.text_color }};
+    --if-line: {{ s.divider_color }};
+    --if-max: {{ s.max_width }}px;
+    --if-gap: {{ s.column_gap }}px;
+    --if-radius: {{ s.image_radius }}px;
+    --if-heading-size: {{ s.heading_size }}px;
+    --if-body-size: {{ s.body_size }}px;
+    --if-heading-mobile: {{ s.heading_size_mobile }}px;
+    --if-body-mobile: {{ s.body_size_mobile }}px;
+    --if-top: {{ s.padding_top }}px;
+    --if-bottom: {{ s.padding_bottom }}px;
+    --if-mobile-space: {{ s.mobile_padding }}px;
+    --if-item-space: {{ s.block_spacing }}px;
+    --if-ratio: {{ s.image_ratio }};
+    --if-position: {{ s.image_position }};
+    --if-font: {{ s.font_family }};
+    --if-overlay-bg: {{ s.overlay_background }};
+    --if-overlay-text: {{ s.overlay_text_color }};
+  "
+>
+  <div class="if-container">
+    <div class="if-grid{% if s.image_side == 'right' %} if-grid--reverse{% endif %}{% if s.mobile_order == 'text' %} if-grid--mobile-text{% endif %}">
+      <div class="if-media">
+        <div class="if-photo">
+          {% if s.image != blank %}
+            <picture>
+              {% if s.mobile_image != blank %}
+                <source
+                  media="(max-width: 749px)"
+                  srcset="{{ s.mobile_image | image_url: width: 360 }} 360w, {{ s.mobile_image | image_url: width: 540 }} 540w, {{ s.mobile_image | image_url: width: 750 }} 750w, {{ s.mobile_image | image_url: width: 990 }} 990w"
+                  sizes="calc(100vw - 32px)"
+                >
+              {% endif %}
+              {{ s.image | image_url: width: 1600 | image_tag:
+                class: 'if-image',
+                widths: '360, 540, 750, 990, 1200, 1600',
+                sizes: '(min-width: 1200px) 580px, (min-width: 750px) 50vw, calc(100vw - 32px)',
+                loading: image_loading,
+                alt: s.image_alt
+              }}
+            </picture>
+          {% else %}
+            <div class="if-placeholder">Ajoutez votre image dans l’éditeur Shopify</div>
+          {% endif %}
+
+          {% if s.image != blank and s.show_overlay %}
+            <div class="if-overlay" aria-label="{{ s.overlay_accessibility | escape }}">
+              <div class="if-overlay-top">
+                <div class="if-overlay-icon">
+                  {% if s.overlay_icon != blank %}
+                    {{ s.overlay_icon | image_url: width: 100 | image_tag: loading: 'lazy', alt: '' }}
+                  {% else %}
+                    <span aria-hidden="true">{{ s.overlay_emoji }}</span>
+                  {% endif %}
+                </div>
+                <div class="if-overlay-bars">
+                  <div class="if-bar-line">
+                    <div class="if-bar"><span style="width: {{ s.first_bar }}%"></span></div>
+                    <span>{{ s.first_value | escape }}</span>
+                  </div>
+                  <div class="if-bar-line">
+                    <div class="if-bar"><span style="width: {{ s.second_bar }}%"></span></div>
+                    <span>{{ s.second_value | escape }}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="if-overlay-legend">
+                <span>● {{ s.first_legend | escape }}</span>
+                <span>● {{ s.second_legend | escape }}</span>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="if-content">
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div class="if-feature" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}
+                <h2 class="if-feature-title">{{ block.settings.heading | escape }}</h2>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <div class="if-feature-description rte">{{ block.settings.description }}</div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #ImageFeatures-{{ section.id }} {
+    box-sizing: border-box;
+    background: var(--if-bg);
+    padding: var(--if-top) 20px var(--if-bottom);
+    color: var(--if-text);
+    font-family: var(--if-font);
+  }
+  #ImageFeatures-{{ section.id }} *,
+  #ImageFeatures-{{ section.id }} *::before,
+  #ImageFeatures-{{ section.id }} *::after { box-sizing: border-box; }
+  #ImageFeatures-{{ section.id }} .if-container { max-width: var(--if-max); margin-inline: auto; }
+  #ImageFeatures-{{ section.id }} .if-grid {
+    display: grid;
+    grid-template-columns: minmax(0, {{ s.image_share }}fr) minmax(0, {{ text_share }}fr);
+    gap: var(--if-gap);
+    align-items: center;
+  }
+  #ImageFeatures-{{ section.id }} .if-grid--reverse .if-media { order: 2; }
+  #ImageFeatures-{{ section.id }} .if-grid--reverse .if-content { order: 1; }
+  #ImageFeatures-{{ section.id }} .if-media,
+  #ImageFeatures-{{ section.id }} .if-content { min-width: 0; }
+  #ImageFeatures-{{ section.id }} .if-photo {
+    width: 100%; position: relative; overflow: hidden;
+    border-radius: var(--if-radius); aspect-ratio: var(--if-ratio);
+    background: #f1f1f1;
+  }
+  #ImageFeatures-{{ section.id }} .if-photo picture { display: block; width: 100%; height: 100%; }
+  #ImageFeatures-{{ section.id }} .if-image {
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; object-position: var(--if-position);
+  }
+  #ImageFeatures-{{ section.id }} .if-placeholder {
+    height: 100%; min-height: 230px; display: grid; place-items: center;
+    padding: 25px; color: #666; text-align: center; font-size: 14px;
+  }
+  #ImageFeatures-{{ section.id }} .if-feature:not(:last-child) {
+    padding-bottom: var(--if-item-space);
+    margin-bottom: var(--if-item-space);
+    border-bottom: 1px solid var(--if-line);
+  }
+  #ImageFeatures-{{ section.id }} .if-feature-title {
+    color: var(--if-heading); font-family: inherit;
+    font-weight: 750; font-size: var(--if-heading-size);
+    line-height: 1.15; letter-spacing: -0.035em;
+    margin: 0 0 14px; padding: 0;
+  }
+  #ImageFeatures-{{ section.id }} .if-feature-description {
+    font-family: inherit; color: var(--if-text);
+    font-size: var(--if-body-size); line-height: 1.65;
+    font-weight: 400; letter-spacing: -0.01em;
+  }
+  #ImageFeatures-{{ section.id }} .if-feature-description p { margin: 0; }
+  #ImageFeatures-{{ section.id }} .if-feature-description p + p { margin-top: 10px; }
+  #ImageFeatures-{{ section.id }} .if-feature-description a { color: inherit; text-decoration: underline; }
+  #ImageFeatures-{{ section.id }} .if-overlay {
+    position: absolute; z-index: 1; bottom: 16px; left: 50%;
+    transform: translateX(-50%); width: min(74%, 420px);
+    padding: 12px 16px 10px; border-radius: 13px;
+    background: var(--if-overlay-bg); color: var(--if-overlay-text);
+    font-size: 12px; line-height: 1.3;
+    backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+  }
+  #ImageFeatures-{{ section.id }} .if-overlay-top { display: flex; align-items: center; gap: 10px; }
+  #ImageFeatures-{{ section.id }} .if-overlay-icon {
+    flex: 0 0 35px; height: 35px; display: grid; place-items: center;
+    overflow: hidden; border-radius: 50%; background: #eee;
+    font-size: 22px; color: #222;
+  }
+  #ImageFeatures-{{ section.id }} .if-overlay-icon img { width: 100%; height: 100%; object-fit: cover; }
+  #ImageFeatures-{{ section.id }} .if-overlay-bars { flex: 1; min-width: 0; }
+  #ImageFeatures-{{ section.id }} .if-bar-line { display: flex; align-items: center; gap: 7px; margin: 3px 0; }
+  #ImageFeatures-{{ section.id }} .if-bar-line > span { font-size: 11px; white-space: nowrap; }
+  #ImageFeatures-{{ section.id }} .if-bar { height: 9px; flex: 1; overflow: hidden; background: #6e6e6e; border-radius: 2px; }
+  #ImageFeatures-{{ section.id }} .if-bar span { display: block; height: 100%; background: #fff; border-radius: 2px; }
+  #ImageFeatures-{{ section.id }} .if-overlay-legend {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 4px 18px; margin-top: 9px; font-size: 11px;
+  }
+  @media (max-width: 749px) {
+    #ImageFeatures-{{ section.id }} { padding: var(--if-mobile-space) 16px; }
+    #ImageFeatures-{{ section.id }} .if-grid { display: flex; flex-direction: column; gap: 28px; }
+    #ImageFeatures-{{ section.id }} .if-grid .if-media,
+    #ImageFeatures-{{ section.id }} .if-grid .if-content { width: 100%; order: 0; }
+    #ImageFeatures-{{ section.id }} .if-grid--mobile-text .if-content { order: -1; }
+    #ImageFeatures-{{ section.id }} .if-feature-title {
+      font-size: var(--if-heading-mobile); margin-bottom: 10px;
+    }
+    #ImageFeatures-{{ section.id }} .if-feature-description { font-size: var(--if-body-mobile); line-height: 1.6; }
+    #ImageFeatures-{{ section.id }} .if-feature:not(:last-child) {
+      padding-bottom: 22px; margin-bottom: 22px;
+    }
+    #ImageFeatures-{{ section.id }} .if-overlay {
+      width: min(80%, 360px); bottom: 12px; padding: 9px 11px;
+    }
+    #ImageFeatures-{{ section.id }} .if-overlay-icon { flex-basis: 29px; height: 29px; font-size: 18px; }
+    #ImageFeatures-{{ section.id }} .if-overlay-legend { gap: 3px 12px; font-size: 10px; }
+  }
+  @media (max-width: 380px) {
+    #ImageFeatures-{{ section.id }} .if-overlay { width: 88%; }
+    #ImageFeatures-{{ section.id }} .if-overlay-legend { font-size: 9px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Image + fonctionnalités",
+  "tag": "div",
+  "class": "shopify-image-features",
+  "settings": [
+    { "type": "header", "content": "Images" },
+    { "type": "image_picker", "id": "image", "label": "Image principale (ordinateur)" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Image mobile (facultatif)" },
+    { "type": "text", "id": "image_alt", "label": "Texte alternatif de l’image", "default": "Chat près de sa litière intelligente" },
+    { "type": "select", "id": "image_side", "label": "Position de l’image (ordinateur)", "default": "left", "options": [
+      { "value": "left", "label": "À gauche" },
+      { "value": "right", "label": "À droite" }
+    ] },
+    { "type": "select", "id": "mobile_order", "label": "Premier élément sur mobile", "default": "image", "options": [
+      { "value": "image", "label": "Image" },
+      { "value": "text", "label": "Textes" }
+    ] },
+    { "type": "select", "id": "image_ratio", "label": "Format de l’image", "default": "4 / 3", "options": [
+      { "value": "4 / 3", "label": "Paysage 4:3 (exemple)" },
+      { "value": "3 / 2", "label": "Paysage 3:2" },
+      { "value": "16 / 9", "label": "Large 16:9" },
+      { "value": "1 / 1", "label": "Carré" }
+    ] },
+    { "type": "select", "id": "image_position", "label": "Cadrage de l’image", "default": "center center", "options": [
+      { "value": "center center", "label": "Centré" },
+      { "value": "center top", "label": "En haut" },
+      { "value": "center bottom", "label": "En bas" },
+      { "value": "left center", "label": "À gauche" },
+      { "value": "right center", "label": "À droite" }
+    ] },
+    { "type": "range", "id": "image_radius", "label": "Coins arrondis de l’image", "min": 0, "max": 40, "step": 1, "unit": "px", "default": 14 },
+    { "type": "header", "content": "Mise en page" },
+    { "type": "range", "id": "max_width", "label": "Largeur maximale", "min": 800, "max": 1600, "step": 20, "unit": "px", "default": 1120 },
+    { "type": "range", "id": "image_share", "label": "Proportion image / texte sur PC", "min": 35, "max": 65, "step": 1, "unit": "%", "default": 54 },
+    { "type": "range", "id": "column_gap", "label": "Espace entre image et textes", "min": 16, "max": 120, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "block_spacing", "label": "Espacement entre les textes (PC)", "min": 12, "max": 60, "step": 2, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_top", "label": "Marge supérieure (PC)", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Marge inférieure (PC)", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "mobile_padding", "label": "Marges verticales (mobile)", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 44 },
+    { "type": "header", "content": "Typographie et couleurs" },
+    { "type": "select", "id": "font_family", "label": "Police", "default": "Arial, Helvetica, sans-serif", "options": [
+      { "value": "inherit", "label": "Police du thème" },
+      { "value": "Arial, Helvetica, sans-serif", "label": "Arial" },
+      { "value": "'Manrope', Arial, sans-serif", "label": "Manrope (si installée)" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Taille des titres (PC)", "min": 18, "max": 48, "step": 1, "unit": "px", "default": 30 },
+    { "type": "range", "id": "body_size", "label": "Taille des descriptions (PC)", "min": 12, "max": 22, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Taille des titres (mobile)", "min": 18, "max": 36, "step": 1, "unit": "px", "default": 24 },
+    { "type": "range", "id": "body_size_mobile", "label": "Taille des descriptions (mobile)", "min": 12, "max": 20, "step": 1, "unit": "px", "default": 14 },
+    { "type": "color", "id": "background_color", "label": "Couleur du fond", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Couleur des titres", "default": "#080808" },
+    { "type": "color", "id": "text_color", "label": "Couleur des descriptions", "default": "#171717" },
+    { "type": "color", "id": "divider_color", "label": "Couleur des séparateurs", "default": "#E5E5E5" },
+    { "type": "header", "content": "Encart sur l’image (facultatif)" },
+    { "type": "checkbox", "id": "show_overlay", "label": "Afficher l’encart de statistiques", "default": true },
+    { "type": "color", "id": "overlay_background", "label": "Fond de l’encart", "default": "#303030" },
+    { "type": "color", "id": "overlay_text_color", "label": "Texte de l’encart", "default": "#FFFFFF" },
+    { "type": "image_picker", "id": "overlay_icon", "label": "Petite icône ou miniature" },
+    { "type": "text", "id": "overlay_emoji", "label": "Emoji si aucune icône n’est choisie", "default": "🐱" },
+    { "type": "text", "id": "first_value", "label": "Première valeur", "default": "198 g" },
+    { "type": "range", "id": "first_bar", "label": "Remplissage de la première barre", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 64 },
+    { "type": "text", "id": "first_legend", "label": "Première légende", "default": "Fèces (g)" },
+    { "type": "text", "id": "second_value", "label": "Deuxième valeur", "default": "311 g" },
+    { "type": "range", "id": "second_bar", "label": "Remplissage de la deuxième barre", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 90 },
+    { "type": "text", "id": "second_legend", "label": "Deuxième légende", "default": "Urine (g)" },
+    { "type": "text", "id": "overlay_accessibility", "label": "Description accessible de l’encart", "default": "Statistiques de suivi de la litière" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Fonctionnalité",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Titre", "default": "Titre de la fonctionnalité" },
+        { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Décrivez ici cette fonctionnalité et ses avantages.</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Image + fonctionnalités",
+      "blocks": [
+        { "type": "feature", "settings": { "heading": "WasteID™", "description": "<p>Des capteurs avancés distinguent le n° 1 du n° 2 pour mieux comprendre le comportement et la routine de votre chat.</p>" } },
+        { "type": "feature", "settings": { "heading": "Contrôle intelligent des odeurs", "description": "<p>WasteID identifie intelligemment le type de déjections laissées. Avec le n° 2, le cycle de nettoyage démarre rapidement pour un meilleur contrôle des odeurs, et avec le n° 1, le cycle laisse le temps à la litière de s’agglomérer.</p>" } },
+        { "type": "feature", "settings": { "heading": "Surveillance en temps réel", "description": "<p>Recevez des notifications en temps réel et des informations sur les habitudes de litière de votre chat, le tout depuis l’application Whisker.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
