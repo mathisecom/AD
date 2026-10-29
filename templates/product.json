@@ -266,7 +266,7 @@
         "padding_bottom": 0,
         "padding_horizontal": 5,
         "padding_horizontal_mobile": 0,
-        "full_width": false,
+        "full_width": true,
         "content_width": 1200,
         "border_thickness": 0,
         "section_radius": 0,
@@ -445,6 +445,71 @@
         "mobile_padding_bottom": 28
       }
     },
+    "imgfonction_UYBxzr": {
+      "type": "imgfonction",
+      "blocks": {
+        "feature_aWr4yb": {
+          "type": "feature",
+          "settings": {
+            "heading": "WasteID™",
+            "description": "<p>Des capteurs avancés distinguent le n° 1 du n° 2 pour mieux comprendre le comportement et la routine de votre chat.</p>"
+          }
+        },
+        "feature_qrUCbR": {
+          "type": "feature",
+          "settings": {
+            "heading": "Contrôle intelligent des odeurs",
+            "description": "<p>WasteID identifie intelligemment le type de déjections laissées. Avec le n° 2, le cycle de nettoyage démarre rapidement pour un meilleur contrôle des odeurs, et avec le n° 1, le cycle laisse le temps à la litière de s'agglomérer.</p>"
+          }
+        },
+        "feature_rLdfKF": {
+          "type": "feature",
+          "settings": {
+            "heading": "Surveillance en temps réel",
+            "description": "<p>Recevez des notifications en temps réel et des informations sur les habitudes de litière de votre chat, le tout depuis l'application Whisker.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_aWr4yb",
+        "feature_qrUCbR",
+        "feature_rLdfKF"
+      ],
+      "name": "Image + fonctionnalités",
+      "settings": {
+        "image_alt": "Chat près de sa litière intelligente",
+        "image_side": "left",
+        "mobile_order": "image",
+        "image_ratio": "4 / 3",
+        "image_position": "center center",
+        "image_radius": 14,
+        "max_width": 1120,
+        "image_share": 54,
+        "column_gap": 56,
+        "block_spacing": 24,
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "mobile_padding": 44,
+        "heading_size": 22,
+        "body_size": 13,
+        "heading_size_mobile": 22,
+        "body_size_mobile": 13,
+        "background_color": "#FFFFFF",
+        "heading_color": "#080808",
+        "text_color": "#171717",
+        "divider_color": "#E5E5E5",
+        "show_overlay": true,
+        "overlay_background": "#303030",
+        "overlay_text_color": "#FFFFFF",
+        "overlay_emoji": "🐱",
+        "first_value": "198 g",
+        "first_bar": 64,
+        "first_legend": "Fèces (g)",
+        "second_value": "311 g",
+        "second_bar": 90,
+        "second_legend": "Urine (g)"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -476,6 +541,7 @@
     "logoscroll_qPy84t",
     "testimonials_iqK6wK",
     "grillebenefice_b9p3Xa",
+    "imgfonction_UYBxzr",
     "related-products"
   ]
 }
