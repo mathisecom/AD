@@ -1,8 +1,7 @@
 
 {% comment %}
-  MIAORA - Bannière vidéo immersive
+  MIAORA - Vidéo en lecture automatique
   Shopify OS 2.0
-  Fichier : sections/miaora-video-immersive.liquid
 {% endcomment %}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,122 +10,150 @@
 
 {% liquid
   assign s = section.settings
-  assign cover = s.poster | default: s.video.preview_image
+  assign cover = s.poster
+  if cover == blank and s.video != blank
+    assign cover = s.video.preview_image
+  endif
   assign has_video = false
   if s.video != blank or s.external_video != blank
     assign has_video = true
   endif
 %}
 
-<section id="miaora-video-{{ section.id }}" class="miv" style="
-  --miv-bg: {{ s.section_color }};
-  --miv-fallback: {{ s.banner_color }};
-  --miv-title: {{ s.title_color }};
-  --miv-text: {{ s.text_color }};
-  --miv-button-bg: {{ s.button_bg }};
-  --miv-button-text: {{ s.button_text }};
-  --miv-width: {{ s.max_width }}px;
-  --miv-text-width: {{ s.text_width }}px;
-  --miv-height: {{ s.desktop_height }}px;
-  --miv-radius: {{ s.desktop_radius }}px;
-  --miv-image-position: {{ s.desktop_image_position }};
-  --miv-title-size: {{ s.desktop_title_size }}px;
-  --miv-subtitle-size: {{ s.desktop_text_size }}px;
-  --miv-button-radius: {{ s.button_radius }}px;
-  --miv-button-size: {{ s.button_font_size }}px;
-  --miv-overlay: {{ s.overlay_opacity | divided_by: 100.0 }};
+<section id="miaora-autoplay-{{ section.id }}" class="miaora-auto" style="
+  --ma-page: {{ s.section_bg }};
+  --ma-bg: {{ s.fallback_bg }};
+  --ma-title: {{ s.title_color }};
+  --ma-text: {{ s.text_color }};
+  --ma-button: {{ s.button_bg }};
+  --ma-button-text: {{ s.button_color }};
+  --ma-width: {{ s.max_width }}px;
+  --ma-height: {{ s.desktop_height }}px;
+  --ma-radius: {{ s.desktop_radius }}px;
+  --ma-overlay: {{ s.overlay_strength | divided_by: 100.0 }};
+  --ma-image-pos: {{ s.image_position }};
+  --ma-title-size: {{ s.desktop_title_size }}px;
+  --ma-text-size: {{ s.desktop_text_size }}px;
+  --ma-button-size: {{ s.button_font_size }}px;
+  --ma-button-radius: {{ s.button_radius }}px;
+  --ma-text-width: {{ s.text_width }}px;
 ">
+  <div class="ma-container">
+    <div class="ma-banner">
 
-  <div class="miv__container">
-    <div class="miv__banner">
-
-      {% if cover != blank %}
-        <picture class="miv__picture">
+      <!-- IMAGE DE COUVERTURE -->
+      {% if cover != blank or s.mobile_poster != blank %}
+        <picture class="ma-picture">
           {% if s.mobile_poster != blank %}
             <source
               media="(max-width: 749px)"
-              srcset="
-                {{ s.mobile_poster | image_url: width: 480 }} 480w,
-                {{ s.mobile_poster | image_url: width: 750 }} 750w,
-                {{ s.mobile_poster | image_url: width: 1100 }} 1100w
-              "
+              srcset="{{ s.mobile_poster | image_url: width: 700 }} 700w, {{ s.mobile_poster | image_url: width: 1100 }} 1100w"
               sizes="100vw"
             >
           {% endif %}
 
+          {% assign display_cover = cover | default: s.mobile_poster %}
+
           {{
-            cover
+            display_cover
             | image_url: width: 2200
             | image_tag:
-              class: 'miv__image',
-              loading: 'lazy',
+              class: 'ma-poster',
+              loading: 'eager',
               widths: '480, 750, 1100, 1500, 1800, 2200',
               sizes: '(min-width: 1400px) 1220px, 100vw',
               alt: s.image_alt
           }}
         </picture>
-
-      {% elsif s.mobile_poster != blank %}
-        {{
-          s.mobile_poster
-          | image_url: width: 1200
-          | image_tag:
-            class: 'miv__image',
-            loading: 'lazy',
-            alt: s.image_alt
-        }}
-
-      {% else %}
-        <div class="miv__placeholder" aria-hidden="true">
-          {{ 'lifestyle-1' | placeholder_svg_tag }}
-        </div>
       {% endif %}
 
-      <div class="miv__shade" aria-hidden="true"></div>
+      <!-- VIDÉO AUTOMATIQUE -->
+      {% if s.video != blank %}
+
+        {{
+          s.video
+          | video_tag:
+            class: 'ma-background-video',
+            autoplay: true,
+            loop: true,
+            muted: true,
+            controls: false,
+            playsinline: true,
+            preload: 'auto',
+            loading: 'eager',
+            image_size: '1600x'
+        }}
+
+      {% elsif s.external_video != blank %}
+
+        {% if s.external_video.type == 'youtube' %}
+          <iframe
+            class="ma-background-iframe"
+            title="Vidéo Miaora en arrière-plan"
+            tabindex="-1"
+            aria-hidden="true"
+            src="https://www.youtube-nocookie.com/embed/{{ s.external_video.id }}?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={{ s.external_video.id }}&amp;controls=0&amp;playsinline=1&amp;rel=0"
+            allow="autoplay; encrypted-media"
+            loading="eager"
+          ></iframe>
+
+        {% elsif s.external_video.type == 'vimeo' %}
+          <iframe
+            class="ma-background-iframe"
+            title="Vidéo Miaora en arrière-plan"
+            tabindex="-1"
+            aria-hidden="true"
+            src="https://player.vimeo.com/video/{{ s.external_video.id }}?background=1&amp;autoplay=1&amp;muted=1&amp;loop=1"
+            allow="autoplay; fullscreen"
+            loading="eager"
+          ></iframe>
+        {% endif %}
+
+      {% endif %}
+
+      <!-- FILTRE SOMBRE -->
+      <div class="ma-shade" aria-hidden="true"></div>
 
       <!-- CONTENU -->
-      <div class="miv__content">
+      <div class="ma-content">
 
         {% if s.eyebrow != blank %}
-          <p class="miv__eyebrow">
+          <p class="ma-eyebrow">
             {{ s.eyebrow | escape }}
           </p>
         {% endif %}
 
         {% if s.title != blank %}
-          <h2 class="miv__title">
+          <h2 class="ma-title">
             {{ s.title | escape }}
           </h2>
         {% endif %}
 
         {% if s.description != blank %}
-          <div class="miv__description">
+          <div class="ma-description">
             {{ s.description }}
           </div>
         {% endif %}
 
-        {% if s.button_label != blank %}
+        {% if has_video and s.show_button and s.button_label != blank %}
           <button
+            class="ma-button"
             type="button"
-            class="miv__button"
-            data-miv-open
-            {% unless has_video %}
-              disabled
-              title="Ajoutez une vidéo dans les réglages"
-            {% endunless %}
+            data-ma-open
           >
             {% if s.show_play_icon %}
               <svg
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
-                width="17"
-                height="17"
-                aria-hidden="true"
                 fill="currentColor"
+                aria-hidden="true"
               >
-                <path d="M8 5.7a1 1 0 0 1 1.5-.86l10 6.3a1 1 0 0 1 0 1.72l-10 6.3A1 1 0 0 1 8 18.3V5.7Z"/>
+                <path d="M8 5.8a1 1 0 0 1 1.5-.85l10 6.2a1 1 0 0 1 0 1.7l-10 6.2A1 1 0 0 1 8 18.2V5.8Z"/>
               </svg>
             {% endif %}
-            <span>{{ s.button_label | escape }}</span>
+
+            {{ s.button_label | escape }}
           </button>
         {% endif %}
 
@@ -134,338 +161,341 @@
     </div>
   </div>
 
-  <!-- LECTEUR VIDÉO -->
-  {% if has_video %}
+  <!-- FENÊTRE VIDÉO AVEC SON -->
+  {% if has_video and s.show_button %}
     <dialog
-      class="miv__dialog"
+      class="ma-dialog"
+      data-ma-dialog
       aria-label="Vidéo de présentation Miaora"
-      data-miv-dialog
     >
-      <div class="miv__player-wrap">
+      <div class="ma-player-box">
 
         <button
           type="button"
-          class="miv__close"
-          data-miv-close
+          class="ma-close"
+          data-ma-close
           aria-label="Fermer la vidéo"
-        >&times;</button>
+        >
+          &times;
+        </button>
 
-        <div class="miv__player">
+        <div class="ma-player">
 
           {% if s.video != blank %}
+
             {{
               s.video
               | video_tag:
-                class: 'miv__video',
-                controls: true,
+                class: 'ma-video-full',
                 autoplay: false,
-                muted: false,
                 loop: false,
+                muted: false,
+                controls: true,
                 playsinline: true,
                 preload: 'none',
-                image_size: '1400x'
+                image_size: '1600x'
             }}
 
           {% elsif s.external_video.type == 'youtube' %}
+
             <iframe
-              title="Vidéo Miaora"
-              data-miv-src="https://www.youtube-nocookie.com/embed/{{ s.external_video.id }}?autoplay=1&amp;rel=0&amp;playsinline=1"
+              title="Vidéo Miaora avec son"
+              data-ma-src="https://www.youtube-nocookie.com/embed/{{ s.external_video.id }}?autoplay=1&amp;rel=0&amp;playsinline=1"
               allow="autoplay; encrypted-media; picture-in-picture"
               allowfullscreen
             ></iframe>
 
           {% elsif s.external_video.type == 'vimeo' %}
+
             <iframe
-              title="Vidéo Miaora"
-              data-miv-src="https://player.vimeo.com/video/{{ s.external_video.id }}?autoplay=1"
+              title="Vidéo Miaora avec son"
+              data-ma-src="https://player.vimeo.com/video/{{ s.external_video.id }}?autoplay=1"
               allow="autoplay; fullscreen; picture-in-picture"
               allowfullscreen
             ></iframe>
+
           {% endif %}
 
         </div>
       </div>
     </dialog>
   {% endif %}
-
 </section>
 
 <style>
   /* SECTION PRINCIPALE */
 
-  #miaora-video-{{ section.id }} {
-    background: var(--miv-bg);
+  #miaora-autoplay-{{ section.id }} {
+    background: var(--ma-page);
     padding: {{ s.padding_top }}px 20px {{ s.padding_bottom }}px;
     font-family: 'Manrope', sans-serif;
   }
 
-  #miaora-video-{{ section.id }} *,
-  #miaora-video-{{ section.id }} *::before,
-  #miaora-video-{{ section.id }} *::after {
+  #miaora-autoplay-{{ section.id }} *,
+  #miaora-autoplay-{{ section.id }} *::before,
+  #miaora-autoplay-{{ section.id }} *::after {
     box-sizing: border-box;
   }
 
-  #miaora-video-{{ section.id }} .miv__container {
-    max-width: var(--miv-width);
-    margin-inline: auto;
+  #miaora-autoplay-{{ section.id }} .ma-container {
+    max-width: var(--ma-width);
+    margin: 0 auto;
   }
 
-  /* BANNIÈRE */
+  /* BANNIÈRE VIDÉO */
 
-  #miaora-video-{{ section.id }} .miv__banner {
+  #miaora-autoplay-{{ section.id }} .ma-banner {
     position: relative;
     isolation: isolate;
     display: grid;
     place-items: center;
-    min-height: var(--miv-height);
-    padding: 60px 28px;
+    min-height: var(--ma-height);
+    padding: 55px 26px;
+    border-radius: var(--ma-radius);
+    background: var(--ma-bg);
     overflow: hidden;
-    border-radius: var(--miv-radius);
-    background: var(--miv-fallback);
   }
 
-  /* IMAGE DE COUVERTURE */
+  /* IMAGE / VIDÉO EN FOND */
 
-  #miaora-video-{{ section.id }} .miv__picture,
-  #miaora-video-{{ section.id }} .miv__image,
-  #miaora-video-{{ section.id }} .miv__placeholder,
-  #miaora-video-{{ section.id }} .miv__shade {
+  #miaora-autoplay-{{ section.id }} .ma-picture,
+  #miaora-autoplay-{{ section.id }} .ma-background-video,
+  #miaora-autoplay-{{ section.id }} .ma-background-iframe,
+  #miaora-autoplay-{{ section.id }} .ma-shade {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
   }
 
-  #miaora-video-{{ section.id }} .miv__picture {
+  #miaora-autoplay-{{ section.id }} .ma-picture {
+    z-index: -3;
     display: block;
-    z-index: -2;
   }
 
-  #miaora-video-{{ section.id }} .miv__image {
-    object-fit: cover;
-    object-position: var(--miv-image-position);
-    z-index: -2;
-  }
-
-  #miaora-video-{{ section.id }} .miv__placeholder {
-    z-index: -2;
-    overflow: hidden;
-    opacity: .32;
-  }
-
-  #miaora-video-{{ section.id }} .miv__placeholder svg {
+  #miaora-autoplay-{{ section.id }} .ma-poster {
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: var(--ma-image-pos);
   }
 
-  /* FILTRE SOMBRE */
+  #miaora-autoplay-{{ section.id }} .ma-background-video {
+    z-index: -2;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    pointer-events: none;
+  }
 
-  #miaora-video-{{ section.id }} .miv__shade {
+  /* VIDÉO YOUTUBE / VIMEO */
+
+  #miaora-autoplay-{{ section.id }} .ma-background-iframe {
+    z-index: -2;
+    top: 50%;
+    left: 50%;
+    width: max(100%, 177.78vh);
+    height: max(100%, 56.25vw);
+    transform: translate(-50%, -50%);
+    border: 0;
+    pointer-events: none;
+  }
+
+  /* ASSOMBRISSEMENT */
+
+  #miaora-autoplay-{{ section.id }} .ma-shade {
     z-index: -1;
-    background: rgba(0, 0, 0, var(--miv-overlay));
+    background: rgba(0, 0, 0, var(--ma-overlay));
+    pointer-events: none;
   }
 
-  /* CONTENU CENTRÉ */
+  /* TEXTES CENTRÉS */
 
-  #miaora-video-{{ section.id }} .miv__content {
-    position: relative;
+  #miaora-autoplay-{{ section.id }} .ma-content {
+    max-width: var(--ma-text-width);
     width: 100%;
-    max-width: var(--miv-text-width);
     text-align: center;
-    color: var(--miv-text);
+    color: var(--ma-text);
+    position: relative;
   }
 
-  #miaora-video-{{ section.id }} .miv__eyebrow {
-    margin: 0 0 12px;
-    color: var(--miv-text);
+  #miaora-autoplay-{{ section.id }} .ma-eyebrow {
+    margin: 0 0 10px;
     font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
     letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--ma-text);
+    font-family: 'Manrope', sans-serif;
   }
 
   /* TITRE MANROPE */
 
-  #miaora-video-{{ section.id }} .miv__title {
+  #miaora-autoplay-{{ section.id }} .ma-title {
+    margin: 0 0 15px;
     font-family: 'Manrope', sans-serif !important;
-    color: var(--miv-title);
-    margin: 0 0 14px;
-    font-size: var(--miv-title-size);
-    line-height: 1.15;
+    font-size: var(--ma-title-size);
     font-weight: 800;
+    line-height: 1.16;
     letter-spacing: -.045em;
+    color: var(--ma-title);
   }
 
   /* DESCRIPTION MANROPE */
 
-  #miaora-video-{{ section.id }} .miv__description,
-  #miaora-video-{{ section.id }} .miv__description * {
+  #miaora-autoplay-{{ section.id }} .ma-description,
+  #miaora-autoplay-{{ section.id }} .ma-description * {
     font-family: 'Manrope', sans-serif !important;
-    font-size: var(--miv-subtitle-size);
+    font-size: var(--ma-text-size);
+    line-height: 1.45;
     font-weight: 600;
-    line-height: 1.4;
-    color: var(--miv-text);
+    color: var(--ma-text);
   }
 
-  #miaora-video-{{ section.id }} .miv__description p {
+  #miaora-autoplay-{{ section.id }} .ma-description p {
     margin: 0;
   }
 
-  #miaora-video-{{ section.id }} .miv__description p + p {
+  #miaora-autoplay-{{ section.id }} .ma-description p + p {
     margin-top: 8px;
   }
 
   /* BOUTON */
 
-  #miaora-video-{{ section.id }} .miv__button {
+  #miaora-autoplay-{{ section.id }} .ma-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    min-height: 48px;
     margin-top: 24px;
-    padding: 16px 26px;
-    min-height: 49px;
-    max-width: 100%;
-    background: var(--miv-button-bg);
-    color: var(--miv-button-text);
-    border: none;
-    border-radius: var(--miv-button-radius);
-    font-family: 'Manrope', sans-serif !important;
-    font-size: var(--miv-button-size);
+    padding: 14px 24px;
+    border: 0;
+    border-radius: var(--ma-button-radius);
+    background: var(--ma-button);
+    color: var(--ma-button-text);
+    font-family: 'Manrope', sans-serif;
     font-weight: 700;
+    font-size: var(--ma-button-size);
     line-height: 1.25;
-    text-align: center;
     cursor: pointer;
-    transition: transform .2s ease, filter .2s ease;
+    transition: transform .2s, filter .2s;
   }
 
-  #miaora-video-{{ section.id }} .miv__button:hover:not(:disabled) {
+  #miaora-autoplay-{{ section.id }} .ma-button:hover {
     transform: translateY(-2px);
-    filter: brightness(.96);
+    filter: brightness(.94);
   }
 
-  #miaora-video-{{ section.id }} .miv__button:disabled {
-    opacity: .65;
-    cursor: not-allowed;
-  }
-
-  #miaora-video-{{ section.id }} .miv__button:focus-visible,
-  #miaora-video-{{ section.id }} .miv__close:focus-visible {
+  #miaora-autoplay-{{ section.id }} .ma-button:focus-visible,
+  #miaora-autoplay-{{ section.id }} .ma-close:focus-visible {
     outline: 3px solid #fff;
     outline-offset: 3px;
   }
 
-  /* LECTEUR VIDÉO EN MODALE */
+  /* LECTEUR VIDÉO GRAND FORMAT */
 
-  #miaora-video-{{ section.id }} .miv__dialog {
+  #miaora-autoplay-{{ section.id }} .ma-dialog {
     position: fixed;
     inset: 0;
-    width: min(1100px, calc(100% - 30px));
-    max-width: none;
-    max-height: calc(100% - 30px);
-    padding: 0;
     margin: auto;
-    overflow: visible;
+    padding: 0;
+    width: min(1100px, calc(100vw - 28px));
+    max-width: none;
+    max-height: calc(100dvh - 32px);
     border: 0;
-    border-radius: 14px;
+    border-radius: 15px;
     background: #000;
     color: #fff;
+    overflow: visible;
   }
 
-  #miaora-video-{{ section.id }} .miv__dialog::backdrop {
-    background: rgba(0, 0, 0, .84);
+  #miaora-autoplay-{{ section.id }} .ma-dialog::backdrop {
+    background: rgba(0, 0, 0, .86);
   }
 
-  #miaora-video-{{ section.id }} .miv__player-wrap {
+  #miaora-autoplay-{{ section.id }} .ma-player-box {
     position: relative;
   }
 
-  #miaora-video-{{ section.id }} .miv__player {
+  #miaora-autoplay-{{ section.id }} .ma-player {
     aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 14px;
     background: #000;
+    border-radius: 15px;
+    overflow: hidden;
   }
 
-  #miaora-video-{{ section.id }} .miv__player video,
-  #miaora-video-{{ section.id }} .miv__player iframe {
+  #miaora-autoplay-{{ section.id }} .ma-player video,
+  #miaora-autoplay-{{ section.id }} .ma-player iframe {
     display: block;
     width: 100%;
     height: 100%;
-    border: 0;
     object-fit: contain;
+    border: 0;
   }
 
-  #miaora-video-{{ section.id }} .miv__close {
+  #miaora-autoplay-{{ section.id }} .ma-close {
     position: absolute;
     z-index: 2;
-    top: -18px;
-    right: -12px;
-    display: grid;
-    place-items: center;
+    right: -10px;
+    top: -17px;
     width: 38px;
     height: 38px;
+    display: grid;
+    place-items: center;
     border: 0;
     border-radius: 50%;
     background: #fff;
     color: #111;
+    box-shadow: 0 3px 15px #0005;
     font-size: 28px;
-    line-height: 1;
     cursor: pointer;
-    box-shadow: 0 2px 16px rgba(0,0,0,.25);
   }
 
-  /* RESPONSIVE MOBILE */
+  /* VERSION MOBILE */
 
   @media (max-width: 749px) {
 
-    #miaora-video-{{ section.id }} {
+    #miaora-autoplay-{{ section.id }} {
       padding:
         {{ s.mobile_padding_top }}px
         {{ s.mobile_side_padding }}px
         {{ s.mobile_padding_bottom }}px;
     }
 
-    #miaora-video-{{ section.id }} .miv__banner {
+    #miaora-autoplay-{{ section.id }} .ma-banner {
       min-height: {{ s.mobile_height }}px;
-      padding: 38px 18px;
+      padding: 36px 18px;
       border-radius: {{ s.mobile_radius }}px;
     }
 
-    #miaora-video-{{ section.id }} .miv__image {
+    #miaora-autoplay-{{ section.id }} .ma-poster {
       object-position: {{ s.mobile_image_position }};
     }
 
-    #miaora-video-{{ section.id }} .miv__title {
-      font-size: {{ s.mobile_title_size }}px;
-      margin-bottom: 12px;
-      line-height: 1.18;
+    #miaora-autoplay-{{ section.id }} .ma-title {
+      font-size: {{ s.mobile_title_size }}px !important;
     }
 
-    #miaora-video-{{ section.id }} .miv__description,
-    #miaora-video-{{ section.id }} .miv__description * {
+    #miaora-autoplay-{{ section.id }} .ma-description,
+    #miaora-autoplay-{{ section.id }} .ma-description * {
       font-size: {{ s.mobile_text_size }}px;
     }
 
-    #miaora-video-{{ section.id }} .miv__button {
+    #miaora-autoplay-{{ section.id }} .ma-button {
       font-size: {{ s.mobile_button_size }}px;
-      padding: 14px 18px;
-      margin-top: 20px;
+      margin-top: 18px;
+      padding: 13px 16px;
     }
 
-    #miaora-video-{{ section.id }} .miv__dialog {
-      width: calc(100% - 18px);
-    }
-
-    #miaora-video-{{ section.id }} .miv__close {
-      top: -16px;
-      right: -3px;
+    #miaora-autoplay-{{ section.id }} .ma-close {
+      right: -2px;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    #miaora-video-{{ section.id }} .miv__button {
+    #miaora-autoplay-{{ section.id }} .ma-button {
       transition: none;
     }
   }
@@ -473,134 +503,202 @@
 
 <script>
 (function () {
-  var root = document.getElementById('miaora-video-{{ section.id }}');
+  var root = document.getElementById(
+    'miaora-autoplay-{{ section.id }}'
+  );
+
   if (!root) return;
 
-  var opener = root.querySelector('[data-miv-open]');
-  var modal = root.querySelector('[data-miv-dialog]');
-  if (!opener || !modal || !modal.showModal) return;
+  var background = root.querySelector(
+    '.ma-background-video'
+  );
 
-  var closer = root.querySelector('[data-miv-close]');
-  var video = modal.querySelector('video');
-  var iframe = modal.querySelector('iframe');
+  var dialog = root.querySelector(
+    '[data-ma-dialog]'
+  );
 
-  opener.addEventListener('click', function () {
-    modal.showModal();
+  var open = root.querySelector(
+    '[data-ma-open]'
+  );
 
-    if (iframe) {
-      iframe.src = iframe.getAttribute('data-miv-src');
+  var close = root.querySelector(
+    '[data-ma-close]'
+  );
+
+  /* LECTURE AUTOMATIQUE */
+
+  if (background) {
+    background.muted = true;
+    background.defaultMuted = true;
+
+    background.setAttribute('muted', '');
+    background.setAttribute('playsinline', '');
+
+    var start = background.play();
+
+    if (start && start.catch) {
+      start.catch(function () {});
+    }
+  }
+
+  if (
+    !dialog ||
+    !open ||
+    typeof dialog.showModal !== 'function'
+  ) return;
+
+  var fullVideo = dialog.querySelector('video');
+  var iframe = dialog.querySelector('iframe');
+
+  /* OUVRIR LA VIDÉO AVEC SON */
+
+  open.addEventListener('click', function () {
+
+    if (background) {
+      background.pause();
     }
 
-    if (video) {
-      var result = video.play();
-      if (result && typeof result.catch === 'function') {
+    dialog.showModal();
+
+    if (iframe) {
+      iframe.src = iframe.getAttribute('data-ma-src');
+    }
+
+    if (fullVideo) {
+      fullVideo.muted = false;
+
+      var result = fullVideo.play();
+
+      if (result && result.catch) {
         result.catch(function () {});
       }
     }
   });
 
-  if (closer) {
-    closer.addEventListener('click', function () {
-      modal.close();
+  /* FERMER LA VIDÉO */
+
+  if (close) {
+    close.addEventListener('click', function () {
+      dialog.close();
     });
   }
 
-  modal.addEventListener('click', function (event) {
-    if (event.target === modal) {
-      modal.close();
+  dialog.addEventListener('click', function (e) {
+    if (e.target === dialog) {
+      dialog.close();
     }
   });
 
-  modal.addEventListener('close', function () {
-    if (video) video.pause();
-    if (iframe) iframe.removeAttribute('src');
-    opener.focus();
+  /* REPRISE DE LA VIDÉO AUTOMATIQUE */
+
+  dialog.addEventListener('close', function () {
+
+    if (fullVideo) {
+      fullVideo.pause();
+      fullVideo.currentTime = 0;
+    }
+
+    if (iframe) {
+      iframe.removeAttribute('src');
+    }
+
+    if (background) {
+      var resumed = background.play();
+
+      if (resumed && resumed.catch) {
+        resumed.catch(function () {});
+      }
+    }
+
+    open.focus();
   });
+
 })();
 </script>
 
 {% schema %}
 {
-  "name": "Miaora - Vidéo immersive",
+  "name": "Miaora vidéo auto",
   "settings": [
     {
       "type": "header",
-      "content": "Vidéo à lire"
+      "content": "Vidéo (lecture automatique)"
     },
     {
       "type": "video",
       "id": "video",
-      "label": "Vidéo Shopify (prioritaire)"
+      "label": "Vidéo Shopify (recommandé)"
     },
     {
       "type": "video_url",
       "id": "external_video",
-      "label": "Ou lien YouTube / Vimeo",
+      "label": "Ou vidéo YouTube / Vimeo",
       "accept": ["youtube", "vimeo"],
-      "info": "Utilisé seulement si aucune vidéo Shopify n'est choisie."
+      "info": "Utilisée si aucune vidéo Shopify n'est choisie."
     },
-
+    {
+      "type": "paragraph",
+      "content": "La vidéo démarre automatiquement, en boucle et sans son. Le bouton permet de regarder avec le son."
+    },
     {
       "type": "header",
-      "content": "Image de couverture"
+      "content": "Image de secours"
     },
     {
       "type": "image_picker",
       "id": "poster",
-      "label": "Photo de couverture PC",
-      "info": "Si vide, miniature automatique de la vidéo Shopify."
+      "label": "Couverture ordinateur (facultatif)"
     },
     {
       "type": "image_picker",
       "id": "mobile_poster",
-      "label": "Photo de couverture mobile (facultatif)"
+      "label": "Couverture mobile (facultatif)"
     },
     {
       "type": "text",
       "id": "image_alt",
-      "label": "Texte alternatif de la photo",
-      "default": "Présentation de la litière autonettoyante Miaora"
+      "label": "Description de l'image",
+      "default": "Litière autonettoyante Miaora connectée"
     },
     {
       "type": "select",
-      "id": "desktop_image_position",
-      "label": "Cadrage photo PC",
+      "id": "image_position",
+      "label": "Position de la couverture PC",
       "default": "center center",
       "options": [
         {"value": "center center", "label": "Centre"},
-        {"value": "left center", "label": "Gauche"},
-        {"value": "right center", "label": "Droite"},
         {"value": "center top", "label": "Haut"},
-        {"value": "center bottom", "label": "Bas"}
+        {"value": "center bottom", "label": "Bas"},
+        {"value": "left center", "label": "Gauche"},
+        {"value": "right center", "label": "Droite"}
       ]
     },
     {
       "type": "select",
       "id": "mobile_image_position",
-      "label": "Cadrage photo mobile",
+      "label": "Position de la couverture mobile",
       "default": "center center",
       "options": [
         {"value": "center center", "label": "Centre"},
-        {"value": "left center", "label": "Gauche"},
-        {"value": "right center", "label": "Droite"},
         {"value": "center top", "label": "Haut"},
-        {"value": "center bottom", "label": "Bas"}
+        {"value": "center bottom", "label": "Bas"},
+        {"value": "left center", "label": "Gauche"},
+        {"value": "right center", "label": "Droite"}
       ]
     },
     {
       "type": "range",
-      "id": "overlay_opacity",
-      "label": "Assombrir la photo",
+      "id": "overlay_strength",
+      "label": "Assombrissement vidéo",
       "min": 0,
       "max": 90,
       "step": 5,
       "unit": "%",
       "default": 45
     },
-
     {
       "type": "header",
-      "content": "Contenu - Manrope"
+      "content": "Contenu Manrope"
     },
     {
       "type": "text",
@@ -617,13 +715,19 @@
       "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "<p>Découvrez comment Miaora vous facilite le quotidien et prend soin du confort de votre chat.</p>"
+      "default": "<p>Découvrez comment Miaora simplifie votre quotidien et le confort de votre chat.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Afficher le bouton avec son",
+      "default": true
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Texte du bouton",
-      "default": "VOIR LA VIDÉO COMPLÈTE"
+      "default": "VOIR LA VIDÉO AVEC LE SON"
     },
     {
       "type": "checkbox",
@@ -631,33 +735,32 @@
       "label": "Afficher l'icône lecture",
       "default": false
     },
-
     {
       "type": "header",
       "content": "Couleurs"
     },
     {
       "type": "color",
-      "id": "section_color",
+      "id": "section_bg",
       "label": "Fond extérieur",
       "default": "#FAF7F3"
     },
     {
       "type": "color",
-      "id": "banner_color",
-      "label": "Fond sans image",
-      "default": "#6D7375"
+      "id": "fallback_bg",
+      "label": "Fond sans vidéo",
+      "default": "#656F74"
     },
     {
       "type": "color",
       "id": "title_color",
-      "label": "Couleur du titre",
+      "label": "Titre",
       "default": "#FFFFFF"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Couleur de la description",
+      "label": "Description",
       "default": "#FFFFFF"
     },
     {
@@ -668,11 +771,10 @@
     },
     {
       "type": "color",
-      "id": "button_text",
+      "id": "button_color",
       "label": "Texte du bouton",
       "default": "#1B1B1B"
     },
-
     {
       "type": "header",
       "content": "Ordinateur"
@@ -690,7 +792,7 @@
     {
       "type": "range",
       "id": "text_width",
-      "label": "Largeur zone de texte",
+      "label": "Largeur zone texte",
       "min": 400,
       "max": 1000,
       "step": 20,
@@ -700,7 +802,7 @@
     {
       "type": "range",
       "id": "desktop_height",
-      "label": "Hauteur bannière PC",
+      "label": "Hauteur bannière",
       "min": 260,
       "max": 740,
       "step": 20,
@@ -710,7 +812,7 @@
     {
       "type": "range",
       "id": "desktop_radius",
-      "label": "Coins arrondis PC",
+      "label": "Coins arrondis",
       "min": 0,
       "max": 50,
       "step": 1,
@@ -720,7 +822,7 @@
     {
       "type": "range",
       "id": "desktop_title_size",
-      "label": "Taille titre PC",
+      "label": "Taille titre",
       "min": 26,
       "max": 70,
       "step": 1,
@@ -730,7 +832,7 @@
     {
       "type": "range",
       "id": "desktop_text_size",
-      "label": "Taille description PC",
+      "label": "Taille description",
       "min": 12,
       "max": 28,
       "step": 1,
@@ -740,7 +842,7 @@
     {
       "type": "range",
       "id": "button_font_size",
-      "label": "Taille texte bouton PC",
+      "label": "Taille texte bouton",
       "min": 11,
       "max": 22,
       "step": 1,
@@ -760,7 +862,7 @@
     {
       "type": "range",
       "id": "padding_top",
-      "label": "Espacement supérieur PC",
+      "label": "Marge extérieure haute",
       "min": 0,
       "max": 160,
       "step": 4,
@@ -770,14 +872,13 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "Espacement inférieur PC",
+      "label": "Marge extérieure basse",
       "min": 0,
       "max": 160,
       "step": 4,
       "unit": "px",
       "default": 16
     },
-
     {
       "type": "header",
       "content": "Mobile"
@@ -785,7 +886,7 @@
     {
       "type": "range",
       "id": "mobile_height",
-      "label": "Hauteur bannière mobile",
+      "label": "Hauteur bannière",
       "min": 300,
       "max": 700,
       "step": 10,
@@ -795,7 +896,7 @@
     {
       "type": "range",
       "id": "mobile_radius",
-      "label": "Coins arrondis mobile",
+      "label": "Coins arrondis",
       "min": 0,
       "max": 50,
       "step": 1,
@@ -805,7 +906,7 @@
     {
       "type": "range",
       "id": "mobile_title_size",
-      "label": "Taille titre mobile",
+      "label": "Taille titre",
       "min": 22,
       "max": 44,
       "step": 1,
@@ -815,7 +916,7 @@
     {
       "type": "range",
       "id": "mobile_text_size",
-      "label": "Taille description mobile",
+      "label": "Taille description",
       "min": 12,
       "max": 22,
       "step": 1,
@@ -825,7 +926,7 @@
     {
       "type": "range",
       "id": "mobile_button_size",
-      "label": "Taille texte bouton mobile",
+      "label": "Taille texte bouton",
       "min": 11,
       "max": 20,
       "step": 1,
@@ -835,7 +936,7 @@
     {
       "type": "range",
       "id": "mobile_side_padding",
-      "label": "Marges latérales mobile",
+      "label": "Marge extérieure côtés",
       "min": 0,
       "max": 30,
       "step": 1,
@@ -845,7 +946,7 @@
     {
       "type": "range",
       "id": "mobile_padding_top",
-      "label": "Espacement supérieur mobile",
+      "label": "Marge extérieure haute",
       "min": 0,
       "max": 100,
       "step": 2,
@@ -855,7 +956,7 @@
     {
       "type": "range",
       "id": "mobile_padding_bottom",
-      "label": "Espacement inférieur mobile",
+      "label": "Marge extérieure basse",
       "min": 0,
       "max": 100,
       "step": 2,
@@ -865,7 +966,7 @@
   ],
   "presets": [
     {
-      "name": "Miaora - Vidéo immersive"
+      "name": "Miaora vidéo auto"
     }
   ]
 }
