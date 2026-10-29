@@ -545,16 +545,16 @@
             "icon": "none",
             "icon_width": 48,
             "subheading": "",
-            "title": "Heading",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "link_text": "",
+            "title": "Une maison fraîche, sans mauvaises odeurs",
+            "content": "<p>Grâce à sa triple désodorisation et sa technologie ionique, Miaora neutralise les mauvaises odeurs pour un intérieur plus frais et agréable.</p>",
+            "link_text": "Obtenir Maintenant",
             "link_url": "",
-            "background": "#000000",
+            "background": "#FBFBFB",
             "background_gradient": "",
-            "text_color": "#ffffff",
+            "text_color": "#000000",
             "text_gradient": "",
-            "button_background": "",
-            "button_text_color": ""
+            "button_background": "#000000",
+            "button_text_color": "#FFFFFF"
           }
         }
       },
