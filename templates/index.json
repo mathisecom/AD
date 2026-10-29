@@ -54,6 +54,7 @@
       "type": "bannerproduit",
       "name": "Bannière packs Manrope",
       "settings": {
+        "image": "shopify://shop_images/bb4178d7-bc34-491d-bf62-70a13d6247f7.png",
         "image_alt": "Litière Miaora",
         "title": "Litière Miaora",
         "description": "<p>Découvrez notre sélection unique et <strong>économisez jusqu'à 50 €</strong></p>",
@@ -209,7 +210,7 @@
         "show_button": true,
         "button_label": "OBTENIR MAINTENANT",
         "show_play_icon": false,
-        "section_bg": "#FFFFFF",
+        "section_bg": "#ffffff",
         "fallback_bg": "#656f74",
         "title_color": "#ffffff",
         "text_color": "#ffffff",
