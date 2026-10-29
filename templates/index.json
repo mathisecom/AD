@@ -50,6 +50,53 @@
         "background_gradient": ""
       }
     },
+    "bannerproduit_gXhrYi": {
+      "type": "bannerproduit",
+      "name": "Bannière packs Manrope",
+      "settings": {
+        "image_alt": "Pack de produits",
+        "title": "Packs du Litter-Robot",
+        "description": "<p>Découvrez notre sélection unique et <strong>économisez jusqu'à 50 €</strong></p>",
+        "button_label": "Acheter maintenant",
+        "button_link": "",
+        "open_new_tab": false,
+        "section_bg": "#FFFFFF",
+        "banner_bg": "#F2F2F2",
+        "title_color": "#000000",
+        "text_color": "#767676",
+        "button_bg": "#454342",
+        "button_text_color": "#FFFFFF",
+        "radius": 32,
+        "mobile_radius": 34,
+        "max_width": 1050,
+        "desktop_height": 160,
+        "desktop_padding": 28,
+        "desktop_gap": 24,
+        "desktop_image_width": 270,
+        "desktop_image_height": 190,
+        "desktop_image_bottom": 0,
+        "title_size": 34,
+        "text_size": 15,
+        "section_padding_desktop": 40,
+        "button_size": 13,
+        "button_height": 56,
+        "button_horizontal_padding": 26,
+        "button_radius": 40,
+        "section_padding_mobile": 24,
+        "section_side_mobile": 0,
+        "mobile_padding_top": 24,
+        "mobile_padding_side": 26,
+        "mobile_padding_bottom": 30,
+        "mobile_image_share": 36,
+        "mobile_image_height": 138,
+        "mobile_gap": 12,
+        "mobile_row_gap": 12,
+        "mobile_title_size": 22,
+        "mobile_text_size": 13,
+        "mobile_button_size": 15,
+        "mobile_button_height": 48
+      }
+    },
     "imgfonction_kD7Ugg": {
       "type": "imgfonction",
       "blocks": {
@@ -171,6 +218,7 @@
   },
   "order": [
     "slideshow_UenUjh",
+    "bannerproduit_gXhrYi",
     "imgfonction_kD7Ugg",
     "faq"
   ]
