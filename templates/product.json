@@ -91,6 +91,16 @@
             "content": "<p><strong>Livraison</strong></p><p>Nos commandes sont expédiées et livrée dans un délai de <strong>3 à 4 jours</strong> ouvrables avec LaPoste Colissimo.</p><p><strong>Retour</strong></p><p>Les retours sont possibles pendant 14 jours après la réception. Si la demande de remboursement est validée, tu recevras ton argent entre 5 à 10 jours ouvrés (géré par le processeur de paiement). Les frais de livraisons engendrés pour le retour sont à notre charge seulement s'il s'agit d'un défaut du colis/produits nécessitant le SAV.</p>",
             "page": ""
           }
+        },
+        "collapsible_text_NT76w7": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Title",
+            "content": "<p>Share some content to your customers about your products.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -104,7 +114,8 @@
         "buy_buttons",
         "liquid_JDefUk",
         "description",
-        "collapsible_text_GHinfi"
+        "collapsible_text_GHinfi",
+        "collapsible_text_NT76w7"
       ],
       "settings": {
         "full_width": true,
