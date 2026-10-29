@@ -468,6 +468,41 @@
         "mobile_padding_bottom": 28
       }
     },
+    "media_with_text_aJRKke": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_p7cn7J": {
+          "type": "image",
+          "settings": {
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Une litière intelligente et sécurisée",
+            "content": "<p>Contrôlez Miaora à distance, suivez le poids de votre chat et profitez d’un système de sécurité intelligent grâce à ses capteurs infrarouges.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_p7cn7J"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
     "imgfonction_UYBxzr": {
       "type": "imgfonction",
       "blocks": {
@@ -652,6 +687,7 @@
     "logoscroll_qPy84t",
     "testimonials_iqK6wK",
     "grillebenefice_b9p3Xa",
+    "media_with_text_aJRKke",
     "imgfonction_UYBxzr",
     "media_with_text_6HMzRE",
     "faq_tRG4KC",
