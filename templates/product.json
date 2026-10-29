@@ -510,6 +510,22 @@
         "spacing": "small"
       }
     },
+    "scrolling_text_NqEtCf": {
+      "type": "scrolling-text",
+      "name": "Scrolling text",
+      "settings": {
+        "full_width": true,
+        "text": "Nettoyage 100% Automatique, Sans Effort",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 10,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "text_gradient": ""
+      }
+    },
     "imgfonction_UYBxzr": {
       "type": "imgfonction",
       "blocks": {
@@ -695,6 +711,7 @@
     "testimonials_iqK6wK",
     "grillebenefice_b9p3Xa",
     "media_with_text_aJRKke",
+    "scrolling_text_NqEtCf",
     "imgfonction_UYBxzr",
     "media_with_text_6HMzRE",
     "faq_tRG4KC",
