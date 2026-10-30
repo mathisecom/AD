@@ -1,0 +1,355 @@
+{% comment %}
+  MIAORA — Panneau tactile & guide
+  Section Shopify OS 2.0, personnalisable dans l'editeur de theme.
+{% endcomment %}
+
+<section
+  id="miaora-touch-{{ section.id }}"
+  class="miaora-touch"
+  style="
+    --mt-background: {{ section.settings.background }};
+    --mt-text: {{ section.settings.text_color }};
+    --mt-muted: {{ section.settings.muted_color }};
+    --mt-accent: {{ section.settings.accent_color }};
+    --mt-card: {{ section.settings.card_color }};
+    --mt-card-border: {{ section.settings.card_border }};
+    --mt-media: {{ section.settings.media_background }};
+    --mt-panel: {{ section.settings.panel_background }};
+    --mt-step-number-bg: {{ section.settings.step_number_background }};
+    --mt-max: {{ section.settings.max_width }}px;
+    --mt-top: {{ section.settings.padding_top }}px;
+    --mt-bottom: {{ section.settings.padding_bottom }}px;
+    --mt-gap: {{ section.settings.column_gap }}px;
+    --mt-radius: {{ section.settings.corner_radius }}px;
+    --mt-media-radius: {{ section.settings.media_radius }}px;
+    --mt-image-width: {{ section.settings.image_width }}%;
+    --mt-media-ratio: {{ section.settings.media_ratio }};
+    --mt-title-size: {{ section.settings.title_size }}px;
+    --mt-title-mobile: {{ section.settings.title_mobile_size }}px;
+    --mt-body-size: {{ section.settings.body_size }}px;
+    --mt-font: {% if section.settings.use_manrope %}'Manrope', sans-serif{% else %}inherit{% endif %};
+  "
+>
+  <div class="mt-container">
+    <div class="mt-main{% if section.settings.image_on_right %} mt-main--reversed{% endif %}">
+      <div class="mt-media" aria-label="{{ section.settings.image_alt | escape }}">
+        {% if section.settings.panel_image != blank %}
+          <picture>
+            {% if section.settings.mobile_image != blank %}
+              <source media="(max-width: 749px)" srcset="{{ section.settings.mobile_image | image_url: width: 900 }}">
+            {% endif %}
+            <img
+              src="{{ section.settings.panel_image | image_url: width: 1100 }}"
+              srcset="{{ section.settings.panel_image | image_url: width: 440 }} 440w, {{ section.settings.panel_image | image_url: width: 700 }} 700w, {{ section.settings.panel_image | image_url: width: 1100 }} 1100w"
+              sizes="(max-width: 749px) 100vw, 45vw"
+              width="{{ section.settings.panel_image.width }}"
+              height="{{ section.settings.panel_image.height }}"
+              alt="{{ section.settings.image_alt | default: section.settings.panel_image.alt | escape }}"
+              loading="lazy"
+            >
+          </picture>
+        {% else %}
+          {% comment %} Illustration CSS de secours : remplacer par une vraie photo via l'editeur. {% endcomment %}
+          <div class="mt-panel-illustration" role="img" aria-label="Illustration du panneau tactile circulaire">
+            <div class="mt-panel-disc">
+              <div class="mt-panel-status">
+                <span>◯</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 8.5a15 15 0 0 1 19 0M6 12a9 9 0 0 1 12 0M10 15.5a3 3 0 0 1 4 0"/><circle cx="12" cy="19" r="1"/></svg>
+                <span>Full</span>
+              </div>
+              <div class="mt-panel-actions">
+                <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 20h10M9 20l-1-12h8l-1 12M10 8V4h4v4M8 14h8"/></svg><span>Clean</span></div>
+                <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13M10 10v7M14 10v7"/></svg><span>Replace</span></div>
+                <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 0 0 0-10M12 21a9 9 0 0 0 0-18M6 8a6 6 0 0 0 0 8M3 5a10 10 0 0 0 0 14"/></svg><span>Auto</span></div>
+                <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C11 4 5 9 5 16a4 4 0 0 0 4 4c7 0 11-8 11-16ZM5 20c4-5 7-8 12-11"/></svg><span>Remove odor</span></div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="mt-content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="mt-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="mt-heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <div class="mt-description rte">{{ section.settings.description }}</div>
+        {% endif %}
+
+        <div class="mt-features">
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div class="mt-feature" {{ block.shopify_attributes }}>
+                <div class="mt-icon" aria-hidden="true">
+                  {% case block.settings.icon %}
+                    {% when 'clean' %}
+                      <svg viewBox="0 0 24 24"><path d="M7 20h10M9 20l-1-12h8l-1 12M10 8V4h4v4M8 14h8"/></svg>
+                    {% when 'auto' %}
+                      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M7 7a7 7 0 0 0 0 10M17 7a7 7 0 0 1 0 10M4 4a11 11 0 0 0 0 16M20 4a11 11 0 0 1 0 16"/></svg>
+                    {% when 'replace' %}
+                      <svg viewBox="0 0 24 24"><path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13M10 10v7M14 10v7"/></svg>
+                    {% when 'leaf' %}
+                      <svg viewBox="0 0 24 24"><path d="M20 4C11 4 5 9 5 16a4 4 0 0 0 4 4c7 0 11-8 11-16ZM5 20c4-5 7-8 12-11"/></svg>
+                    {% when 'wifi' %}
+                      <svg viewBox="0 0 24 24"><path d="M2 8a16 16 0 0 1 20 0M5 12a11 11 0 0 1 14 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="20" r="1"/></svg>
+                    {% when 'full' %}
+                      <span class="mt-icon-word">Full</span>
+                    {% when 'clock' %}
+                      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                    {% when 'bell' %}
+                      <svg viewBox="0 0 24 24"><path d="M6 17h12l-2-3V9a4 4 0 0 0-8 0v5l-2 3ZM10 20h4"/></svg>
+                    {% when 'check' %}
+                      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+                    {% else %}
+                      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17v.2"/></svg>
+                  {% endcase %}
+                </div>
+                <div class="mt-feature-body">
+                  <div class="mt-feature-top">
+                    {% if block.settings.badge != blank %}<span class="mt-feature-tag">{{ block.settings.badge | escape }}</span>{% endif %}
+                    <h3 class="mt-feature-title">{{ block.settings.title | escape }}</h3>
+                  </div>
+                  {% if block.settings.description != blank %}
+                    <div class="mt-feature-description rte">{{ block.settings.description }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if section.settings.footnote != blank %}
+          <div class="mt-footnote rte">{{ section.settings.footnote }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if section.settings.show_steps %}
+      <div class="mt-steps-section">
+        {% if section.settings.steps_title != blank %}
+          <h3 class="mt-steps-heading">{{ section.settings.steps_title | escape }}</h3>
+        {% endif %}
+        <div class="mt-steps mt-steps--{{ section.settings.mobile_step_columns }}">
+          {% assign step_index = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'step' %}
+              {% assign step_index = step_index | plus: 1 %}
+              <div class="mt-step" {{ block.shopify_attributes }}>
+                <span class="mt-step-number">{{ step_index }}</span>
+                <div class="mt-step-copy">
+                  {% if block.settings.title != blank %}<strong>{{ block.settings.title | escape }}</strong>{% endif %}
+                  {% if block.settings.description != blank %}<div class="rte">{{ block.settings.description }}</div>{% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+  #miaora-touch-{{ section.id }} {
+    background: var(--mt-background);
+    color: var(--mt-text);
+    font-family: var(--mt-font);
+    padding: var(--mt-top) 20px var(--mt-bottom);
+  }
+  #miaora-touch-{{ section.id }} *,
+  #miaora-touch-{{ section.id }} *::before,
+  #miaora-touch-{{ section.id }} *::after { box-sizing: border-box; }
+  #miaora-touch-{{ section.id }} .mt-container { max-width: var(--mt-max); margin: 0 auto; }
+  #miaora-touch-{{ section.id }} .mt-main {
+    display: grid; grid-template-columns: minmax(0,var(--mt-image-width)) minmax(0,1fr);
+    align-items: start; gap: var(--mt-gap);
+  }
+  #miaora-touch-{{ section.id }} .mt-main--reversed { direction: rtl; }
+  #miaora-touch-{{ section.id }} .mt-main--reversed > * { direction: ltr; }
+  #miaora-touch-{{ section.id }} .mt-media {
+    overflow: hidden; border-radius: var(--mt-media-radius); background: var(--mt-media);
+    aspect-ratio: var(--mt-media-ratio); min-height: 0;
+  }
+  #miaora-touch-{{ section.id }} .mt-media picture,
+  #miaora-touch-{{ section.id }} .mt-media img {
+    display: block; width: 100%; height: 100%;
+  }
+  #miaora-touch-{{ section.id }} .mt-media img { object-fit: {{ section.settings.image_fit }}; object-position: {{ section.settings.image_position }}; }
+  #miaora-touch-{{ section.id }} .mt-panel-illustration {
+    display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, var(--mt-media) 0%, var(--mt-media) 80%, #d4d9db 80%);
+    padding: 10%;
+  }
+  #miaora-touch-{{ section.id }} .mt-panel-disc {
+    width: 100%; aspect-ratio: 1; max-width: 360px; border-radius: 50%;
+    background: var(--mt-panel); color: #fff;
+    border: clamp(4px, .7vw, 8px) solid #ecb842;
+    outline: clamp(5px, .9vw, 12px) solid #b5babe;
+    box-shadow: 0 3px 12px #0003, inset 0 0 0 4px #1b1b1b;
+    display: flex; flex-direction: column; justify-content: center; gap: 9%; padding: 12%;
+  }
+  #miaora-touch-{{ section.id }} .mt-panel-status {display:flex;justify-content:space-between;align-items:center;font-size:clamp(10px,1.05vw,16px);font-weight:700;gap:8px;}
+  #miaora-touch-{{ section.id }} .mt-panel-status svg {width:24%;max-width:30px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}
+  #miaora-touch-{{ section.id }} .mt-panel-actions {display:grid;grid-template-columns:1fr 1fr;gap:20% 12%;}
+  #miaora-touch-{{ section.id }} .mt-panel-actions > div {display:flex;flex-direction:column;align-items:center;gap:4px;font-size:clamp(9px,.9vw,14px);font-weight:600;text-align:center;white-space:nowrap;}
+  #miaora-touch-{{ section.id }} .mt-panel-actions svg {width:34%;min-width:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  #miaora-touch-{{ section.id }} .mt-content {min-width:0;}
+  #miaora-touch-{{ section.id }} .mt-eyebrow {margin:0 0 9px;font-size:11px;letter-spacing:.085em;font-weight:800;text-transform:uppercase;color:var(--mt-muted);}
+  #miaora-touch-{{ section.id }} .mt-heading {margin:0 0 12px;font-size:var(--mt-title-size);line-height:1.14;letter-spacing:-.043em;font-weight:800;color:var(--mt-text);}
+  #miaora-touch-{{ section.id }} .mt-description {color:var(--mt-muted);font-size:var(--mt-body-size);line-height:1.65;margin:0 0 19px;}
+  #miaora-touch-{{ section.id }} .rte p {margin:0 0 6px;}
+  #miaora-touch-{{ section.id }} .rte p:last-child {margin-bottom:0;}
+  #miaora-touch-{{ section.id }} .mt-features {display:grid;gap:8px;}
+  #miaora-touch-{{ section.id }} .mt-feature {
+    display:flex; align-items:flex-start; gap:12px; padding:12px 13px;
+    border:1px solid var(--mt-card-border);border-radius:var(--mt-radius);
+    background:var(--mt-card);min-width:0;
+  }
+  #miaora-touch-{{ section.id }} .mt-icon {
+    display:flex;flex:0 0 37px;width:37px;height:37px;border-radius:50%;
+    align-items:center;justify-content:center;border:1.5px solid var(--mt-accent);color:var(--mt-text);
+  }
+  #miaora-touch-{{ section.id }} .mt-icon svg {width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  #miaora-touch-{{ section.id }} .mt-icon-word {font-size:9px;font-weight:800;}
+  #miaora-touch-{{ section.id }} .mt-feature-body {min-width:0;flex:1;}
+  #miaora-touch-{{ section.id }} .mt-feature-top {display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 8px;margin:0 0 3px;}
+  #miaora-touch-{{ section.id }} .mt-feature-tag {font-size:10px;line-height:1.3;font-weight:800;border-radius:5px;padding:2px 5px;background:color-mix(in srgb, var(--mt-accent) 13%, white);}
+  #miaora-touch-{{ section.id }} .mt-feature-title {margin:0;font-size:13px;line-height:1.4;letter-spacing:-.01em;font-weight:800;color:var(--mt-text);}
+  #miaora-touch-{{ section.id }} .mt-feature-description {font-size:11.5px;line-height:1.5;color:var(--mt-muted);overflow-wrap:anywhere;}
+  #miaora-touch-{{ section.id }} .mt-footnote {margin-top:13px;font-size:10px;line-height:1.6;color:var(--mt-muted);}
+  #miaora-touch-{{ section.id }} .mt-steps-section {margin-top:{{ section.settings.steps_spacing }}px;}
+  #miaora-touch-{{ section.id }} .mt-steps-heading {font-size:{{ section.settings.steps_title_size }}px;line-height:1.35;font-weight:800;margin:0 0 13px;letter-spacing:-.02em;}
+  #miaora-touch-{{ section.id }} .mt-steps {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+  #miaora-touch-{{ section.id }} .mt-step {
+    min-width:0;padding:14px 15px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+    background:var(--mt-card);border:1px solid var(--mt-card-border);border-radius:var(--mt-radius);
+  }
+  #miaora-touch-{{ section.id }} .mt-step-number {display:flex;align-items:center;justify-content:center;width:25px;height:25px;flex:0 0 25px;border-radius:50%;background:var(--mt-step-number-bg);color:var(--mt-text);font-size:12px;font-weight:800;}
+  #miaora-touch-{{ section.id }} .mt-step-copy {font-size:12px;line-height:1.55;color:var(--mt-muted);}
+  #miaora-touch-{{ section.id }} .mt-step-copy strong {color:var(--mt-text);font-weight:800;}
+  #miaora-touch-{{ section.id }} .mt-step-copy .rte {display:inline;}
+  #miaora-touch-{{ section.id }} .mt-step-copy .rte p {display:inline;}
+  @media (max-width: 989px) {
+    #miaora-touch-{{ section.id }} .mt-main {gap:25px;grid-template-columns:minmax(0,44%) minmax(0,1fr);}
+    #miaora-touch-{{ section.id }} .mt-heading {font-size:min(var(--mt-title-size),32px);}
+    #miaora-touch-{{ section.id }} .mt-feature {gap:9px;padding:11px;}
+    #miaora-touch-{{ section.id }} .mt-icon {flex-basis:32px;width:32px;height:32px;}
+  }
+  @media (max-width: 749px) {
+    #miaora-touch-{{ section.id }} {padding:calc(var(--mt-top) * .7) 16px calc(var(--mt-bottom) * .7);}
+    #miaora-touch-{{ section.id }} .mt-main {display:flex;flex-direction:column;gap:24px;}
+    #miaora-touch-{{ section.id }} .mt-media {width:100%;max-width:{{ section.settings.mobile_image_max_width }}px;align-self:{{ section.settings.mobile_image_alignment }};}
+    #miaora-touch-{{ section.id }} .mt-heading {font-size:var(--mt-title-mobile);line-height:1.17;}
+    #miaora-touch-{{ section.id }} .mt-description {font-size:14px;}
+    #miaora-touch-{{ section.id }} .mt-feature {padding:12px;}
+    #miaora-touch-{{ section.id }} .mt-feature-title {font-size:13px;}
+    #miaora-touch-{{ section.id }} .mt-feature-description {font-size:12px;}
+    #miaora-touch-{{ section.id }} .mt-steps-section {margin-top:32px;}
+    #miaora-touch-{{ section.id }} .mt-steps {grid-template-columns:repeat({{ section.settings.mobile_step_columns }},minmax(0,1fr));}
+    #miaora-touch-{{ section.id }} .mt-step {padding:13px;}
+    #miaora-touch-{{ section.id }} .mt-step-copy {font-size:11px;}
+    #miaora-touch-{{ section.id }} .mt-panel-status {font-size:clamp(10px,3vw,15px);}
+    #miaora-touch-{{ section.id }} .mt-panel-actions > div {font-size:clamp(9px,2.5vw,13px);}
+  }
+  @media (max-width: 375px) {
+    #miaora-touch-{{ section.id }} .mt-steps--2 {grid-template-columns:1fr;}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Miaora - Panneau tactile",
+  "tag": "section",
+  "class": "miaora-touch-section",
+  "max_blocks": 20,
+  "settings": [
+    {"type":"header","content":"Contenu principal"},
+    {"type":"text","id":"eyebrow","label":"Sur-titre","default":"PRISE EN MAIN"},
+    {"type":"textarea","id":"heading","label":"Grand titre","default":"Le panneau tactile,\ntouche par touche."},
+    {"type":"richtext","id":"description","label":"Texte descriptif","default":"<p>Quatre touches sur le socle, et des voyants pour suivre son état. Les mêmes commandes se retrouvent dans l'appli Tuya / Smart Life.</p>"},
+    {"type":"richtext","id":"footnote","label":"Note sous les fonctions","default":"<p>Les libellés du panneau sont en anglais. Le manuel fourni fait foi ; notre guide de démarrage, en français, vous accompagne pas à pas.</p>"},
+    {"type":"header","content":"Photo / visuel du panneau"},
+    {"type":"image_picker","id":"panel_image","label":"Image principale (ordinateur)"},
+    {"type":"image_picker","id":"mobile_image","label":"Image mobile (facultatif)"},
+    {"type":"text","id":"image_alt","label":"Description accessible de l'image","default":"Panneau tactile de la litière automatique Miaora"},
+    {"type":"select","id":"media_ratio","label":"Format du visuel","options":[{"value":"1 / 1","label":"Carré (1:1)"},{"value":"4 / 5","label":"Portrait (4:5)"},{"value":"3 / 4","label":"Portrait (3:4)"},{"value":"5 / 4","label":"Paysage (5:4)"}],"default":"1 / 1"},
+    {"type":"select","id":"image_fit","label":"Ajustement de l'image","options":[{"value":"cover","label":"Remplir (recadrage possible)"},{"value":"contain","label":"Entière (sans recadrage)"}],"default":"cover"},
+    {"type":"select","id":"image_position","label":"Position de l'image","options":[{"value":"center center","label":"Centre"},{"value":"center top","label":"Haut"},{"value":"center bottom","label":"Bas"},{"value":"left center","label":"Gauche"},{"value":"right center","label":"Droite"}],"default":"center center"},
+    {"type":"checkbox","id":"image_on_right","label":"Afficher le visuel à droite sur PC","default":false},
+    {"type":"range","id":"image_width","label":"Largeur du visuel sur PC (%)","min":30,"max":55,"step":1,"default":43},
+    {"type":"range","id":"mobile_image_max_width","label":"Largeur max. du visuel sur mobile","min":220,"max":700,"step":10,"unit":"px","default":520},
+    {"type":"select","id":"mobile_image_alignment","label":"Alignement du visuel sur mobile","options":[{"value":"flex-start","label":"Gauche"},{"value":"center","label":"Centre"},{"value":"flex-end","label":"Droite"}],"default":"center"},
+    {"type":"header","content":"Guide en étapes"},
+    {"type":"checkbox","id":"show_steps","label":"Afficher les étapes","default":true},
+    {"type":"text","id":"steps_title","label":"Titre des étapes","default":"Changer toute la litière, en 4 gestes"},
+    {"type":"range","id":"steps_spacing","label":"Écart au-dessus des étapes","min":10,"max":100,"step":2,"unit":"px","default":46},
+    {"type":"select","id":"mobile_step_columns","label":"Colonnes des étapes sur mobile","options":[{"value":"1","label":"1 colonne"},{"value":"2","label":"2 colonnes"}],"default":"2"},
+    {"type":"header","content":"Couleurs"},
+    {"type":"color","id":"background","label":"Fond de section","default":"#F7F2EB"},
+    {"type":"color","id":"text_color","label":"Texte principal","default":"#141414"},
+    {"type":"color","id":"muted_color","label":"Texte secondaire","default":"#625C56"},
+    {"type":"color","id":"accent_color","label":"Accent / contours d'icônes","default":"#FF8D43"},
+    {"type":"color","id":"card_color","label":"Fond des cartes","default":"#FFFFFF"},
+    {"type":"color","id":"card_border","label":"Contour des cartes","default":"#E8E1D9"},
+    {"type":"color","id":"media_background","label":"Fond derrière le visuel","default":"#E7EAEC"},
+    {"type":"color","id":"panel_background","label":"Centre du panneau illustré","default":"#111111"},
+    {"type":"color","id":"step_number_background","label":"Fond des numéros d'étapes","default":"#FFE2CF"},
+    {"type":"header","content":"Typographie et dimensions"},
+    {"type":"checkbox","id":"use_manrope","label":"Utiliser la police Manrope","default":true},
+    {"type":"range","id":"title_size","label":"Taille titre PC","min":22,"max":54,"step":1,"unit":"px","default":37},
+    {"type":"range","id":"title_mobile_size","label":"Taille titre mobile","min":20,"max":40,"step":1,"unit":"px","default":29},
+    {"type":"range","id":"body_size","label":"Taille de description PC","min":12,"max":20,"step":1,"unit":"px","default":15},
+    {"type":"range","id":"steps_title_size","label":"Taille titre des étapes","min":14,"max":28,"step":1,"unit":"px","default":18},
+    {"type":"range","id":"max_width","label":"Largeur maximale","min":720,"max":1500,"step":20,"unit":"px","default":1060},
+    {"type":"range","id":"column_gap","label":"Écart entre visuel et texte","min":10,"max":110,"step":2,"unit":"px","default":50},
+    {"type":"range","id":"padding_top","label":"Marge interne en haut","min":0,"max":120,"step":4,"unit":"px","default":56},
+    {"type":"range","id":"padding_bottom","label":"Marge interne en bas","min":0,"max":120,"step":4,"unit":"px","default":56},
+    {"type":"range","id":"corner_radius","label":"Arrondi des cartes","min":0,"max":32,"step":2,"unit":"px","default":14},
+    {"type":"range","id":"media_radius","label":"Arrondi du visuel","min":0,"max":40,"step":2,"unit":"px","default":20}
+  ],
+  "blocks": [
+    {
+      "type":"feature",
+      "name":"Fonction du panneau",
+      "limit":12,
+      "settings":[
+        {"type":"select","id":"icon","label":"Icône","options":[{"value":"clean","label":"Nettoyage"},{"value":"auto","label":"Automatique"},{"value":"replace","label":"Poubelle"},{"value":"leaf","label":"Désodoriser"},{"value":"wifi","label":"Wi-Fi"},{"value":"full","label":"Full / plein"},{"value":"clock","label":"Horloge"},{"value":"bell","label":"Notification"},{"value":"check","label":"Coche"}],"default":"clean"},
+        {"type":"text","id":"badge","label":"Petit libellé (ex. Clean)"},
+        {"type":"text","id":"title","label":"Nom de la fonction","default":"Nom de la fonction"},
+        {"type":"richtext","id":"description","label":"Explication","default":"<p>Expliquez ici à quoi sert cette fonction et comment l'utiliser.</p>"}
+      ]
+    },
+    {
+      "type":"step",
+      "name":"Étape du guide",
+      "limit":8,
+      "settings":[
+        {"type":"text","id":"title","label":"Début du texte en gras","default":"Étape."},
+        {"type":"richtext","id":"description","label":"Description","default":"<p>Décrivez l'action à réaliser.</p>"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"Miaora - Panneau tactile",
+      "blocks":[
+        {"type":"feature","settings":{"icon":"clean","badge":"Clean","title":"Lancer un nettoyage","description":"<p>Touchez la touche : la sphère tourne pour trier la litière, au moment où vous le décidez. C'est la touche à utiliser en mode manuel.</p>"}},
+        {"type":"feature","settings":{"icon":"auto","badge":"Auto","title":"Nettoyage automatique","description":"<p>Activez-le et la sphère trie la litière après le passage de votre chat. Pour un chaton de moins de 3 mois ou de moins de 1 kg, ou pour une chatte allaitante, restez en manuel et utilisez Clean.</p>"}},
+        {"type":"feature","settings":{"icon":"replace","badge":"Replace","title":"Changer toute la litière","description":"<p>Cette touche vide l'ancienne litière dans le bac à déchets. Il ne reste qu'à changer le sac et à verser la litière neuve (voir les 4 gestes ci-dessous).</p>"}},
+        {"type":"feature","settings":{"icon":"leaf","badge":"Remove odor","title":"Désodoriser","description":"<p>Touchez la touche pour lancer la fonction de désodorisation de la machine. Elle se commande aussi depuis l'appli.</p>"}},
+        {"type":"feature","settings":{"icon":"wifi","badge":"Wi-Fi","title":"Voyant de connexion","description":"<p>Il indique la liaison avec l'appli. La première mise en service se fait dans l'appli, en Wi-Fi 2,4 GHz ; ensuite, la machine fonctionne aussi sans Wi-Fi.</p>"}},
+        {"type":"feature","settings":{"icon":"full","badge":"Full","title":"Bac plein","description":"<p>Ce voyant signale que le bac à déchets est plein : il est temps de changer le sac.</p>"}},
+        {"type":"step","settings":{"title":"Touchez Replace.","description":"<p>La sphère vide l'ancienne litière dans le bac à déchets.</p>"}},
+        {"type":"step","settings":{"title":"Fermez et retirez le sac.","description":"<p>Il se ferme avec son cordon : vous ne touchez pas la litière.</p>"}},
+        {"type":"step","settings":{"title":"Placez un sac neuf.","description":"<p>Prenez un sac du rouleau fourni et installez-le dans le bac.</p>"}},
+        {"type":"step","settings":{"title":"Versez la litière neuve.","description":"<p>Environ 3,1 kg, par l'ouverture ronde (recommandation du fabricant).</p>"}}
+      ]
+    }
+  ]
+}
+{% endschema %}
