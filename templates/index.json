@@ -104,6 +104,7 @@
         "benefit_VeRQq6": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/hf_20261026_212226_555463ed-cc1d-48ed-900d-b611ec8b0cc5.webp",
             "title": "Une litière toujours plus propre",
             "text": "<p>Miaora nettoie automatiquement après le passage de votre chat. Choisissez le mode <strong>automatique, programmé ou manuel</strong>, selon vos habitudes.</p>"
           }
@@ -111,6 +112,7 @@
         "benefit_Xmf9zT": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/chatmanoir-litiere-01.webp",
             "title": "Des odeurs mieux maîtrisées",
             "text": "<p>La <strong>triple désodorisation</strong> et le stérilisateur ionique aident à limiter les mauvaises odeurs dans votre intérieur.</p>"
           }
@@ -118,47 +120,16 @@
         "benefit_nEAd9T": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/litiere-automatique-connectee-chat-chat-installe.webp",
             "title": "La sécurité de votre chat d'abord",
             "text": "<p>Des <strong>capteurs infrarouges</strong> détectent votre chat et arrêtent automatiquement le mécanisme lorsqu'une présence est repérée.</p>"
-          }
-        },
-        "benefit_dixnxU": {
-          "type": "benefit",
-          "settings": {
-            "title": "Connectée à votre quotidien",
-            "text": "<p>Depuis l'<strong>application Wi-Fi</strong> ou l'écran intégré, lancez un nettoyage, consultez les données et personnalisez les réglages.</p>"
-          }
-        },
-        "benefit_tgYXaq": {
-          "type": "benefit",
-          "settings": {
-            "title": "Un suivi du poids pratique",
-            "text": "<p>Le <strong>capteur de poids intégré</strong> vous permet de suivre l'évolution du poids de votre chat et de remarquer d'éventuels changements.</p>"
-          }
-        },
-        "benefit_NAMmXR": {
-          "type": "benefit",
-          "settings": {
-            "title": "Jusqu'à 15 jours de tranquillité",
-            "text": "<p>Avec son <strong>bac à déchets de 9 L</strong> et son espace intérieur de 65 L, Miaora réduit la fréquence des vidages (selon l'usage).</p>"
-          }
-        },
-        "benefit_83QLWD": {
-          "type": "benefit",
-          "settings": {
-            "title": "Compatible avec vos litières",
-            "text": "<p>Miaora accepte les litières <strong>tofu, mixtes, bentonite et minérales</strong>, pour conserver les habitudes de votre chat.</p>"
           }
         }
       },
       "block_order": [
         "benefit_VeRQq6",
         "benefit_Xmf9zT",
-        "benefit_nEAd9T",
-        "benefit_dixnxU",
-        "benefit_tgYXaq",
-        "benefit_NAMmXR",
-        "benefit_83QLWD"
+        "benefit_nEAd9T"
       ],
       "name": "Miaora - Avantages",
       "settings": {
