@@ -705,8 +705,8 @@
         "item_XBYAcy": {
           "type": "item",
           "settings": {
-            "title": "Question",
-            "content": "<p>Write content to answer to common questions your customers may have about your products, shipping policies..</p>"
+            "title": "Quelle place faut-il prévoir ?",
+            "content": "<p>La machine mesure 48 × 51,6 × 50,5 cm et il faut une prise à proximité. Le carton mesure 58 × 52,5 × 54,3 cm : vérifiez le passage jusqu’à la pièce.</p>"
           }
         },
         "item_rTG3Gt": {
