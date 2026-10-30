@@ -741,6 +741,7 @@
       "block_order": [
         "image_JAJmVw"
       ],
+      "disabled": true,
       "name": "Media with text",
       "settings": {
         "full_width": true,
