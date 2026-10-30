@@ -446,7 +446,7 @@
         "hover_effect": false,
         "heading_align": "center",
         "section_bg": "#ffffff",
-        "card_bg": "#fafafa",
+        "card_bg": "#FAF7F2",
         "card_border": "#f0f0f0",
         "title_color": "#111111",
         "description_color": "#666666",
@@ -502,7 +502,7 @@
             "content": "<p>Contrôlez Miaora à distance, suivez le poids de votre chat et profitez d’un système de sécurité intelligent grâce à ses capteurs infrarouges.</p>",
             "link_text": "Obtenir Maintenant",
             "link_url": "",
-            "background": "#FBFBFB",
+            "background": "#fbfbfb",
             "background_gradient": "",
             "text_color": "#000000",
             "text_gradient": "",
@@ -602,6 +602,72 @@
         "second_value": "311 g",
         "second_bar": 90,
         "second_legend": "Urine (g)"
+      }
+    },
+    "miaoraimageicons_MiTiVj": {
+      "type": "miaoraimageicons",
+      "blocks": {
+        "benefit_icLmpz": {
+          "type": "benefit",
+          "settings": {
+            "text": "Litière propre à chaque passage"
+          }
+        },
+        "benefit_gz6bnV": {
+          "type": "benefit",
+          "settings": {
+            "text": "Chats de 1 à 8 kg"
+          }
+        },
+        "benefit_E8MPnz": {
+          "type": "benefit",
+          "settings": {
+            "text": "Guide d’adaptation offert"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_icLmpz",
+        "benefit_gz6bnV",
+        "benefit_E8MPnz"
+      ],
+      "name": "Miaora - Image + texte",
+      "settings": {
+        "image": "shopify://shop_images/hf_20261026_215436_2ff61fee-d5a5-4768-bda3-2d0f91bb3000_1.webp",
+        "mobile_image": "shopify://shop_images/hf_20261026_215436_2ff61fee-d5a5-4768-bda3-2d0f91bb3000_1.webp",
+        "desktop_position": "left",
+        "mobile_position": "top",
+        "desktop_ratio": "4 / 5",
+        "mobile_ratio": "4 / 5",
+        "image_fit": "cover",
+        "image_position": "center",
+        "image_radius": 23,
+        "kicker": "UN ENVIRONNEMENT SAIN",
+        "heading": "Son coin à lui, toujours net.",
+        "description": "<p>Une <strong>litière propre</strong> à chaque passage : votre chat y retourne sans hésiter. Elle convient aux <strong>chats de 1 à 8 kg</strong> ; un mode manuel est prévu pour les chatons de moins de 3 mois et les chattes allaitantes.&nbsp;</p><p>Et notre guide de démarrage, offert, vous accompagne jour après jour pendant l’adaptation.</p>",
+        "button_label": "",
+        "button_url": "",
+        "text_align": "left",
+        "mobile_text_align": "left",
+        "heading_size": 46,
+        "heading_size_mobile": 31,
+        "body_size": 18,
+        "body_size_mobile": 14,
+        "bg_color": "#FAF7F2",
+        "title_color": "#181512",
+        "body_color": "#66615B",
+        "kicker_color": "#6D675F",
+        "check_bg": "#FF8C42",
+        "check_color": "#FBFBFB",
+        "button_bg": "#181512",
+        "button_text_color": "#FFFFFF",
+        "max_width": 1140,
+        "image_width": 50,
+        "column_gap": 70,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "media_with_text_6HMzRE": {
@@ -727,6 +793,7 @@
     "media_with_text_aJRKke",
     "scrolling_text_NqEtCf",
     "imgfonction_UYBxzr",
+    "miaoraimageicons_MiTiVj",
     "media_with_text_6HMzRE",
     "faq_tRG4KC",
     "related-products"
