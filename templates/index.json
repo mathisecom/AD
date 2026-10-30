@@ -98,6 +98,89 @@
         "mobile_button_height": 48
       }
     },
+    "4avantages_VLqTaA": {
+      "type": "4avantages",
+      "blocks": {
+        "feature_W88bwH": {
+          "type": "feature",
+          "settings": {
+            "icon": "automatic",
+            "title": "Se nettoie automatiquement",
+            "description": "Après le passage de votre chat, les déchets agglomérés sont séparés de la litière propre et collectés automatiquement."
+          }
+        },
+        "feature_nYWkK4": {
+          "type": "feature",
+          "settings": {
+            "icon": "phone",
+            "title": "Contrôle à distance",
+            "description": "Accédez aux fonctions connectées via une application compatible en Wi-Fi 2,4 GHz, ou depuis les commandes intégrées."
+          }
+        },
+        "feature_aEYFP6": {
+          "type": "feature",
+          "settings": {
+            "icon": "bin",
+            "title": "65 L de capacité",
+            "description": "Un tambour de 65 L et un bac de récupération de 8,5 L pour faciliter l’entretien au quotidien."
+          }
+        },
+        "feature_3dbkAi": {
+          "type": "feature",
+          "settings": {
+            "icon": "litter",
+            "title": "Plusieurs litières compatibles",
+            "description": "Bentonite, litière minérale, certains mélanges et tofu adapté au tamis."
+          }
+        }
+      },
+      "block_order": [
+        "feature_W88bwH",
+        "feature_nYWkK4",
+        "feature_aEYFP6",
+        "feature_3dbkAi"
+      ],
+      "name": "Miaora - 4 avantages",
+      "settings": {
+        "show_heading": false,
+        "eyebrow": "LES ATOUTS MIAORA",
+        "heading": "Une litière plus simple au quotidien",
+        "intro": "Découvrez les fonctions utiles de votre litière automatique connectée Miaora.",
+        "desktop_columns": "4",
+        "mobile_columns": "2",
+        "item_alignment": "center",
+        "card_style": false,
+        "max_width": 1320,
+        "column_gap": 32,
+        "mobile_gap": 22,
+        "padding_top": 44,
+        "padding_bottom": 44,
+        "card_radius": 14,
+        "icon_size": 44,
+        "icon_size_mobile": 36,
+        "icon_circle": false,
+        "icon_bottom_gap": 14,
+        "title_size": 16,
+        "description_size": 15,
+        "title_size_mobile": 14,
+        "description_size_mobile": 12,
+        "title_bottom_gap": 8,
+        "background_color": "#FFFFFF",
+        "heading_color": "#111111",
+        "title_color": "#111111",
+        "text_color": "#333333",
+        "icon_color": "#FF8D43",
+        "accent_color": "#FF8D43",
+        "icon_circle_color": "#FFF3EB",
+        "card_color": "#FFFFFF",
+        "card_border_color": "#F0E7DF",
+        "show_specs": false,
+        "specs_text": "48,5 × 53 × 50,5 cm • 7,9 kg • Alimentation 12 V • 18 W max.",
+        "show_note": false,
+        "note_text": "Important : les modes automatiques ou programmés ne doivent pas être utilisés pour un chaton ou un chat de moins de 1 kg. Consultez la notice avant utilisation.",
+        "note_background_color": "#FFF8F3"
+      }
+    },
     "cardbenefice_jckBPW": {
       "type": "cardbenefice",
       "blocks": {
@@ -286,7 +369,7 @@
         "scrolling_speed": 8,
         "background": "#000000",
         "background_gradient": "",
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "text_gradient": ""
       }
     },
@@ -621,6 +704,7 @@
   "order": [
     "slideshow_UenUjh",
     "bannerproduit_gXhrYi",
+    "4avantages_VLqTaA",
     "cardbenefice_jckBPW",
     "videolitiere_amaHBW",
     "imgfonction_kD7Ugg",
