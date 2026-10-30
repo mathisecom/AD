@@ -268,6 +268,7 @@
       ],
       "name": "Image + fonctionnalités",
       "settings": {
+        "image": "shopify://shop_images/litiere-automatique-connectee-chat-chat-installe.webp",
         "image_alt": "Chat près de sa litière intelligente",
         "image_side": "left",
         "mobile_order": "image",
