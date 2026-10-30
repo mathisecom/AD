@@ -1,0 +1,364 @@
+{% comment %}
+  MIAORA — 4 avantages (et plus)
+  Section Shopify OS 2.0 autonome, responsive, configurable dans l'éditeur.
+  N'inclut pas de promesses d'auto-remplissage ou de désinfection non vérifiées.
+{% endcomment %}
+
+<section
+  class="miaora-features miaora-features--{{ section.id }}{% if section.settings.card_style %} miaora-features--cards{% endif %}"
+  style="
+    --miaora-bg: {{ section.settings.background_color }};
+    --miaora-heading: {{ section.settings.heading_color }};
+    --miaora-title: {{ section.settings.title_color }};
+    --miaora-text: {{ section.settings.text_color }};
+    --miaora-icon: {{ section.settings.icon_color }};
+    --miaora-orange: {{ section.settings.accent_color }};
+    --miaora-card-bg: {{ section.settings.card_color }};
+    --miaora-card-border: {{ section.settings.card_border_color }};
+    --miaora-note-bg: {{ section.settings.note_background_color }};
+    --miaora-max-width: {{ section.settings.max_width }}px;
+    --miaora-pad-top: {{ section.settings.padding_top }}px;
+    --miaora-pad-bottom: {{ section.settings.padding_bottom }}px;
+    --miaora-icon-size: {{ section.settings.icon_size }}px;
+    --miaora-icon-size-mobile: {{ section.settings.icon_size_mobile }}px;
+    --miaora-title-size: {{ section.settings.title_size }}px;
+    --miaora-description-size: {{ section.settings.description_size }}px;
+    --miaora-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --miaora-description-size-mobile: {{ section.settings.description_size_mobile }}px;
+    --miaora-gap: {{ section.settings.column_gap }}px;
+    --miaora-gap-mobile: {{ section.settings.mobile_gap }}px;
+    --miaora-card-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="miaora-features__container">
+    {% if section.settings.show_heading %}
+      <header class="miaora-features__header">
+        {% if section.settings.eyebrow != blank %}
+          <p class="miaora-features__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="miaora-features__heading">{{ section.settings.heading | escape }}</h2>
+        {% endif %}
+        {% if section.settings.intro != blank %}
+          <p class="miaora-features__intro">{{ section.settings.intro | escape }}</p>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <div class="miaora-features__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <article class="miaora-features__item" {{ block.shopify_attributes }}>
+            <div class="miaora-features__icon-wrap{% if section.settings.icon_circle %} miaora-features__icon-wrap--circle{% endif %}">
+              {% if block.settings.icon_image != blank %}
+                {{ block.settings.icon_image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'miaora-features__icon-img', alt: block.settings.title }}
+              {% else %}
+                <svg class="miaora-features__svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  {% case block.settings.icon %}
+                    {% when 'automatic' %}
+                      <path d="M37 20a14 14 0 0 0-24-7l-4 4"/>
+                      <path d="M9 9v8h8"/>
+                      <path d="M11 28a14 14 0 0 0 24 7l4-4"/>
+                      <path d="M39 39v-8h-8"/>
+                      <path d="m19 24 4 4 7-9"/>
+                    {% when 'phone' %}
+                      <rect x="14" y="5" width="20" height="38" rx="4"/>
+                      <path d="M21 9h6M22 39h4"/>
+                      <path d="M18 23c4-4 8-4 12 0"/>
+                      <path d="M21 27c2-2 4-2 6 0"/>
+                      <circle cx="24" cy="31" r="1" fill="currentColor" stroke="none"/>
+                    {% when 'bin' %}
+                      <path d="M13 13h22M18 13V8h12v5M16 13l2 28h12l2-28"/>
+                      <path d="M22 20v14M26 20v14"/>
+                      <path d="M8 6h5M35 6h5"/>
+                    {% when 'litter' %}
+                      <path d="M7 17h34l-4 23H11L7 17Z"/>
+                      <path d="m13 17 4-9h14l4 9"/>
+                      <path d="M17 26h14M20 32h8"/>
+                    {% when 'wifi' %}
+                      <path d="M6 18c10-10 26-10 36 0M12 24c7-7 17-7 24 0M18 30c3-3 9-3 12 0"/>
+                      <circle cx="24" cy="37" r="2" fill="currentColor" stroke="none"/>
+                    {% when 'capacity' %}
+                      <path d="m8 15 16-9 16 9v18l-16 9-16-9V15Z"/>
+                      <path d="m8 15 16 9 16-9M24 24v18"/>
+                      <path d="m16 19 16-9"/>
+                    {% when 'shield' %}
+                      <path d="m24 5 15 6v11c0 10-7 17-15 21C16 39 9 32 9 22V11l15-6Z"/>
+                      <path d="m17 24 5 5 10-12"/>
+                    {% when 'settings' %}
+                      <circle cx="24" cy="24" r="7"/>
+                      <path d="M20 5h8l2 6 5 2 6-2 4 7-4 5v4l4 5-4 7-6-2-5 2-2 6h-8l-2-6-5-2-6 2-4-7 4-5v-4l-4-5 4-7 6 2 5-2 2-6Z"/>
+                    {% when 'dimensions' %}
+                      <rect x="10" y="10" width="28" height="28" rx="3"/>
+                      <path d="M10 19h11v-9M16 23h8M16 28h5M16 33h8"/>
+                    {% when 'plug' %}
+                      <path d="M18 8v10M30 8v10M14 18h20v7a10 10 0 0 1-20 0v-7ZM24 35v8"/>
+                    {% else %}
+                      <path d="m24 4 4 13 13 4-13 4-4 13-4-13-13-4 13-4 4-13Z"/>
+                  {% endcase %}
+                </svg>
+              {% endif %}
+            </div>
+            {% if block.settings.title != blank %}
+              <h3 class="miaora-features__item-title">{{ block.settings.title | escape }}</h3>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p class="miaora-features__item-description">{{ block.settings.description | escape | newline_to_br }}</p>
+            {% endif %}
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_specs and section.settings.specs_text != blank %}
+      <p class="miaora-features__specs">{{ section.settings.specs_text | escape }}</p>
+    {% endif %}
+
+    {% if section.settings.show_note and section.settings.note_text != blank %}
+      <p class="miaora-features__note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg>
+        <span>{{ section.settings.note_text | escape }}</span>
+      </p>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+  .miaora-features {
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--miaora-pad-top) 24px var(--miaora-pad-bottom);
+    background: var(--miaora-bg);
+    font-family: 'Manrope', sans-serif !important;
+  }
+  .miaora-features *, .miaora-features *::before, .miaora-features *::after { box-sizing: border-box; }
+  .miaora-features h2, .miaora-features h3, .miaora-features p,
+  .miaora-features h2 *, .miaora-features h3 *, .miaora-features p * {
+    font-family: 'Manrope', sans-serif !important;
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0;
+  }
+  .miaora-features__container { max-width: var(--miaora-max-width); margin: 0 auto; }
+  .miaora-features__header { max-width: 800px; margin: 0 auto 42px; text-align: center; }
+  .miaora-features__eyebrow {
+    color: var(--miaora-orange);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: .08em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 8px !important;
+  }
+  .miaora-features__heading {
+    color: var(--miaora-heading);
+    font-size: clamp(24px, 3vw, 38px) !important;
+    font-weight: 800 !important;
+    line-height: 1.16;
+    margin: 0 !important;
+  }
+  .miaora-features__intro {
+    color: var(--miaora-text);
+    font-size: 15px !important;
+    line-height: 1.7;
+    margin-top: 12px !important;
+  }
+  .miaora-features__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.desktop_columns }}, minmax(0, 1fr));
+    gap: var(--miaora-gap);
+    align-items: start;
+    width: 100%;
+  }
+  .miaora-features__item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: {% if section.settings.item_alignment == 'left' %}flex-start{% else %}center{% endif %};
+    text-align: {{ section.settings.item_alignment }};
+    padding: {% if section.settings.card_style %}25px 18px{% else %}0 10px{% endif %};
+    {% if section.settings.card_style %}
+      background: var(--miaora-card-bg);
+      border: 1px solid var(--miaora-card-border);
+      border-radius: var(--miaora-card-radius);
+      height: 100%;
+    {% endif %}
+  }
+  .miaora-features__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: var(--miaora-icon-size);
+    height: var(--miaora-icon-size);
+    margin-bottom: {{ section.settings.icon_bottom_gap }}px;
+    color: var(--miaora-icon);
+  }
+  .miaora-features__icon-wrap--circle {
+    width: calc(var(--miaora-icon-size) + 20px);
+    height: calc(var(--miaora-icon-size) + 20px);
+    background: {{ section.settings.icon_circle_color }};
+    border-radius: 50%;
+  }
+  .miaora-features__svg, .miaora-features__icon-img {
+    display: block;
+    width: var(--miaora-icon-size);
+    height: var(--miaora-icon-size);
+    max-width: 100%;
+    object-fit: contain;
+  }
+  .miaora-features__item-title {
+    color: var(--miaora-title);
+    font-size: var(--miaora-title-size) !important;
+    font-weight: 700 !important;
+    line-height: 1.38;
+    margin-bottom: {{ section.settings.title_bottom_gap }}px !important;
+  }
+  .miaora-features__item-description {
+    color: var(--miaora-text);
+    font-size: var(--miaora-description-size) !important;
+    font-weight: 500 !important;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+  .miaora-features__specs {
+    color: var(--miaora-text);
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.7;
+    margin-top: 36px !important;
+  }
+  .miaora-features__note {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 900px;
+    margin: 22px auto 0 !important;
+    padding: 11px 16px;
+    border-radius: 10px;
+    background: var(--miaora-note-bg);
+    color: var(--miaora-text);
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    line-height: 1.6;
+  }
+  .miaora-features__note svg { width: 17px; height: 17px; flex: 0 0 17px; color: var(--miaora-orange); }
+  @media (max-width: 989px) {
+    .miaora-features__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+  }
+  @media (max-width: 600px) {
+    .miaora-features { padding: calc(var(--miaora-pad-top) * .70) 14px calc(var(--miaora-pad-bottom) * .70); }
+    .miaora-features__header { margin-bottom: 27px; }
+    .miaora-features__intro { font-size: 13px !important; }
+    .miaora-features__grid {
+      grid-template-columns: repeat({{ section.settings.mobile_columns }}, minmax(0, 1fr));
+      gap: var(--miaora-gap-mobile);
+    }
+    .miaora-features__item { padding: {% if section.settings.card_style %}18px 12px{% else %}0 4px{% endif %}; }
+    .miaora-features__icon-wrap { width: var(--miaora-icon-size-mobile); height: var(--miaora-icon-size-mobile); margin-bottom: 12px; }
+    .miaora-features__icon-wrap--circle { width: calc(var(--miaora-icon-size-mobile) + 16px); height: calc(var(--miaora-icon-size-mobile) + 16px); }
+    .miaora-features__svg, .miaora-features__icon-img { width: var(--miaora-icon-size-mobile); height: var(--miaora-icon-size-mobile); }
+    .miaora-features__item-title { font-size: var(--miaora-title-size-mobile) !important; margin-bottom: 7px !important; }
+    .miaora-features__item-description { font-size: var(--miaora-description-size-mobile) !important; line-height: 1.55; }
+    .miaora-features__specs { margin-top: 24px !important; font-size: 11px !important; }
+    .miaora-features__note { margin-top: 18px !important; padding: 10px 12px; font-size: 10px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Miaora - 4 avantages",
+  "tag": "section",
+  "class": "miaora-avantages-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "header", "content": "Introduction" },
+    { "type": "checkbox", "id": "show_heading", "label": "Afficher l'en-tête", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Petit titre", "default": "LES ATOUTS MIAORA" },
+    { "type": "text", "id": "heading", "label": "Titre principal", "default": "Une litière plus simple au quotidien" },
+    { "type": "textarea", "id": "intro", "label": "Texte d'introduction", "default": "Découvrez les fonctions utiles de votre litière automatique connectée Miaora." },
+
+    { "type": "header", "content": "Mise en page" },
+    { "type": "select", "id": "desktop_columns", "label": "Colonnes sur ordinateur", "options": [{ "value": "3", "label": "3 colonnes" }, { "value": "4", "label": "4 colonnes" }], "default": "4" },
+    { "type": "select", "id": "mobile_columns", "label": "Colonnes sur mobile", "options": [{ "value": "1", "label": "1 colonne" }, { "value": "2", "label": "2 colonnes" }], "default": "2" },
+    { "type": "select", "id": "item_alignment", "label": "Alignement des contenus", "options": [{ "value": "center", "label": "Centré" }, { "value": "left", "label": "À gauche" }], "default": "center" },
+    { "type": "checkbox", "id": "card_style", "label": "Afficher des cartes avec bordures", "default": false },
+    { "type": "range", "id": "max_width", "label": "Largeur maximale", "min": 800, "max": 1600, "step": 20, "unit": "px", "default": 1320 },
+    { "type": "range", "id": "column_gap", "label": "Écart entre colonnes sur PC", "min": 8, "max": 80, "step": 2, "unit": "px", "default": 32 },
+    { "type": "range", "id": "mobile_gap", "label": "Écart sur mobile", "min": 8, "max": 50, "step": 2, "unit": "px", "default": 22 },
+    { "type": "range", "id": "padding_top", "label": "Marge supérieure", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 44 },
+    { "type": "range", "id": "padding_bottom", "label": "Marge inférieure", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 44 },
+    { "type": "range", "id": "card_radius", "label": "Arrondi des cartes", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 14 },
+
+    { "type": "header", "content": "Icônes" },
+    { "type": "range", "id": "icon_size", "label": "Taille des icônes PC", "min": 24, "max": 76, "step": 2, "unit": "px", "default": 44 },
+    { "type": "range", "id": "icon_size_mobile", "label": "Taille des icônes mobile", "min": 22, "max": 62, "step": 2, "unit": "px", "default": 36 },
+    { "type": "checkbox", "id": "icon_circle", "label": "Fond rond derrière les icônes", "default": false },
+    { "type": "range", "id": "icon_bottom_gap", "label": "Espace sous les icônes", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 14 },
+
+    { "type": "header", "content": "Typographie Manrope" },
+    { "type": "range", "id": "title_size", "label": "Taille des titres PC", "min": 12, "max": 26, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "description_size", "label": "Taille des descriptions PC", "min": 11, "max": 22, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "title_size_mobile", "label": "Taille des titres mobile", "min": 11, "max": 22, "step": 1, "unit": "px", "default": 14 },
+    { "type": "range", "id": "description_size_mobile", "label": "Taille des descriptions mobile", "min": 10, "max": 18, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "title_bottom_gap", "label": "Espace sous les titres", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 8 },
+
+    { "type": "header", "content": "Couleurs" },
+    { "type": "color", "id": "background_color", "label": "Arrière-plan", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Grand titre", "default": "#111111" },
+    { "type": "color", "id": "title_color", "label": "Titres des avantages", "default": "#111111" },
+    { "type": "color", "id": "text_color", "label": "Descriptions", "default": "#333333" },
+    { "type": "color", "id": "icon_color", "label": "Icônes", "default": "#FF8D43" },
+    { "type": "color", "id": "accent_color", "label": "Accent Miaora", "default": "#FF8D43" },
+    { "type": "color", "id": "icon_circle_color", "label": "Fond des icônes rondes", "default": "#FFF3EB" },
+    { "type": "color", "id": "card_color", "label": "Fond des cartes", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Bordure des cartes", "default": "#F0E7DF" },
+
+    { "type": "header", "content": "Informations complémentaires" },
+    { "type": "checkbox", "id": "show_specs", "label": "Afficher les caractéristiques", "default": false },
+    { "type": "text", "id": "specs_text", "label": "Caractéristiques en bas", "default": "48,5 × 53 × 50,5 cm • 7,9 kg • Alimentation 12 V • 18 W max." },
+    { "type": "checkbox", "id": "show_note", "label": "Afficher la note d'utilisation", "default": true },
+    { "type": "textarea", "id": "note_text", "label": "Note d'utilisation", "default": "Important : les modes automatiques ou programmés ne doivent pas être utilisés pour un chaton ou un chat de moins de 1 kg. Consultez la notice avant utilisation." },
+    { "type": "color", "id": "note_background_color", "label": "Fond de la note", "default": "#FFF8F3" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Avantage",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icône", "options": [
+          { "value": "automatic", "label": "Nettoyage automatique" },
+          { "value": "phone", "label": "Téléphone / application" },
+          { "value": "bin", "label": "Bac à déchets" },
+          { "value": "litter", "label": "Litière compatible" },
+          { "value": "wifi", "label": "Wi-Fi" },
+          { "value": "capacity", "label": "Grande capacité" },
+          { "value": "shield", "label": "Protection" },
+          { "value": "settings", "label": "Réglages" },
+          { "value": "dimensions", "label": "Dimensions" },
+          { "value": "plug", "label": "Alimentation" },
+          { "value": "sparkle", "label": "Étincelle" }
+        ], "default": "automatic" },
+        { "type": "image_picker", "id": "icon_image", "label": "Ou importer une icône (remplace l'icône ci-dessus)" },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Un avantage Miaora" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Décrivez ici cet avantage de votre litière automatique Miaora." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Miaora - 4 avantages",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "automatic", "title": "Se nettoie automatiquement", "description": "Après le passage de votre chat, les déchets agglomérés sont séparés de la litière propre et collectés automatiquement." } },
+        { "type": "feature", "settings": { "icon": "phone", "title": "Contrôle à distance", "description": "Accédez aux fonctions connectées via une application compatible en Wi-Fi 2,4 GHz, ou depuis les commandes intégrées." } },
+        { "type": "feature", "settings": { "icon": "bin", "title": "65 L de capacité", "description": "Un tambour de 65 L et un bac de récupération de 8,5 L pour faciliter l’entretien au quotidien." } },
+        { "type": "feature", "settings": { "icon": "litter", "title": "Plusieurs litières compatibles", "description": "Bentonite, litière minérale, certains mélanges et tofu adapté au tamis : choisissez une litière agglomérante compatible." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
