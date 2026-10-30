@@ -95,16 +95,6 @@
             "page": ""
           }
         },
-        "collapsible_text_GHinfi": {
-          "type": "collapsible_text",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "title": "Informations sur la Livraisons",
-            "content": "<p>Nos commandes sont expédiées et livrée dans un délai de&nbsp;<strong>3 à 4 jours</strong>&nbsp;ouvrables avec LaPoste Colissimo.</p>",
-            "page": ""
-          }
-        },
         "collapsible_text_UeNdYg": {
           "type": "collapsible_text",
           "settings": {
@@ -112,6 +102,16 @@
             "icon_width": 20,
             "title": "Application Mobile",
             "content": "<ul><li><strong>Tout dans votre poche :</strong> Contrôlez la litière depuis votre smartphone, où que vous soyez.</li><li><strong>Gestion sur-mesure :</strong> Choisissez le mode automatique ou lancez vous-même un cycle de désodorisation ou de désinfection à distance.</li><li><strong>Suivi de santé :</strong> Recevez des notifications sur l'état du réservoir et surveillez les habitudes de votre chat pour anticiper le moindre changement d'habitude.</li><li><strong>Mode Manuel :</strong> Besoin d'un nettoyage immédiat après un passage ? Un clic sur l'application et c'est réglé.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_text_GHinfi": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Informations sur la Livraisons",
+            "content": "<p>Nos commandes sont expédiées et livrée dans un délai de&nbsp;<strong>3 à 4 jours</strong>&nbsp;ouvrables avec LaPoste Colissimo.</p>",
             "page": ""
           }
         },
@@ -139,8 +139,8 @@
         "buy_buttons",
         "liquid_JDefUk",
         "collapsible_text_yETFBg",
-        "collapsible_text_GHinfi",
         "collapsible_text_UeNdYg",
+        "collapsible_text_GHinfi",
         "collapsible_text_NT76w7"
       ],
       "settings": {
@@ -574,9 +574,9 @@
         "text_style": "fill",
         "scrolling_mode": "auto",
         "scrolling_speed": 7,
-        "background": "#FF8C42",
+        "background": "#ff8c42",
         "background_gradient": "",
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "text_gradient": ""
       }
     },
@@ -866,15 +866,15 @@
         "steps_title": "Changer toute la litière, en 4 gestes",
         "steps_spacing": 46,
         "mobile_step_columns": "2",
-        "background": "#FFFFFF",
+        "background": "#ffffff",
         "text_color": "#141414",
-        "muted_color": "#625C56",
-        "accent_color": "#FF8C42",
-        "card_color": "#FFFFFF",
-        "card_border": "#E8E1D9",
-        "media_background": "#E7EAEC",
+        "muted_color": "#625c56",
+        "accent_color": "#ff8c42",
+        "card_color": "#ffffff",
+        "card_border": "#e8e1d9",
+        "media_background": "#e7eaec",
         "panel_background": "#111111",
-        "step_number_background": "#FFE2CF",
+        "step_number_background": "#ffe2cf",
         "use_manrope": true,
         "title_size": 37,
         "title_mobile_size": 29,
