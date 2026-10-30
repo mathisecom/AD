@@ -266,6 +266,7 @@
         "feature_zn7aAj",
         "feature_6dbCpC"
       ],
+      "disabled": true,
       "name": "Image + fonctionnalités",
       "settings": {
         "image": "shopify://shop_images/litiere-automatique-connectee-chat-chat-installe.webp",
@@ -300,6 +301,72 @@
         "second_value": "311 g",
         "second_bar": 90,
         "second_legend": "Urine (g)"
+      }
+    },
+    "miaoraimageicons_jkRzPh": {
+      "type": "miaoraimageicons",
+      "blocks": {
+        "benefit_4dwxdd": {
+          "type": "benefit",
+          "settings": {
+            "text": "Litière propre à chaque passage"
+          }
+        },
+        "benefit_VHHc8M": {
+          "type": "benefit",
+          "settings": {
+            "text": "Chats de 1 à 8 kg"
+          }
+        },
+        "benefit_RppBCq": {
+          "type": "benefit",
+          "settings": {
+            "text": "Guide d’adaptation offert"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_4dwxdd",
+        "benefit_VHHc8M",
+        "benefit_RppBCq"
+      ],
+      "name": "Miaora - Image + texte",
+      "settings": {
+        "image": "shopify://shop_images/hf_20261026_215436_2ff61fee-d5a5-4768-bda3-2d0f91bb3000_1.webp",
+        "mobile_image": "shopify://shop_images/hf_20261026_215436_2ff61fee-d5a5-4768-bda3-2d0f91bb3000_1.webp",
+        "desktop_position": "left",
+        "mobile_position": "top",
+        "desktop_ratio": "4 / 5",
+        "mobile_ratio": "4 / 5",
+        "image_fit": "cover",
+        "image_position": "center",
+        "image_radius": 23,
+        "kicker": "UN ENVIRONNEMENT SAIN",
+        "heading": "Son coin à lui, toujours net.",
+        "description": "<p>Une litière propre à chaque passage : votre chat y retourne sans hésiter. Elle convient aux chats de 1 à 8 kg ; un mode manuel est prévu pour les chatons de moins de 3 mois et les chattes allaitantes.&nbsp;</p><p>Et notre guide de démarrage, offert, vous accompagne jour après jour pendant l’adaptation.</p>",
+        "button_label": "",
+        "button_url": "",
+        "text_align": "left",
+        "mobile_text_align": "left",
+        "heading_size": 40,
+        "heading_size_mobile": 32,
+        "body_size": 16,
+        "body_size_mobile": 14,
+        "bg_color": "#FAF7F2",
+        "title_color": "#181512",
+        "body_color": "#66615B",
+        "kicker_color": "#6D675F",
+        "check_bg": "#FF8C42",
+        "check_color": "#FFFFFF",
+        "button_bg": "#181512",
+        "button_text_color": "#FFFFFF",
+        "max_width": 1140,
+        "image_width": 50,
+        "column_gap": 70,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "rich_text_FtGtex": {
@@ -558,6 +625,7 @@
     "cardbenefice_jckBPW",
     "videolitiere_amaHBW",
     "imgfonction_kD7Ugg",
+    "miaoraimageicons_jkRzPh",
     "rich_text_FtGtex",
     "logoscroll_wE3y6y",
     "testimonials_afqFKU",
