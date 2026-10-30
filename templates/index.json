@@ -715,6 +715,13 @@
             "title": "Que faut-il racheter ?",
             "content": "<p>De la litière (environ 3,1 kg pour remplir la machine) et des sacs pour le bac à déchets : un rouleau est fourni.</p>"
           }
+        },
+        "item_LUG9D7": {
+          "type": "item",
+          "settings": {
+            "title": "Que se passe-t-il en cas de panne ?",
+            "content": "<p>La machine est couverte par la garantie légale de conformité de 2 ans. Écrivez-nous avec votre numéro de commande et, si possible, une photo ou une vidéo : une personne vous répond sous 24 heures ouvrées, puis nous organisons la réparation, le remplacement ou le remboursement, envoi à nos frais.</p>"
+          }
         }
       },
       "block_order": [
@@ -724,7 +731,8 @@
         "item_6Hzqqe",
         "item_4nmjKb",
         "item_XBYAcy",
-        "item_rTG3Gt"
+        "item_rTG3Gt",
+        "item_LUG9D7"
       ],
       "settings": {
         "full_width": false,
