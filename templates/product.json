@@ -104,6 +104,16 @@
             "page": ""
           }
         },
+        "collapsible_text_UeNdYg": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Application Mobile",
+            "content": "<ul><li><strong>Tout dans votre poche :</strong> Contrôlez la litière depuis votre smartphone, où que vous soyez.</li><li><strong>Gestion sur-mesure :</strong> Choisissez le mode automatique ou lancez vous-même un cycle de désodorisation ou de désinfection à distance.</li><li><strong>Suivi de santé :</strong> Recevez des notifications sur l'état du réservoir et surveillez les habitudes de votre chat pour anticiper le moindre changement d'habitude.</li><li><strong>Mode Manuel :</strong> Besoin d'un nettoyage immédiat après un passage ? Un clic sur l'application et c'est réglé.</li></ul>",
+            "page": ""
+          }
+        },
         "collapsible_text_NT76w7": {
           "type": "collapsible_text",
           "settings": {
@@ -129,6 +139,7 @@
         "liquid_JDefUk",
         "description",
         "collapsible_text_GHinfi",
+        "collapsible_text_UeNdYg",
         "collapsible_text_NT76w7"
       ],
       "settings": {
@@ -376,7 +387,7 @@
         "text_color": "",
         "heading_color": "",
         "heading_gradient": "",
-        "testimonial_card_background": "#F8F8F8",
+        "testimonial_card_background": "#f8f8f8",
         "testimonial_card_text_color": ""
       }
     },
@@ -453,7 +464,7 @@
         "hover_effect": false,
         "heading_align": "center",
         "section_bg": "#ffffff",
-        "card_bg": "#FAF7F2",
+        "card_bg": "#faf7f2",
         "card_border": "#f0f0f0",
         "title_color": "#111111",
         "description_color": "#666666",
@@ -660,14 +671,14 @@
         "heading_size_mobile": 31,
         "body_size": 18,
         "body_size_mobile": 14,
-        "bg_color": "#FAF7F2",
+        "bg_color": "#faf7f2",
         "title_color": "#181512",
-        "body_color": "#66615B",
-        "kicker_color": "#6D675F",
-        "check_bg": "#FF8C42",
-        "check_color": "#FBFBFB",
+        "body_color": "#66615b",
+        "kicker_color": "#6d675f",
+        "check_bg": "#ff8c42",
+        "check_color": "#fbfbfb",
         "button_bg": "#181512",
-        "button_text_color": "#FFFFFF",
+        "button_text_color": "#ffffff",
         "max_width": 1140,
         "image_width": 50,
         "column_gap": 70,
