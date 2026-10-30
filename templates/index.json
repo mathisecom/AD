@@ -670,15 +670,15 @@
         "166442457738b23caf-0": {
           "type": "item",
           "settings": {
-            "title": "Do you ship overseas?",
-            "content": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "Mon chat va-t-il l’accepter ?",
+            "content": "<p>Chaque chat a son rythme. Installez la machine à côté de l’ancien bac, laissez-la d’abord éteinte, puis mettez-la en route quand votre chat y entre sans hésiter. Notre guide de démarrage, offert, détaille les étapes, et vous avez 14 jours après réception pour changer d’avis, retour offert.</p>"
           }
         },
         "166442457738b23caf-1": {
           "type": "item",
           "settings": {
-            "title": "How long will it take to get my orders?",
-            "content": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "Est-ce sans danger pour mon chat ?",
+            "content": "<p>Un capteur infrarouge à l’entrée détecte votre chat : pendant le nettoyage, la rotation s’arrête dès qu’il s’approche (indication du fabricant). Pour les chatons de moins de 3 mois et les chattes allaitantes, utilisez le mode manuel.</p>"
           }
         },
         "166442457738b23caf-2": {
