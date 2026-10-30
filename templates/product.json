@@ -572,10 +572,10 @@
         "text_size": "xsmall",
         "text_style": "fill",
         "scrolling_mode": "auto",
-        "scrolling_speed": 10,
-        "background": "",
+        "scrolling_speed": 7,
+        "background": "#FF8C42",
         "background_gradient": "",
-        "text_color": "",
+        "text_color": "#FFFFFF",
         "text_gradient": ""
       }
     },
