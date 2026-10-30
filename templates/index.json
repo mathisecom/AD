@@ -17,12 +17,12 @@
           "settings": {
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "desktop_text_position": "sm:place-self-end-start sm:text-start",
             "subheading": "",
-            "title": "",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
+            "title": "Fini la corvée quotidienne de la litière.",
+            "heading_tag": "h2",
+            "button_text": "DÉCOUVRIR",
+            "button_link": "shopify://products/litiere-autonettoyante-connectee-purrnova",
             "text_color": "#ffffff",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
@@ -62,7 +62,7 @@
         "scrolling_speed": 6,
         "background": "#000000",
         "background_gradient": "",
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "text_gradient": ""
       }
     },
@@ -181,20 +181,20 @@
         "title_size_mobile": 14,
         "description_size_mobile": 12,
         "title_bottom_gap": 8,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "heading_color": "#111111",
         "title_color": "#111111",
         "text_color": "#333333",
-        "icon_color": "#FF8D43",
-        "accent_color": "#FF8D43",
-        "icon_circle_color": "#FFF3EB",
-        "card_color": "#FFFFFF",
-        "card_border_color": "#F0E7DF",
+        "icon_color": "#ff8d43",
+        "accent_color": "#ff8d43",
+        "icon_circle_color": "#fff3eb",
+        "card_color": "#ffffff",
+        "card_border_color": "#f0e7df",
         "show_specs": false,
         "specs_text": "48,5 × 53 × 50,5 cm • 7,9 kg • Alimentation 12 V • 18 W max.",
         "show_note": false,
         "note_text": "Important : les modes automatiques ou programmés ne doivent pas être utilisés pour un chaton ou un chat de moins de 1 kg. Consultez la notice avant utilisation.",
-        "note_background_color": "#FFF8F3"
+        "note_background_color": "#fff8f3"
       }
     },
     "cardbenefice_jckBPW": {
@@ -722,6 +722,13 @@
             "title": "Que se passe-t-il en cas de panne ?",
             "content": "<p>La machine est couverte par la garantie légale de conformité de 2 ans. Écrivez-nous avec votre numéro de commande et, si possible, une photo ou une vidéo : une personne vous répond sous 24 heures ouvrées, puis nous organisons la réparation, le remplacement ou le remboursement, envoi à nos frais.</p>"
           }
+        },
+        "item_zLPY8Q": {
+          "type": "item",
+          "settings": {
+            "title": "Et si le colis arrive abîmé, ou n’arrive pas ?",
+            "content": "<p>Machine abîmée à l’arrivée : nous la remplaçons ou nous vous remboursons. Colis perdu, ou non livré 20 jours après l’expédition : remboursement intégral, sur simple demande.</p>"
+          }
         }
       },
       "block_order": [
@@ -732,7 +739,8 @@
         "item_4nmjKb",
         "item_XBYAcy",
         "item_rTG3Gt",
-        "item_LUG9D7"
+        "item_LUG9D7",
+        "item_zLPY8Q"
       ],
       "settings": {
         "full_width": false,
