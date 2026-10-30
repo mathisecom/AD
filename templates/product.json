@@ -94,7 +94,7 @@
             "icon": "none",
             "icon_width": 20,
             "title": "Informations sur la Livraisons",
-            "content": "<p><strong>Livraison</strong></p><p>Nos commandes sont expédiées et livrée dans un délai de&nbsp;<strong>3 à 4 jours</strong>&nbsp;ouvrables avec LaPoste Colissimo.</p><p><strong>Retour</strong></p><p>Les retours sont possibles pendant 14 jours après la réception. Si la demande de remboursement est validée, tu recevras ton argent entre 5 à 10 jours ouvrés (géré par le processeur de paiement). Les frais de livraisons engendrés pour le retour sont à notre charge seulement s'il s'agit d'un défaut du colis/produits nécessitant le SAV.</p>",
+            "content": "<p>Nos commandes sont expédiées et livrée dans un délai de&nbsp;<strong>3 à 4 jours</strong>&nbsp;ouvrables avec LaPoste Colissimo.</p>",
             "page": ""
           }
         },
@@ -104,7 +104,7 @@
             "icon": "none",
             "icon_width": 20,
             "title": "Retour et Remboursement",
-            "content": "<p>Share some content to your customers about your products.</p>",
+            "content": "<p>Les retours sont possibles <strong>pendant 14 jours</strong> après la réception. Si la demande de remboursement est validée, tu recevras ton argent entre 5 à 10 jours ouvrés (géré par le processeur de paiement).&nbsp;</p><p>Les frais de livraisons engendrés pour le retour sont à notre charge seulement s'il s'agit d'un défaut du colis/produits nécessitant le SAV.</p>",
             "page": ""
           }
         }
@@ -491,7 +491,7 @@
             "content": "<p>Contrôlez Miaora à distance, suivez le poids de votre chat et profitez d’un système de sécurité intelligent grâce à ses capteurs infrarouges.</p>",
             "link_text": "Obtenir Maintenant",
             "link_url": "",
-            "background": "#FFFFFF",
+            "background": "#ffffff",
             "background_gradient": "",
             "text_color": "#000000",
             "text_gradient": "",
@@ -575,7 +575,7 @@
         "body_size": 13,
         "heading_size_mobile": 22,
         "body_size_mobile": 13,
-        "background_color": "#FBFBFB",
+        "background_color": "#fbfbfb",
         "heading_color": "#080808",
         "text_color": "#171717",
         "divider_color": "#e5e5e5",
@@ -607,12 +607,12 @@
             "content": "<p>Grâce à sa triple désodorisation et sa technologie ionique, Miaora neutralise les mauvaises odeurs pour un intérieur plus frais et agréable.</p>",
             "link_text": "Obtenir Maintenant",
             "link_url": "",
-            "background": "#FBFBFB",
+            "background": "#fbfbfb",
             "background_gradient": "",
             "text_color": "#000000",
             "text_gradient": "",
             "button_background": "#000000",
-            "button_text_color": "#FFFFFF"
+            "button_text_color": "#ffffff"
           }
         }
       },
