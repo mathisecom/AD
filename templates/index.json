@@ -55,11 +55,11 @@
       "name": "Scrolling text",
       "settings": {
         "full_width": true,
-        "text": "Promotion text",
+        "text": "Moins de corvées, plus de temps avec votre chat.",
         "text_size": "xsmall",
         "text_style": "fill",
         "scrolling_mode": "auto",
-        "scrolling_speed": 10,
+        "scrolling_speed": 6,
         "background": "#000000",
         "background_gradient": "",
         "text_color": "#FFFFFF",
