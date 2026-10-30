@@ -16,10 +16,10 @@
           "type": "image",
           "settings": {
             "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
+            "mobile_text_position": "place-self-end-start text-start",
             "desktop_text_position": "sm:place-self-end-start sm:text-start",
             "subheading": "",
-            "title": "Fini la corvée quotidienne de la litière.",
+            "title": "Fini la corvée<br> quotidienne de la litière.",
             "heading_tag": "h2",
             "button_text": "DÉCOUVRIR",
             "button_link": "shopify://products/litiere-autonettoyante-connectee-purrnova",
