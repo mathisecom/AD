@@ -712,8 +712,8 @@
         "item_rTG3Gt": {
           "type": "item",
           "settings": {
-            "title": "Question",
-            "content": "<p>Write content to answer to common questions your customers may have about your products, shipping policies..</p>"
+            "title": "Que faut-il racheter ?",
+            "content": "<p>De la litière (environ 3,1 kg pour remplir la machine) et des sacs pour le bac à déchets : un rouleau est fourni.</p>"
           }
         }
       },
