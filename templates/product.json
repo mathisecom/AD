@@ -146,7 +146,7 @@
       "type": "videolitiere",
       "name": "Miaora vidéo auto",
       "settings": {
-        "video": "shopify://files/videos/78dcf4d9e1044908ad1ce660e9b33d6d.mp4",
+        "video": "shopify://files/videos/201aee0a6d2c456c9a20099338ea44c3.HD-720p-1.6Mbps-77081882.mp4",
         "external_video": "",
         "image_alt": "Litière autonettoyante Miaora connectée",
         "image_position": "center center",
@@ -610,7 +610,8 @@
         "image_JAJmVw": {
           "type": "image",
           "settings": {
-            "media_width": 50,
+            "image": "shopify://shop_images/hf_20261026_212226_555463ed-cc1d-48ed-900d-b611ec8b0cc5_1.webp",
+            "media_width": 45,
             "media_position": "start",
             "text_position": "place-self-center text-center",
             "icon": "none",
@@ -634,9 +635,9 @@
       ],
       "name": "Media with text",
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "alternate_media_position": false,
-        "spacing": "small"
+        "spacing": "none"
       }
     },
     "faq_tRG4KC": {
