@@ -944,6 +944,13 @@
             "title": "Que se passe-t-il en cas de panne ?",
             "content": "<p>La machine est couverte par la garantie légale de conformité de 2 ans. Écrivez-nous avec votre numéro de commande et, si possible, une photo ou une vidéo : une personne vous répond sous 24 heures ouvrées, puis nous organisons la réparation, le remplacement ou le remboursement, envoi à nos frais.</p>"
           }
+        },
+        "item_WqtT3E": {
+          "type": "item",
+          "settings": {
+            "title": "Et si le colis arrive abîmé, ou n’arrive pas ?",
+            "content": "<p>Machine abîmée à l’arrivée : nous la remplaçons ou nous vous remboursons. Colis perdu, ou non livré 20 jours après l’expédition : remboursement intégral, sur simple demande.</p>"
+          }
         }
       },
       "block_order": [
@@ -954,7 +961,8 @@
         "item_Mqb7JD",
         "item_chKHAq",
         "item_d43Qdt",
-        "item_FA9byN"
+        "item_FA9byN",
+        "item_WqtT3E"
       ],
       "name": "FAQ",
       "settings": {
