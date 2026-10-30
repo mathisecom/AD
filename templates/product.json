@@ -376,6 +376,17 @@
             "title": "Très satisfaite",
             "content": "<p>Très satisfaite de mon achat ! Le nettoyage automatique change vraiment le quotidien.</p>"
           }
+        },
+        "testimonial_73VLjj": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 4,
+            "author": "Nathan F.",
+            "title": "Facile à installer et à utiliser",
+            "content": "<p>Facile à installer et à utiliser. Même mon chat plutôt craintif l’a adoptée !</p>"
+          }
         }
       },
       "block_order": [
@@ -383,7 +394,8 @@
         "testimonial_DVdUfM",
         "testimonial_bXK9ba",
         "testimonial_7KRGRA",
-        "testimonial_KEMJxR"
+        "testimonial_KEMJxR",
+        "testimonial_73VLjj"
       ],
       "name": "Testimonials",
       "settings": {
