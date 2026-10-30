@@ -1,0 +1,315 @@
+{% liquid
+  assign image_alt = section.settings.image.alt | default: section.settings.heading | strip_html
+  assign copy_width = 100 | minus: section.settings.image_width
+%}
+
+<section
+  class="miaora-story miaora-story--{{ section.id }}"
+  style="
+    --ms-bg: {{ section.settings.bg_color }};
+    --ms-title: {{ section.settings.title_color }};
+    --ms-body: {{ section.settings.body_color }};
+    --ms-kicker: {{ section.settings.kicker_color }};
+    --ms-check-bg: {{ section.settings.check_bg }};
+    --ms-check-color: {{ section.settings.check_color }};
+    --ms-button-bg: {{ section.settings.button_bg }};
+    --ms-button-text: {{ section.settings.button_text_color }};
+    --ms-max-width: {{ section.settings.max_width }}px;
+    --ms-image-fr: {{ section.settings.image_width }}fr;
+    --ms-copy-fr: {{ copy_width }}fr;
+    --ms-gap: {{ section.settings.column_gap }}px;
+    --ms-radius: {{ section.settings.image_radius }}px;
+    --ms-ratio-desktop: {{ section.settings.desktop_ratio }};
+    --ms-ratio-mobile: {{ section.settings.mobile_ratio }};
+    --ms-heading-size: {{ section.settings.heading_size }}px;
+    --ms-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --ms-body-size: {{ section.settings.body_size }}px;
+    --ms-body-size-mobile: {{ section.settings.body_size_mobile }}px;
+    --ms-top-desktop: {{ section.settings.padding_top }}px;
+    --ms-bottom-desktop: {{ section.settings.padding_bottom }}px;
+    --ms-top-mobile: {{ section.settings.mobile_padding_top }}px;
+    --ms-bottom-mobile: {{ section.settings.mobile_padding_bottom }}px;
+  "
+>
+  <div class="miaora-story__container">
+    <div class="miaora-story__media">
+      {% if section.settings.image != blank %}
+        <picture>
+          {% if section.settings.mobile_image != blank %}
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {{ section.settings.mobile_image | image_url: width: 375 }} 375w,
+                {{ section.settings.mobile_image | image_url: width: 750 }} 750w,
+                {{ section.settings.mobile_image | image_url: width: 1100 }} 1100w
+              "
+              sizes="100vw"
+            >
+          {% endif %}
+          {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '360, 540, 750, 990, 1200, 1600', sizes: '(min-width: 990px) 45vw, 100vw', alt: image_alt, class: 'miaora-story__image' }}
+        </picture>
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'miaora-story__placeholder' }}
+      {% endif %}
+    </div>
+
+    <div class="miaora-story__content">
+      {% if section.settings.kicker != blank %}
+        <p class="miaora-story__kicker">{{ section.settings.kicker | escape }}</p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="miaora-story__heading">{{ section.settings.heading | escape }}</h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="miaora-story__description rte">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        <ul class="miaora-story__benefits" role="list">
+          {% for block in section.blocks %}
+            {% if block.type == 'benefit' and block.settings.text != blank %}
+              <li class="miaora-story__benefit" {{ block.shopify_attributes }}>
+                <span class="miaora-story__check" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12.5L9.5 17L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>{{ block.settings.text | escape }}</span>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if section.settings.button_label != blank and section.settings.button_url != blank %}
+        <a class="miaora-story__button" href="{{ section.settings.button_url }}">
+          {{ section.settings.button_label | escape }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .miaora-story--{{ section.id }} {
+    background: var(--ms-bg);
+    padding: var(--ms-top-desktop) 24px var(--ms-bottom-desktop);
+  }
+  .miaora-story--{{ section.id }} *,
+  .miaora-story--{{ section.id }} *::before,
+  .miaora-story--{{ section.id }} *::after { box-sizing: border-box; }
+  .miaora-story--{{ section.id }} .miaora-story__container {
+    max-width: var(--ms-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, var(--ms-image-fr)) minmax(0, var(--ms-copy-fr));
+    gap: var(--ms-gap);
+    align-items: center;
+  }
+  .miaora-story--{{ section.id }} .miaora-story__media {
+    min-width: 0;
+    width: 100%;
+    aspect-ratio: var(--ms-ratio-desktop);
+    overflow: hidden;
+    border-radius: var(--ms-radius);
+    background: #f0eeea;
+    {% if section.settings.desktop_position == 'right' %}order: 2;{% endif %}
+  }
+  .miaora-story--{{ section.id }} .miaora-story__media picture,
+  .miaora-story--{{ section.id }} .miaora-story__image,
+  .miaora-story--{{ section.id }} .miaora-story__placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .miaora-story--{{ section.id }} .miaora-story__image {
+    object-fit: {{ section.settings.image_fit }};
+    object-position: {{ section.settings.image_position }};
+  }
+  .miaora-story--{{ section.id }} .miaora-story__placeholder { object-fit: cover; }
+  .miaora-story--{{ section.id }} .miaora-story__content {
+    min-width: 0;
+    color: var(--ms-body);
+    text-align: {{ section.settings.text_align }};
+  }
+  .miaora-story--{{ section.id }} .miaora-story__kicker {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: .085em;
+    text-transform: uppercase;
+    color: var(--ms-kicker);
+  }
+  .miaora-story--{{ section.id }} .miaora-story__heading {
+    margin: 0 0 18px;
+    color: var(--ms-title);
+    font-size: var(--ms-heading-size);
+    font-weight: 750;
+    line-height: 1.09;
+    letter-spacing: -.035em;
+    overflow-wrap: anywhere;
+  }
+  .miaora-story--{{ section.id }} .miaora-story__description,
+  .miaora-story--{{ section.id }} .miaora-story__benefits {
+    font-size: var(--ms-body-size);
+    line-height: 1.53;
+  }
+  .miaora-story--{{ section.id }} .miaora-story__description { color: var(--ms-body); }
+  .miaora-story--{{ section.id }} .miaora-story__description p { margin: 0 0 12px; }
+  .miaora-story--{{ section.id }} .miaora-story__description p:last-child { margin-bottom: 0; }
+  .miaora-story--{{ section.id }} .miaora-story__benefits {
+    padding: 0;
+    margin: 22px 0 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .miaora-story--{{ section.id }} .miaora-story__benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--ms-title);
+    text-align: left;
+  }
+  .miaora-story--{{ section.id }} .miaora-story__check {
+    display: inline-flex;
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-top: .12em;
+    background: var(--ms-check-bg);
+    color: var(--ms-check-color);
+  }
+  .miaora-story--{{ section.id }} .miaora-story__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 26px;
+    padding: 13px 25px;
+    border-radius: 7px;
+    background: var(--ms-button-bg);
+    color: var(--ms-button-text);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: opacity .2s ease;
+  }
+  .miaora-story--{{ section.id }} .miaora-story__button:hover { opacity: .84; }
+  .miaora-story--{{ section.id }} .miaora-story__button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+  @media (max-width: 749px) {
+    .miaora-story--{{ section.id }} {
+      padding: var(--ms-top-mobile) 18px var(--ms-bottom-mobile);
+    }
+    .miaora-story--{{ section.id }} .miaora-story__container {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 27px;
+    }
+    .miaora-story--{{ section.id }} .miaora-story__media {
+      aspect-ratio: var(--ms-ratio-mobile);
+      {% if section.settings.mobile_position == 'bottom' %}order: 2;{% else %}order: 0;{% endif %}
+    }
+    .miaora-story--{{ section.id }} .miaora-story__content {
+      {% if section.settings.mobile_position == 'bottom' %}order: 0;{% else %}order: 2;{% endif %}
+      text-align: {{ section.settings.mobile_text_align }};
+    }
+    .miaora-story--{{ section.id }} .miaora-story__kicker {
+      font-size: 11px;
+      margin-bottom: 11px;
+    }
+    .miaora-story--{{ section.id }} .miaora-story__heading {
+      font-size: var(--ms-heading-size-mobile);
+      margin-bottom: 14px;
+    }
+    .miaora-story--{{ section.id }} .miaora-story__description,
+    .miaora-story--{{ section.id }} .miaora-story__benefits {
+      font-size: var(--ms-body-size-mobile);
+    }
+    .miaora-story--{{ section.id }} .miaora-story__benefits {
+      margin-top: 19px;
+      gap: 11px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Miaora - Image + texte",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Images" },
+    { "type": "image_picker", "id": "image", "label": "Image principale (ordinateur)" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Image mobile (facultative)" },
+    { "type": "select", "id": "desktop_position", "label": "Image sur ordinateur", "default": "left", "options": [{ "value": "left", "label": "A gauche" }, { "value": "right", "label": "A droite" }] },
+    { "type": "select", "id": "mobile_position", "label": "Image sur mobile", "default": "top", "options": [{ "value": "top", "label": "Au-dessus du texte" }, { "value": "bottom", "label": "Sous le texte" }] },
+    { "type": "select", "id": "desktop_ratio", "label": "Format de l'image ordinateur", "default": "4 / 5", "options": [{ "value": "4 / 5", "label": "Portrait 4:5" }, { "value": "3 / 4", "label": "Portrait 3:4" }, { "value": "1 / 1", "label": "Carre" }, { "value": "5 / 4", "label": "Paysage 5:4" }] },
+    { "type": "select", "id": "mobile_ratio", "label": "Format de l'image mobile", "default": "4 / 5", "options": [{ "value": "4 / 5", "label": "Portrait 4:5" }, { "value": "3 / 4", "label": "Portrait 3:4" }, { "value": "1 / 1", "label": "Carre" }, { "value": "5 / 4", "label": "Paysage 5:4" }] },
+    { "type": "select", "id": "image_fit", "label": "Affichage de l'image", "default": "cover", "options": [{ "value": "cover", "label": "Remplir le cadre" }, { "value": "contain", "label": "Afficher toute l'image" }] },
+    { "type": "select", "id": "image_position", "label": "Cadrage de l'image", "default": "center", "options": [{ "value": "center", "label": "Centre" }, { "value": "top", "label": "Haut" }, { "value": "bottom", "label": "Bas" }] },
+    { "type": "range", "id": "image_radius", "label": "Arrondi des coins", "min": 0, "max": 50, "step": 1, "unit": "px", "default": 23 },
+
+    { "type": "header", "content": "Textes" },
+    { "type": "text", "id": "kicker", "label": "Petit titre", "default": "UN ENVIRONNEMENT SAIN" },
+    { "type": "text", "id": "heading", "label": "Grand titre", "default": "Son coin à lui, toujours net." },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Une litière propre à chaque passage : votre chat y retourne sans hésiter. Elle convient aux chats de 1 à 8 kg ; un mode manuel est prévu pour les chatons de moins de 3 mois et les chattes allaitantes. Et notre guide de démarrage, offert, vous accompagne jour après jour pendant l’adaptation.</p>" },
+    { "type": "text", "id": "button_label", "label": "Texte du bouton (facultatif)" },
+    { "type": "url", "id": "button_url", "label": "Lien du bouton" },
+    { "type": "select", "id": "text_align", "label": "Alignement du texte ordinateur", "default": "left", "options": [{ "value": "left", "label": "Gauche" }, { "value": "center", "label": "Centre" }] },
+    { "type": "select", "id": "mobile_text_align", "label": "Alignement du texte mobile", "default": "left", "options": [{ "value": "left", "label": "Gauche" }, { "value": "center", "label": "Centre" }] },
+    { "type": "range", "id": "heading_size", "label": "Taille du titre ordinateur", "min": 24, "max": 64, "step": 1, "unit": "px", "default": 46 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Taille du titre mobile", "min": 22, "max": 46, "step": 1, "unit": "px", "default": 32 },
+    { "type": "range", "id": "body_size", "label": "Taille du texte ordinateur", "min": 13, "max": 22, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "body_size_mobile", "label": "Taille du texte mobile", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Couleurs" },
+    { "type": "color", "id": "bg_color", "label": "Fond de la section", "default": "#FAF7F2" },
+    { "type": "color", "id": "title_color", "label": "Titre et avantages", "default": "#181512" },
+    { "type": "color", "id": "body_color", "label": "Description", "default": "#66615B" },
+    { "type": "color", "id": "kicker_color", "label": "Petit titre", "default": "#6D675F" },
+    { "type": "color", "id": "check_bg", "label": "Fond des coches", "default": "#BED9FF" },
+    { "type": "color", "id": "check_color", "label": "Couleur des coches", "default": "#1D242B" },
+    { "type": "color", "id": "button_bg", "label": "Fond du bouton", "default": "#181512" },
+    { "type": "color", "id": "button_text_color", "label": "Texte du bouton", "default": "#FFFFFF" },
+
+    { "type": "header", "content": "Largeurs et espacements" },
+    { "type": "range", "id": "max_width", "label": "Largeur max. du contenu", "min": 800, "max": 1500, "step": 20, "unit": "px", "default": 1140 },
+    { "type": "range", "id": "image_width", "label": "Largeur relative de l'image", "min": 35, "max": 65, "step": 5, "unit": "%", "default": 50 },
+    { "type": "range", "id": "column_gap", "label": "Espace entre image et texte", "min": 20, "max": 120, "step": 5, "unit": "px", "default": 70 },
+    { "type": "range", "id": "padding_top", "label": "Marge haute ordinateur", "min": 0, "max": 160, "step": 5, "unit": "px", "default": 30 },
+    { "type": "range", "id": "padding_bottom", "label": "Marge basse ordinateur", "min": 0, "max": 160, "step": 5, "unit": "px", "default": 30 },
+    { "type": "range", "id": "mobile_padding_top", "label": "Marge haute mobile", "min": 0, "max": 100, "step": 5, "unit": "px", "default": 30 },
+    { "type": "range", "id": "mobile_padding_bottom", "label": "Marge basse mobile", "min": 0, "max": 100, "step": 5, "unit": "px", "default": 30 }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Avantage avec coche",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texte de l'avantage", "default": "Un avantage de votre produit" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Miaora - Image + texte",
+      "blocks": [
+        { "type": "benefit", "settings": { "text": "Litière propre à chaque passage" } },
+        { "type": "benefit", "settings": { "text": "Chats de 1 à 8 kg" } },
+        { "type": "benefit", "settings": { "text": "Guide d’adaptation offert" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
