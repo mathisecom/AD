@@ -748,28 +748,166 @@
         "spacing": "none"
       }
     },
+    "panneautactile_8kQfeQ": {
+      "type": "panneautactile",
+      "blocks": {
+        "feature_XUWmDm": {
+          "type": "feature",
+          "settings": {
+            "icon": "clean",
+            "badge": "Clean",
+            "title": "Lancer un nettoyage",
+            "description": "<p>Touchez la touche : la sphère tourne pour trier la litière, au moment où vous le décidez. C'est la touche à utiliser en mode manuel.</p>"
+          }
+        },
+        "feature_WdVpqB": {
+          "type": "feature",
+          "settings": {
+            "icon": "auto",
+            "badge": "Auto",
+            "title": "Nettoyage automatique",
+            "description": "<p>Activez-le et la sphère trie la litière après le passage de votre chat. Pour un chaton de moins de 3 mois ou de moins de 1 kg, ou pour une chatte allaitante, restez en manuel et utilisez Clean.</p>"
+          }
+        },
+        "feature_JVNdYw": {
+          "type": "feature",
+          "settings": {
+            "icon": "replace",
+            "badge": "Replace",
+            "title": "Changer toute la litière",
+            "description": "<p>Cette touche vide l'ancienne litière dans le bac à déchets. Il ne reste qu'à changer le sac et à verser la litière neuve (voir les 4 gestes ci-dessous).</p>"
+          }
+        },
+        "feature_7rDjpE": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "badge": "Remove odor",
+            "title": "Désodoriser",
+            "description": "<p>Touchez la touche pour lancer la fonction de désodorisation de la machine. Elle se commande aussi depuis l'appli.</p>"
+          }
+        },
+        "feature_zhNNdN": {
+          "type": "feature",
+          "settings": {
+            "icon": "wifi",
+            "badge": "Wi-Fi",
+            "title": "Voyant de connexion",
+            "description": "<p>Il indique la liaison avec l'appli. La première mise en service se fait dans l'appli, en Wi-Fi 2,4 GHz ; ensuite, la machine fonctionne aussi sans Wi-Fi.</p>"
+          }
+        },
+        "feature_DEnPag": {
+          "type": "feature",
+          "settings": {
+            "icon": "full",
+            "badge": "Full",
+            "title": "Bac plein",
+            "description": "<p>Ce voyant signale que le bac à déchets est plein : il est temps de changer le sac.</p>"
+          }
+        },
+        "step_WnyVWt": {
+          "type": "step",
+          "settings": {
+            "title": "Touchez Replace.",
+            "description": "<p>La sphère vide l'ancienne litière dans le bac à déchets.</p>"
+          }
+        },
+        "step_yLiMwk": {
+          "type": "step",
+          "settings": {
+            "title": "Fermez et retirez le sac.",
+            "description": "<p>Il se ferme avec son cordon : vous ne touchez pas la litière.</p>"
+          }
+        },
+        "step_fiwbM9": {
+          "type": "step",
+          "settings": {
+            "title": "Placez un sac neuf.",
+            "description": "<p>Prenez un sac du rouleau fourni et installez-le dans le bac.</p>"
+          }
+        },
+        "step_r6LyFL": {
+          "type": "step",
+          "settings": {
+            "title": "Versez la litière neuve.",
+            "description": "<p>Environ 3,1 kg, par l'ouverture ronde (recommandation du fabricant).</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_XUWmDm",
+        "feature_WdVpqB",
+        "feature_JVNdYw",
+        "feature_7rDjpE",
+        "feature_zhNNdN",
+        "feature_DEnPag",
+        "step_WnyVWt",
+        "step_yLiMwk",
+        "step_fiwbM9",
+        "step_r6LyFL"
+      ],
+      "name": "Miaora - Panneau tactile",
+      "settings": {
+        "eyebrow": "PRISE EN MAIN",
+        "heading": "Le panneau tactile,\ntouche par touche.",
+        "description": "<p>Quatre touches sur le socle, et des voyants pour suivre son état. Les mêmes commandes se retrouvent dans l'appli Tuya / Smart Life.</p>",
+        "footnote": "",
+        "image_alt": "Panneau tactile de la litière automatique Miaora",
+        "media_ratio": "1 / 1",
+        "image_fit": "cover",
+        "image_position": "center center",
+        "image_on_right": false,
+        "image_width": 43,
+        "mobile_image_max_width": 520,
+        "mobile_image_alignment": "center",
+        "show_steps": true,
+        "steps_title": "Changer toute la litière, en 4 gestes",
+        "steps_spacing": 46,
+        "mobile_step_columns": "2",
+        "background": "#FFFFFF",
+        "text_color": "#141414",
+        "muted_color": "#625C56",
+        "accent_color": "#FF8C42",
+        "card_color": "#FFFFFF",
+        "card_border": "#E8E1D9",
+        "media_background": "#E7EAEC",
+        "panel_background": "#111111",
+        "step_number_background": "#FFE2CF",
+        "use_manrope": true,
+        "title_size": 37,
+        "title_mobile_size": 29,
+        "body_size": 15,
+        "steps_title_size": 18,
+        "max_width": 1060,
+        "column_gap": 50,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "corner_radius": 14,
+        "media_radius": 20
+      }
+    },
     "faq_tRG4KC": {
       "type": "faq",
       "blocks": {
         "item_t6XVhX": {
           "type": "item",
           "settings": {
-            "title": "Do you ship overseas?",
-            "content": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "Mon chat va-t-il l’accepter ?",
+            "content": "<p>Chaque chat a son rythme. Installez la machine à côté de l’ancien bac, laissez-la d’abord éteinte, puis mettez-la en route quand votre chat y entre sans hésiter. Notre guide de démarrage, offert, détaille les étapes, et vous avez 14 jours après réception pour changer d’avis, retour offert.</p>"
           }
         },
         "item_V6m87i": {
           "type": "item",
           "settings": {
-            "title": "How long will it take to get my orders?",
-            "content": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "Est-ce sans danger pour mon chat ?",
+            "content": "<p>Un capteur infrarouge à l’entrée détecte votre chat : pendant le nettoyage, la rotation s’arrête dès qu’il s’approche (indication du fabricant). Pour les chatons de moins de 3 mois et les chattes allaitantes, utilisez le mode manuel.</p>"
           }
         },
         "item_bwHtn7": {
           "type": "item",
           "settings": {
-            "title": "Any question?",
-            "content": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "title": "Pour quels chats ?",
+            "content": "<p>Pour les chats de 1 à 8 kg. Chatons de moins de 3 mois et chattes allaitantes : mode manuel (indication du fabricant). Au-delà de 8 kg, elle n’est pas adaptée.</p>"
           }
         }
       },
@@ -837,6 +975,7 @@
     "imgfonction_UYBxzr",
     "miaoraimageicons_MiTiVj",
     "media_with_text_6HMzRE",
+    "panneautactile_8kQfeQ",
     "faq_tRG4KC",
     "related-products"
   ]
