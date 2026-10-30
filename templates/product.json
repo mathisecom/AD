@@ -237,12 +237,21 @@
         "image_DGexwH": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Sans_titre_22.png",
             "url": ""
           }
         },
         "image_6pDiRa": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Sans_titre_21.png",
+            "url": ""
+          }
+        },
+        "image_LxYK99": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Sans_titre_20.png",
             "url": ""
           }
         }
@@ -251,7 +260,8 @@
         "image_xAXiNA",
         "image_y3nrKk",
         "image_DGexwH",
-        "image_6pDiRa"
+        "image_6pDiRa",
+        "image_LxYK99"
       ],
       "name": "SS - Scrolling logo cloud #5",
       "settings": {
