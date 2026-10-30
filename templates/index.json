@@ -50,6 +50,22 @@
         "background_gradient": ""
       }
     },
+    "scrolling_text_BbFmAz": {
+      "type": "scrolling-text",
+      "name": "Scrolling text",
+      "settings": {
+        "full_width": true,
+        "text": "Promotion text",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 10,
+        "background": "#000000",
+        "background_gradient": "",
+        "text_color": "#FFFFFF",
+        "text_gradient": ""
+      }
+    },
     "bannerproduit_gXhrYi": {
       "type": "bannerproduit",
       "name": "Bannière packs Manrope",
@@ -703,6 +719,7 @@
   },
   "order": [
     "slideshow_UenUjh",
+    "scrolling_text_BbFmAz",
     "bannerproduit_gXhrYi",
     "4avantages_VLqTaA",
     "cardbenefice_jckBPW",
