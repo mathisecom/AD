@@ -303,6 +303,22 @@
         "second_legend": "Urine (g)"
       }
     },
+    "scrolling_text_wbJwXV": {
+      "type": "scrolling-text",
+      "name": "Scrolling text",
+      "settings": {
+        "full_width": true,
+        "text": "Votre chat mérite mieux qu’une litière classique.",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 8,
+        "background": "#000000",
+        "background_gradient": "",
+        "text_color": "#FFFFFF",
+        "text_gradient": ""
+      }
+    },
     "miaoraimageicons_jkRzPh": {
       "type": "miaoraimageicons",
       "blocks": {
@@ -562,7 +578,7 @@
         "text_color": "",
         "heading_color": "",
         "heading_gradient": "",
-        "testimonial_card_background": "#F8F8F8",
+        "testimonial_card_background": "#f8f8f8",
         "testimonial_card_text_color": ""
       }
     },
@@ -625,6 +641,7 @@
     "cardbenefice_jckBPW",
     "videolitiere_amaHBW",
     "imgfonction_kD7Ugg",
+    "scrolling_text_wbJwXV",
     "miaoraimageicons_jkRzPh",
     "rich_text_FtGtex",
     "logoscroll_wE3y6y",
